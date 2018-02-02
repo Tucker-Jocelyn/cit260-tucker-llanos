@@ -32,6 +32,7 @@ public class Map implements Serializable {
         
     }
 
+    
     public Game getGame() {
         return game;
     }
