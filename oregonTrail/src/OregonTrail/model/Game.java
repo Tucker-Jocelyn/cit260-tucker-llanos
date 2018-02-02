@@ -19,7 +19,7 @@ public class Game implements Serializable {
     
     //class instance variables
     private double totalDistanceTraveled;
-    private string date;
+    private String date;
     private Player player;
 
     public Game() {
@@ -35,11 +35,11 @@ public class Game implements Serializable {
         this.totalDistanceTraveled = totalDistanceTraveled;
     }
 
-    public string getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(string date) {
+    public void setDate(String date) {
         this.date = date;
         
         
