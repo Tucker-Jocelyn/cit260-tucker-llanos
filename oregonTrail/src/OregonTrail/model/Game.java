@@ -6,6 +6,7 @@
 package OregonTrail.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -18,7 +19,9 @@ public class Game implements Serializable{
     private double totalDistanceTraveled;
     private String date;
     private Player player;
-
+    private CurrentDate currentDate;
+    private ArrayList<InventoryItem> inventoryItems = new ArrayList<>();
+    
     public Game() {
     }
     
@@ -63,9 +66,23 @@ public class Game implements Serializable{
     public void setPlayer(Player player) {
         this.player = player;
     }
-    
-    
 
+    public CurrentDate getCurrentDate() {
+        return currentDate;
+    }
+
+    public void setCurrentDate(CurrentDate currentDate) {
+        this.currentDate = currentDate;
+    }
+
+    public ArrayList<InventoryItem> getInventoryItems() {
+        return inventoryItems;
+    }
+
+    public void setInventoryItems(ArrayList<InventoryItem> inventoryItems) {
+        this.inventoryItems = inventoryItems;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 3;
