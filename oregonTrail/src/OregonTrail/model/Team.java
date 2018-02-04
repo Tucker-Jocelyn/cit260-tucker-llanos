@@ -7,6 +7,7 @@ package OregonTrail.model;
 
 import java.io.Serializable;
 import java.util.Objects;
+import java.util.ArrayList;
 
 /**
  *
@@ -23,6 +24,7 @@ public class Team implements Serializable {
     private String livestock;
     private Game game;
     private Player player;
+    private ArrayList<Character> characters = new ArrayList<>();
 
     public Team() {
     }
@@ -86,6 +88,16 @@ public class Team implements Serializable {
         
         
     }
+
+    public ArrayList<Character> getCharacters() {
+        return characters;
+    }
+
+    public void setCharacters(ArrayList<Character> characters) {
+        this.characters = characters;
+    }
+    
+    
 
     public Game getGame() {
         return game;
