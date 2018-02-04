@@ -19,7 +19,16 @@ import OregonTrail.model.Money;
 import OregonTrail.model.RandomEvents;
 import OregonTrail.model.Team;
 import OregonTrail.model.Weather;
-import java.util.Objects;
+import OregonTrail.model.Character;
+import OregonTrail.model.Location;
+import OregonTrail.model.Scene;
+import OregonTrail.model.TownScene;
+import OregonTrail.model.RegularScene;
+import OregonTrail.model.FortScene;
+import OregonTrail.model.RiverScene;
+import OregonTrail.model.HotelScene;
+import OregonTrail.model.TrailStopScene;
+
 
 /**
  *
@@ -37,27 +46,25 @@ public class OregonTrail {
             gameOne.setTeam("Newbies");
             gameOne.setMap("First Map");
             gameOne.setTotalDistanceTraveled(5000);
-            gameOne.setDate("Wed, Sept 21, 1890");
-                    
+            gameOne.setDate("Wed, Sept 21, 1890");        
             System.out.println(gameOne.toString());
             
             //Player Class
-            Player playerOne = new Player();
-            
-            playerOne.setName("Player One");
-                                        
+            Player playerOne = new Player(); 
+            PlayerOne.setName("Player One");
             System.out.println(playerOne.toString());
             
-            //Map Class
+            //Map Class (kim)
             Map mapOne = new Map();
             
             mapOne.setCurrentLocation("Trail Map");
             
             System.out.println(mapOne.toString());
             
-            //Team Class
-            Team teamOne = new Team();
             
+            //Team Class (kim)
+            Team teamOne = new Team();
+          
             teamOne.setName("Trekkies");
             teamOne.setStatus("Good");
             teamOne.setSupplies("1 wagon, 6 oxen, 1500 pounds food");
@@ -67,6 +74,93 @@ public class OregonTrail {
             teamOne.setLivestock("Yep, you've got them all");
             
             System.out.println(teamOne.toString());
+            
+            
+            //Character Class (kim)
+            Character characterOne = new Character();
+            
+            characterOne.setName("Character One");
+            characterOne.setStamina(1);
+            characterOne.setHuntingSkill(1);
+            characterOne.setGatheringSkill(1);
+            characterOne.setAvailability(1);
+            characterOne.setHealth(1.0);
+            characterOne.setMoney(1000);
+            
+            System.out.println(characterOne.toString());
+            
+            
+            //Scene Class (kim)
+            Scene sceneOne = new Scene();
+            
+            sceneOne.setSceneType(1);
+            sceneOne.setName("First Scene");
+            sceneOne.setDescription("Scene One");
+            
+            System.out.println(sceneOne.toString());
+            
+            
+            //Location Class (kim)
+            Location locationOne = new Location();
+            
+            locationOne.setName("First Location");
+            locationOne.setDescription("Location One");
+            locationOne.setScene("Scene One");
+            
+            System.out.println(locationOne.toString());
+            
+            
+            //HotelScene Class (kim)
+            HotelScene hotelSceneOne = new HotelScene();
+            
+            hotelSceneOne.setDescription("Hotel Scene One");
+            
+            System.out.println(hotelSceneOne.toString());
+            
+            
+            //TownScene Class (kim)
+            TownScene townSceneOne = new TownScene();
+            
+            townSceneOne.setDescription("Town Scene One");
+            
+            System.out.println(townSceneOne.toString());
+            
+
+            //RegularScene Class (kim)
+            RegularScene regularSceneOne = new RegularScene();
+            
+            regularSceneOne.setDescription("Regular Scene One");
+            
+            System.out.println(regularSceneOne.toString());
+            
+            
+            //FortScene Class (kim)
+            FortScene fortSceneOne = new FortScene();
+            
+            fortSceneOne.setDescription("Fort Scene One");
+            
+            System.out.println(fortSceneOne.toString());
+            
+            
+            //RiverScene Class (kim
+            RiverScene riverSceneOne = new RiverScene();
+            
+            riverSceneOne.setDescription("River Scene One");
+            
+            System.out.println(riverSceneOne.toString());
+            
+            
+            //TrailStopScene Class (kim)
+            TrailStopScene trailStopSceneOne = new TrailStopScene();
+            
+            trailStopSceneOne.setHasNearbyTown("Yes");
+            trailStopSceneOne.setNearbyTownName("Nauvoo");
+            trailStopSceneOne.setHasNearbyFort("Yes");
+            trailStopSceneOne.setNearbyFortName("First Fort");
+            
+            System.out.println(trailStopSceneOne.toString());
+            
+
             
             //AnimalsPlants Class
             AnimalsPlants testAnimals = new AnimalsPlants();
@@ -252,6 +346,7 @@ public class OregonTrail {
             System.out.println(RandomEvents.Prayer.toString());
             System.out.println(RandomEvents.Accident.toString());
             System.out.println(RandomEvents.Fhe.toString());           
+
     }
     
 }
