@@ -17,6 +17,7 @@ public class Money implements Serializable{
     //class instance variables
     private double teamTotal;
     private ArrayList<InventoryItem> inventoryItems = new ArrayList <>();
+    private ArrayList<Character> characters = new ArrayList<>();
     
 
     public Money() {
@@ -36,6 +37,14 @@ public class Money implements Serializable{
 
     public void setInventoryItems(ArrayList<InventoryItem> inventoryItems) {
         this.inventoryItems = inventoryItems;
+    }
+
+    public ArrayList<Character> getCharacters() {
+        return characters;
+    }
+
+    public void setCharacters(ArrayList<Character> characters) {
+        this.characters = characters;
     }
 
     @Override

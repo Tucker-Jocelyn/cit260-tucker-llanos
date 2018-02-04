@@ -6,6 +6,7 @@
 package OregonTrail.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -17,6 +18,7 @@ public class EventGenerator implements Serializable{
     //class instance variables
     private int event;
     private String character;
+    private ArrayList<Location> locations = new ArrayList<>();
 
     public EventGenerator() {
     }
@@ -35,6 +37,14 @@ public class EventGenerator implements Serializable{
 
     public void setCharacter(String character) {
         this.character = character;
+    }
+
+    public ArrayList<Location> getLocations() {
+        return locations;
+    }
+
+    public void setLocations(ArrayList<Location> locations) {
+        this.locations = locations;
     }
 
     @Override

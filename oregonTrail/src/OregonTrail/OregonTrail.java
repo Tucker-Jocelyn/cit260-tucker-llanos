@@ -25,6 +25,7 @@ import OregonTrail.model.Scene;
 import OregonTrail.model.TownScene;
 import OregonTrail.model.RegularScene;
 import OregonTrail.model.FortScene;
+import OregonTrail.model.GeneralStoreScene;
 import OregonTrail.model.RiverScene;
 import OregonTrail.model.HotelScene;
 import OregonTrail.model.TrailStopScene;
@@ -51,7 +52,7 @@ public class OregonTrail {
             
             //Player Class
             Player playerOne = new Player(); 
-            PlayerOne.setName("Player One");
+            playerOne.setName("Player One");
             System.out.println(playerOne.toString());
             
             //Map Class (kim)
@@ -186,6 +187,13 @@ public class OregonTrail {
             
             System.out.println(events.toString());
             
+            //GeneralStoreScene
+            GeneralStoreScene store = new GeneralStoreScene();
+            
+            store.setItem(13);
+            
+            System.out.println(store.toString());
+                        
             //InventoryItem Class
             InventoryItem stuff = new InventoryItem();
             

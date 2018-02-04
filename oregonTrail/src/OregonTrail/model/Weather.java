@@ -6,6 +6,7 @@
 package OregonTrail.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -17,6 +18,7 @@ public class Weather implements Serializable{
     //class instance variables
     private String weatherType;
     private int weatherValue;
+    private ArrayList<Location> locations = new ArrayList<>();
 
     public Weather() {
     }
@@ -35,6 +37,14 @@ public class Weather implements Serializable{
 
     public void setWeatherValue(int weatherValue) {
         this.weatherValue = weatherValue;
+    }
+
+    public ArrayList<Location> getLocations() {
+        return locations;
+    }
+
+    public void setLocations(ArrayList<Location> locations) {
+        this.locations = locations;
     }
 
     @Override

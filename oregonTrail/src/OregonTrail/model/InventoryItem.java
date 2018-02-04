@@ -22,7 +22,7 @@ public class InventoryItem implements Serializable{
     private double inventoryCost;
     private Money money;
     private Game game;
-    
+    private GeneralStoreScene generalStoreScene;
 
     public InventoryItem() {
     }
@@ -82,7 +82,15 @@ public class InventoryItem implements Serializable{
     public void setGame(Game game) {
         this.game = game;
     }
+    
+    public GeneralStoreScene getGeneralStoreScene() {
+        return generalStoreScene;
+    }
 
+    public void setGeneralStoreScene(GeneralStoreScene generalStoreScene) {
+        this.generalStoreScene = generalStoreScene;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 7;

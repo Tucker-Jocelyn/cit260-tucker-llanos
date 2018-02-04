@@ -19,6 +19,7 @@ public class CurrentDate implements Serializable{
     private int date;
     private String dayOfWeek;
     private ArrayList<Game> games = new ArrayList<>();
+    private Location location;
     
     public CurrentDate() {
     }
@@ -45,6 +46,14 @@ public class CurrentDate implements Serializable{
 
     public void setGames(ArrayList<Game> games) {
         this.games = games;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
     }
 
     @Override

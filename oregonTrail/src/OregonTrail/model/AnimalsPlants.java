@@ -17,6 +17,7 @@ public class AnimalsPlants implements Serializable{
     //class instance variables
     private String type;
     private int weight;
+    private TrailStopScene trailStopScene;
 
     public AnimalsPlants() {
     }
@@ -35,6 +36,14 @@ public class AnimalsPlants implements Serializable{
 
     public void setWeight(int weight) {
         this.weight = weight;
+    }
+
+    public TrailStopScene getTrailStopScene() {
+        return trailStopScene;
+    }
+
+    public void setTrailStopScene(TrailStopScene trailStopScene) {
+        this.trailStopScene = trailStopScene;
     }
 
     @Override
