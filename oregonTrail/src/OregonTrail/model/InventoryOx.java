@@ -66,7 +66,7 @@ public class InventoryOx extends InventoryItem implements Serializable{
 
     @Override
     public String toString() {
-        return "InventoryOx{" + "position=" + position + ", pullWeight=" + pullWeight + ", oxHealth=" + oxHealth + ", oxRest=" + oxRest + '}';
+        return String.format("InventoryOx{%s, position=%d, pullWeight=%s, oxHealth=%d, oxRest=%s}", super.toString(), position, pullWeight, oxHealth, oxRest);
     }
 
     @Override
@@ -74,7 +74,7 @@ public class InventoryOx extends InventoryItem implements Serializable{
         if (this == obj) {
             return true;
         }
-        if (obj == null) {
+        if (super.equals(obj) == false) {
             return false;
         }
         if (getClass() != obj.getClass()) {

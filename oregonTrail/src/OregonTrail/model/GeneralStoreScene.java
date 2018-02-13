@@ -65,7 +65,7 @@ public class GeneralStoreScene extends Scene implements Serializable{
 
     @Override
     public String toString() {
-        return "GeneralStoreScene{" + "item=" + item + '}';
+        return String.format("GeneralStoreScene{%s, item=%d}", super.toString(), item);
     }
 
     @Override
@@ -73,7 +73,7 @@ public class GeneralStoreScene extends Scene implements Serializable{
         if (this == obj) {
             return true;
         }
-        if (obj == null) {
+        if (super.equals(obj) == false) {
             return false;
         }
         if (getClass() != obj.getClass()) {

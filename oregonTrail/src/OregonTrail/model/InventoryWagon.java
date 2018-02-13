@@ -56,15 +56,16 @@ public class InventoryWagon extends InventoryItem implements Serializable{
 
     @Override
     public String toString() {
-        return "InventoryWagon{" + "maxCarryWeight=" + maxCarryWeight + ", length=" + length + ", wagonWeight=" + wagonWeight + '}';
+        //return "InventoryWagon{" + "maxCarryWeight=" + maxCarryWeight + ", length=" + length + ", wagonWeight=" + wagonWeight + '}';
+        return String.format("InventoryWagon{%s, maxCarryWeight=%s, length=%d, wagonWeight=%s}", super.toString(), maxCarryWeight, length, wagonWeight);
     }
-
+    
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
         }
-        if (obj == null) {
+        if (super.equals(obj) == false) {
             return false;
         }
         if (getClass() != obj.getClass()) {
