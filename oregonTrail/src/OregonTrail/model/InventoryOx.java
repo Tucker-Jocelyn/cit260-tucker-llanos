@@ -17,6 +17,7 @@ public class InventoryOx extends InventoryItem implements Serializable{
     private int position;
     private double pullWeight;
     private int oxHealth;
+    private boolean oxRest;
 
     public InventoryOx() {
     }
@@ -45,18 +46,27 @@ public class InventoryOx extends InventoryItem implements Serializable{
         this.oxHealth = oxHealth;
     }
 
+    public boolean isOxRest() {
+        return oxRest;
+    }
+
+    public void setOxRest(boolean oxRest) {
+        this.oxRest = oxRest;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 79 * hash + this.position;
-        hash = 79 * hash + (int) (Double.doubleToLongBits(this.pullWeight) ^ (Double.doubleToLongBits(this.pullWeight) >>> 32));
-        hash = 79 * hash + this.oxHealth;
+        int hash = 7;
+        hash = 89 * hash + this.position;
+        hash = 89 * hash + (int) (Double.doubleToLongBits(this.pullWeight) ^ (Double.doubleToLongBits(this.pullWeight) >>> 32));
+        hash = 89 * hash + this.oxHealth;
+        hash = 89 * hash + (this.oxRest ? 1 : 0);
         return hash;
     }
 
     @Override
     public String toString() {
-        return "InventoryOx{" + "position=" + position + ", pullWeight=" + pullWeight + ", oxHealth=" + oxHealth + '}';
+        return "InventoryOx{" + "position=" + position + ", pullWeight=" + pullWeight + ", oxHealth=" + oxHealth + ", oxRest=" + oxRest + '}';
     }
 
     @Override
@@ -80,8 +90,11 @@ public class InventoryOx extends InventoryItem implements Serializable{
         if (this.oxHealth != other.oxHealth) {
             return false;
         }
+        if (this.oxRest != other.oxRest) {
+            return false;
+        }
         return true;
     }
-    
+
     
 }

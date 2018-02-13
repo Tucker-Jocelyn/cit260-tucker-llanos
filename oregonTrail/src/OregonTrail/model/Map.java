@@ -16,6 +16,7 @@ import java.util.Objects;
 public class Map implements Serializable {
     
     private String currentLocation;
+    private double milePost;
     private Game game;
 
     public Map() {
@@ -32,6 +33,13 @@ public class Map implements Serializable {
         
     }
 
+    public double getMilePost() {
+        return milePost;
+    }
+
+    public void setMilePost(double milePost) {
+        this.milePost = milePost;
+    }
     
     public Game getGame() {
         return game;
@@ -40,22 +48,19 @@ public class Map implements Serializable {
     public void setGame(Game game) {
         this.game = game;
     }
-    
-    
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 89 * hash + Objects.hashCode(this.currentLocation);
+        int hash = 7;
+        hash = 19 * hash + Objects.hashCode(this.currentLocation);
+        hash = 19 * hash + (int) (Double.doubleToLongBits(this.milePost) ^ (Double.doubleToLongBits(this.milePost) >>> 32));
         return hash;
     }
 
     @Override
     public String toString() {
-        return "Map{" + "currentLocation=" + currentLocation + '}';
+        return "Map{" + "currentLocation=" + currentLocation + ", milePost=" + milePost + '}';
     }
-    
-    
 
     @Override
     public boolean equals(Object obj) {
@@ -69,14 +74,14 @@ public class Map implements Serializable {
             return false;
         }
         final Map other = (Map) obj;
+        if (Double.doubleToLongBits(this.milePost) != Double.doubleToLongBits(other.milePost)) {
+            return false;
+        }
         if (!Objects.equals(this.currentLocation, other.currentLocation)) {
             return false;
         }
         return true;
     }
     
-    
-    
-    
-    
+
 }

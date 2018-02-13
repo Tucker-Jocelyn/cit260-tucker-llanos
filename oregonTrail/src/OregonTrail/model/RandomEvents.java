@@ -30,22 +30,22 @@ public enum RandomEvents {
     Fhe ("Bonus", "gives the lesson at FHE.", "", 0, 5);
     
     //class instance variables
-    private String eventType;
+    private String randomEventType;
     private String eventDescription;
     private String inventoryType;
     private int inventoryChange;
     private int healthChange;
 
-    RandomEvents(String eventType, String eventDescription, String inventoryType, int inventoryChange, int healthChange){
-        this.eventType = eventType;
+    RandomEvents(String randomEventType, String eventDescription, String inventoryType, int inventoryChange, int healthChange){
+        this.randomEventType = randomEventType;
         this.eventDescription = eventDescription;
         this.inventoryType = inventoryType;
         this.inventoryChange = inventoryChange;
         this.healthChange = healthChange;
     }
 
-    public String getEventType() {
-        return eventType;
+    public String getRandomEventType() {
+        return randomEventType;
     }
 
     public String getEventDescription() {
@@ -66,10 +66,10 @@ public enum RandomEvents {
 
     @Override
     public String toString() {
-        return "RandomEvents{" + "eventType=" + eventType + ", eventDescription=" + eventDescription + ", inventoryType=" + inventoryType + ", inventoryChange=" + inventoryChange + ", healthChange=" + healthChange + '}';
+        return "RandomEvents{" + "randomEventType=" + randomEventType + ", eventDescription=" + eventDescription + ", inventoryType=" + inventoryType + ", inventoryChange=" + inventoryChange + ", healthChange=" + healthChange + '}';
     }
-    
-    
+
+ 
 }
     
 

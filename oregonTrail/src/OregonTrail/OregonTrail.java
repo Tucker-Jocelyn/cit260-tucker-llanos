@@ -47,18 +47,23 @@ public class OregonTrail {
             gameOne.setTeam("Newbies");
             gameOne.setMap("First Map");
             gameOne.setTotalDistanceTraveled(5000);
-            gameOne.setDate("Wed, Sept 21, 1890");        
+            gameOne.setDate("Wed, Sept 21, 1890");   
+            gameOne.setMilesToSLC(5000);
+            
             System.out.println(gameOne.toString());
             
             //Player Class
             Player playerOne = new Player(); 
+            
             playerOne.setName("Player One");
+            
             System.out.println(playerOne.toString());
             
             //Map Class (kim)
             Map mapOne = new Map();
             
             mapOne.setCurrentLocation("Trail Map");
+            mapOne.setMilePost(350);
             
             System.out.println(mapOne.toString());
             
@@ -97,6 +102,9 @@ public class OregonTrail {
             sceneOne.setSceneType(1);
             sceneOne.setName("First Scene");
             sceneOne.setDescription("Scene One");
+            sceneOne.setLandmarkName("Chimney Rock");
+            sceneOne.setHasAnimal(12);
+            sceneOne.setHasPlant(8);
             
             System.out.println(sceneOne.toString());
             
@@ -147,6 +155,7 @@ public class OregonTrail {
             RiverScene riverSceneOne = new RiverScene();
             
             riverSceneOne.setDescription("River Scene One");
+            riverSceneOne.setWaterDepth(4);
             
             System.out.println(riverSceneOne.toString());
             
@@ -166,8 +175,8 @@ public class OregonTrail {
             //AnimalsPlants Class
             AnimalsPlants testAnimals = new AnimalsPlants();
             
-            testAnimals.setType("Animal");
-            testAnimals.setWeight(15);
+            testAnimals.setAnimalPlantType("Animal");
+            testAnimals.setAnimalPlantWeight(15);
             
             System.out.println(testAnimals.toString());
             
@@ -211,14 +220,16 @@ public class OregonTrail {
             ox.setPosition(3);
             ox.setPullWeight(600);
             ox.setOxHealth(90);
+            ox.setOxRest(true);
             
             System.out.println(ox.toString());
             
             //InventoryWagon Class
             InventoryWagon wagonLarge = new InventoryWagon();
             
-            wagonLarge.setCarryWeight(3000);
+            wagonLarge.setMaxCarryWeight(3000);
             wagonLarge.setLength(14);
+            wagonLarge.setWagonWeight(1300);
             
             System.out.println(wagonLarge.toString());
                        
@@ -251,87 +262,87 @@ public class OregonTrail {
             System.out.println(LandmarkType.SaltLakeValley.toString());
                         
             //RandomEvents Enum
-            RandomEvents.Ammunition.getEventType();
+            RandomEvents.Ammunition.getRandomEventType();
             RandomEvents.Ammunition.getEventDescription();
             RandomEvents.Ammunition.getInventoryType();
             RandomEvents.Ammunition.getInventoryChange();
             RandomEvents.Ammunition.getHealthChange();
-            RandomEvents.SnakeBite.getEventType();
+            RandomEvents.SnakeBite.getRandomEventType();
             RandomEvents.SnakeBite.getEventDescription();
             RandomEvents.SnakeBite.getInventoryType();
             RandomEvents.SnakeBite.getInventoryChange();
             RandomEvents.SnakeBite.getHealthChange();
-            RandomEvents.Wagon.getEventType();
+            RandomEvents.Wagon.getRandomEventType();
             RandomEvents.Wagon.getEventDescription();
             RandomEvents.Wagon.getInventoryType();
             RandomEvents.Wagon.getInventoryChange();
             RandomEvents.Wagon.getHealthChange();
-            RandomEvents.SprainedAnkle.getEventType();
+            RandomEvents.SprainedAnkle.getRandomEventType();
             RandomEvents.SprainedAnkle.getEventDescription();
             RandomEvents.SprainedAnkle.getInventoryType();
             RandomEvents.SprainedAnkle.getInventoryChange();
             RandomEvents.SprainedAnkle.getHealthChange();
-            RandomEvents.Scriptures.getEventType();
+            RandomEvents.Scriptures.getRandomEventType();
             RandomEvents.Scriptures.getEventDescription();
             RandomEvents.Scriptures.getInventoryType();
             RandomEvents.Scriptures.getInventoryChange();
             RandomEvents.Scriptures.getHealthChange();
-            RandomEvents.Dysentery.getEventType();
+            RandomEvents.Dysentery.getRandomEventType();
             RandomEvents.Dysentery.getEventDescription();
             RandomEvents.Dysentery.getInventoryType();
             RandomEvents.Dysentery.getInventoryChange();
             RandomEvents.Dysentery.getHealthChange();
-            RandomEvents.Strangers.getEventType();
+            RandomEvents.Strangers.getRandomEventType();
             RandomEvents.Strangers.getEventDescription();
             RandomEvents.Strangers.getInventoryType();
             RandomEvents.Strangers.getInventoryChange();
             RandomEvents.Strangers.getHealthChange();
-            RandomEvents.Theft.getEventType();
+            RandomEvents.Theft.getRandomEventType();
             RandomEvents.Theft.getEventDescription();
             RandomEvents.Theft.getInventoryType();
             RandomEvents.Theft.getInventoryChange();
             RandomEvents.Theft.getHealthChange();
-            RandomEvents.Service.getEventType();
+            RandomEvents.Service.getRandomEventType();
             RandomEvents.Service.getEventDescription();
             RandomEvents.Service.getInventoryType();
             RandomEvents.Service.getInventoryChange();
             RandomEvents.Service.getHealthChange();
-            RandomEvents.Gangrene.getEventType();
+            RandomEvents.Gangrene.getRandomEventType();
             RandomEvents.Gangrene.getEventDescription();
             RandomEvents.Gangrene.getInventoryType();
             RandomEvents.Gangrene.getInventoryChange();
             RandomEvents.Gangrene.getHealthChange();
-            RandomEvents.Blessing.getEventType();
+            RandomEvents.Blessing.getRandomEventType();
             RandomEvents.Blessing.getEventDescription();
             RandomEvents.Blessing.getInventoryType();
             RandomEvents.Blessing.getInventoryChange();
             RandomEvents.Blessing.getHealthChange();
-            RandomEvents.Stampede.getEventType();
+            RandomEvents.Stampede.getRandomEventType();
             RandomEvents.Stampede.getEventDescription();
             RandomEvents.Stampede.getInventoryType();
             RandomEvents.Stampede.getInventoryChange();
             RandomEvents.Stampede.getHealthChange();
-            RandomEvents.Plants.getEventType();
+            RandomEvents.Plants.getRandomEventType();
             RandomEvents.Plants.getEventDescription();
             RandomEvents.Plants.getInventoryType();
             RandomEvents.Plants.getInventoryChange();
             RandomEvents.Plants.getHealthChange();
-            RandomEvents.Measles.getEventType();
+            RandomEvents.Measles.getRandomEventType();
             RandomEvents.Measles.getEventDescription();
             RandomEvents.Measles.getInventoryType();
             RandomEvents.Measles.getInventoryChange();
             RandomEvents.Measles.getHealthChange();
-            RandomEvents.Prayer.getEventType();
+            RandomEvents.Prayer.getRandomEventType();
             RandomEvents.Prayer.getEventDescription();
             RandomEvents.Prayer.getInventoryType();
             RandomEvents.Prayer.getInventoryChange();
             RandomEvents.Prayer.getHealthChange();
-            RandomEvents.Accident.getEventType();
+            RandomEvents.Accident.getRandomEventType();
             RandomEvents.Accident.getEventDescription();
             RandomEvents.Accident.getInventoryType();
             RandomEvents.Accident.getInventoryChange();
             RandomEvents.Accident.getHealthChange();
-            RandomEvents.Fhe.getEventType();
+            RandomEvents.Fhe.getRandomEventType();
             RandomEvents.Fhe.getEventDescription();
             RandomEvents.Fhe.getInventoryType();
             RandomEvents.Fhe.getInventoryChange();

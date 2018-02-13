@@ -14,18 +14,19 @@ import java.io.Serializable;
 public class InventoryWagon extends InventoryItem implements Serializable{
     
     //class instance variables
-    private double carryWeight;
+    private double maxCarryWeight;
     private int length;
+    private double wagonWeight;
 
     public InventoryWagon() {
     }
 
-    public double getCarryWeight() {
-        return carryWeight;
+    public double getMaxCarryWeight() {
+        return maxCarryWeight;
     }
 
-    public void setCarryWeight(double carryWeight) {
-        this.carryWeight = carryWeight;
+    public void setMaxCarryWeight(double maxCarryWeight) {
+        this.maxCarryWeight = maxCarryWeight;
     }
 
     public int getLength() {
@@ -36,17 +37,26 @@ public class InventoryWagon extends InventoryItem implements Serializable{
         this.length = length;
     }
 
+    public double getWagonWeight() {
+        return wagonWeight;
+    }
+
+    public void setWagonWeight(double wagonWeight) {
+        this.wagonWeight = wagonWeight;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 59 * hash + (int) (Double.doubleToLongBits(this.carryWeight) ^ (Double.doubleToLongBits(this.carryWeight) >>> 32));
-        hash = 59 * hash + this.length;
+        int hash = 7;
+        hash = 17 * hash + (int) (Double.doubleToLongBits(this.maxCarryWeight) ^ (Double.doubleToLongBits(this.maxCarryWeight) >>> 32));
+        hash = 17 * hash + this.length;
+        hash = 17 * hash + (int) (Double.doubleToLongBits(this.wagonWeight) ^ (Double.doubleToLongBits(this.wagonWeight) >>> 32));
         return hash;
     }
 
     @Override
     public String toString() {
-        return "InventoryWagon{" + "carryWeight=" + carryWeight + ", length=" + length + '}';
+        return "InventoryWagon{" + "maxCarryWeight=" + maxCarryWeight + ", length=" + length + ", wagonWeight=" + wagonWeight + '}';
     }
 
     @Override
@@ -61,10 +71,13 @@ public class InventoryWagon extends InventoryItem implements Serializable{
             return false;
         }
         final InventoryWagon other = (InventoryWagon) obj;
-        if (Double.doubleToLongBits(this.carryWeight) != Double.doubleToLongBits(other.carryWeight)) {
+        if (Double.doubleToLongBits(this.maxCarryWeight) != Double.doubleToLongBits(other.maxCarryWeight)) {
             return false;
         }
         if (this.length != other.length) {
+            return false;
+        }
+        if (Double.doubleToLongBits(this.wagonWeight) != Double.doubleToLongBits(other.wagonWeight)) {
             return false;
         }
         return true;

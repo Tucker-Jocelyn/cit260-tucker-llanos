@@ -18,6 +18,7 @@ public class Game implements Serializable{
     private String map;
     private double totalDistanceTraveled;
     private String date;
+    private double milesToSLC;
     private Player player;
     private CurrentDate currentDate;
     private ArrayList<InventoryItem> inventoryItems = new ArrayList<>();
@@ -59,6 +60,14 @@ public class Game implements Serializable{
         this.date = date;
     }
 
+    public double getMilesToSLC() {
+        return milesToSLC;
+    }
+
+    public void setMilesToSLC(double milesToSLC) {
+        this.milesToSLC = milesToSLC;
+    }
+
     public Player getPlayer() {
         return player;
     }
@@ -82,24 +91,23 @@ public class Game implements Serializable{
     public void setInventoryItems(ArrayList<InventoryItem> inventoryItems) {
         this.inventoryItems = inventoryItems;
     }
-    
+
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 89 * hash + Objects.hashCode(this.team);
-        hash = 89 * hash + Objects.hashCode(this.map);
-        hash = 89 * hash + (int) (Double.doubleToLongBits(this.totalDistanceTraveled) ^ (Double.doubleToLongBits(this.totalDistanceTraveled) >>> 32));
-        hash = 89 * hash + Objects.hashCode(this.date);
+        int hash = 7;
+        hash = 37 * hash + Objects.hashCode(this.team);
+        hash = 37 * hash + Objects.hashCode(this.map);
+        hash = 37 * hash + (int) (Double.doubleToLongBits(this.totalDistanceTraveled) ^ (Double.doubleToLongBits(this.totalDistanceTraveled) >>> 32));
+        hash = 37 * hash + Objects.hashCode(this.date);
+        hash = 37 * hash + (int) (Double.doubleToLongBits(this.milesToSLC) ^ (Double.doubleToLongBits(this.milesToSLC) >>> 32));
         return hash;
     }
 
     @Override
     public String toString() {
-        return "Game{" + "team=" + team + ", map=" + map + ", totalDistanceTraveled=" + totalDistanceTraveled + ", date=" + date + '}';
+        return "Game{" + "team=" + team + ", map=" + map + ", totalDistanceTraveled=" + totalDistanceTraveled + ", date=" + date + ", milesToSLC=" + milesToSLC + '}';
     }
 
-    
-    
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -113,6 +121,9 @@ public class Game implements Serializable{
         }
         final Game other = (Game) obj;
         if (Double.doubleToLongBits(this.totalDistanceTraveled) != Double.doubleToLongBits(other.totalDistanceTraveled)) {
+            return false;
+        }
+        if (Double.doubleToLongBits(this.milesToSLC) != Double.doubleToLongBits(other.milesToSLC)) {
             return false;
         }
         if (!Objects.equals(this.team, other.team)) {

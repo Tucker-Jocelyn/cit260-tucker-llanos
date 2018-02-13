@@ -14,6 +14,7 @@ import java.util.Objects;
  */
 public class RiverScene implements Serializable {
     private String description; 
+    private double waterDepth;
 
     public RiverScene() {
     }
@@ -28,19 +29,26 @@ public class RiverScene implements Serializable {
         this.description = description;
     }
 
+    public double getWaterDepth() {
+        return waterDepth;
+    }
+
+    public void setWaterDepth(double waterDepth) {
+        this.waterDepth = waterDepth;
+    }
+
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 47 * hash + Objects.hashCode(this.description);
+        hash = 37 * hash + Objects.hashCode(this.description);
+        hash = 37 * hash + (int) (Double.doubleToLongBits(this.waterDepth) ^ (Double.doubleToLongBits(this.waterDepth) >>> 32));
         return hash;
     }
 
     @Override
     public String toString() {
-        return "RiverScene{" + "description=" + description + '}';
+        return "RiverScene{" + "description=" + description + ", waterDepth=" + waterDepth + '}';
     }
-    
-    
 
     @Override
     public boolean equals(Object obj) {
@@ -54,12 +62,14 @@ public class RiverScene implements Serializable {
             return false;
         }
         final RiverScene other = (RiverScene) obj;
+        if (Double.doubleToLongBits(this.waterDepth) != Double.doubleToLongBits(other.waterDepth)) {
+            return false;
+        }
         if (!Objects.equals(this.description, other.description)) {
             return false;
         }
         return true;
     }
-    
-    
+
     
 }

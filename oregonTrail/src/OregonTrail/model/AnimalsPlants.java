@@ -15,29 +15,29 @@ import java.util.Objects;
 public class AnimalsPlants implements Serializable{
     
     //class instance variables
-    private String type;
-    private int weight;
+    private String animalPlantType;
+    private int animalPlantWeight;
     private TrailStopScene trailStopScene;
 
     public AnimalsPlants() {
     }
-        
-    public String getType() {
-        return type;
+
+    public String getAnimalPlantType() {
+        return animalPlantType;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setAnimalPlantType(String animalPlantType) {
+        this.animalPlantType = animalPlantType;
     }
 
-    public int getWeight() {
-        return weight;
+    public int getAnimalPlantWeight() {
+        return animalPlantWeight;
     }
 
-    public void setWeight(int weight) {
-        this.weight = weight;
+    public void setAnimalPlantWeight(int animalPlantWeight) {
+        this.animalPlantWeight = animalPlantWeight;
     }
-
+    
     public TrailStopScene getTrailStopScene() {
         return trailStopScene;
     }
@@ -48,15 +48,15 @@ public class AnimalsPlants implements Serializable{
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 53 * hash + Objects.hashCode(this.type);
-        hash = 53 * hash + this.weight;
+        int hash = 5;
+        hash = 13 * hash + Objects.hashCode(this.animalPlantType);
+        hash = 13 * hash + this.animalPlantWeight;
         return hash;
     }
 
     @Override
     public String toString() {
-        return "AnimalsPlants{" + "type=" + type + ", weight=" + weight + '}';
+        return "AnimalsPlants{" + "animalPlantType=" + animalPlantType + ", animalPlantWeight=" + animalPlantWeight + '}';
     }
 
     @Override
@@ -71,14 +71,14 @@ public class AnimalsPlants implements Serializable{
             return false;
         }
         final AnimalsPlants other = (AnimalsPlants) obj;
-        if (this.weight != other.weight) {
+        if (this.animalPlantWeight != other.animalPlantWeight) {
             return false;
         }
-        if (!Objects.equals(this.type, other.type)) {
+        if (!Objects.equals(this.animalPlantType, other.animalPlantType)) {
             return false;
         }
         return true;
     }
-    
+ 
   
 }
