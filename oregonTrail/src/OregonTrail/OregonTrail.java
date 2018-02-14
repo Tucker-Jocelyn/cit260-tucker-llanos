@@ -85,6 +85,7 @@ public class OregonTrail {
             teamOne.setTeamRest(true);
             teamOne.setTeamAnimalWeight(45);
             teamOne.setTeamPlantWeight(30);
+            teamOne.setCurrentWagonLoadWeight (1500);
             
             
             System.out.println(teamOne.toString());
