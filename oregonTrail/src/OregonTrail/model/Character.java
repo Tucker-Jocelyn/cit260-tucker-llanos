@@ -14,28 +14,26 @@ import java.util.ArrayList;
  * @author kimllanos
  */
 public class Character implements Serializable{
-    private String name;
+    private String characterName;
     private int stamina;
-    private int huntingSkill;
-    private int gatheringSkill;
+    private int characterHuntingSkill;
+    private int characterGatheringSkill;
     private int availability;
-    private double health;
+    private double characterHealth;
     private double money;
+    private double characterFood;
     private ArrayList<Character> characters = new ArrayList<>();
 
     public Character() {
     }
-    
-    
 
-    public String getName() {
-        return name;
+    public String getCharacterName() {
+        return characterName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCharacterName(String characterName) {
+        this.characterName = characterName;
     }
-    
 
     public int getStamina() {
         return stamina;
@@ -45,20 +43,20 @@ public class Character implements Serializable{
         this.stamina = stamina;
     }
 
-    public int getHuntingSkill() {
-        return huntingSkill;
+    public int getCharacterHuntingSkill() {
+        return characterHuntingSkill;
     }
 
-    public void setHuntingSkill(int huntingSkill) {
-        this.huntingSkill = huntingSkill;
+    public void setCharacterHuntingSkill(int characterHuntingSkill) {
+        this.characterHuntingSkill = characterHuntingSkill;
     }
 
-    public int getGatheringSkill() {
-        return gatheringSkill;
+    public int getCharacterGatheringSkill() {
+        return characterGatheringSkill;
     }
 
-    public void setGatheringSkill(int gatheringSkill) {
-        this.gatheringSkill = gatheringSkill;
+    public void setCharacterGatheringSkill(int characterGatheringSkill) {
+        this.characterGatheringSkill = characterGatheringSkill;
     }
 
     public int getAvailability() {
@@ -69,12 +67,12 @@ public class Character implements Serializable{
         this.availability = availability;
     }
 
-    public double getHealth() {
-        return health;
+    public double getCharacterHealth() {
+        return characterHealth;
     }
 
-    public void setHealth(double health) {
-        this.health = health;
+    public void setCharacterHealth(double characterHealth) {
+        this.characterHealth = characterHealth;
     }
 
     public double getMoney() {
@@ -85,6 +83,14 @@ public class Character implements Serializable{
         this.money = money;
     }
 
+    public double getCharacterFood() {
+        return characterFood;
+    }
+
+    public void setCharacterFood(double characterFood) {
+        this.characterFood = characterFood;
+    }
+
     public ArrayList<Character> getCharacters() {
         return characters;
     }
@@ -92,29 +98,29 @@ public class Character implements Serializable{
     public void setCharacters(ArrayList<Character> characters) {
         this.characters = characters;
     }
-    
-    
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 43 * hash + Objects.hashCode(this.name);
-        hash = 43 * hash + this.stamina;
-        hash = 43 * hash + this.huntingSkill;
-        hash = 43 * hash + this.gatheringSkill;
-        hash = 43 * hash + this.availability;
-        hash = 43 * hash + (int) (Double.doubleToLongBits(this.health) ^ (Double.doubleToLongBits(this.health) >>> 32));
-        hash = 43 * hash + (int) (Double.doubleToLongBits(this.money) ^ (Double.doubleToLongBits(this.money) >>> 32));
+        int hash = 5;
+        hash = 79 * hash + Objects.hashCode(this.characterName);
+        hash = 79 * hash + this.stamina;
+        hash = 79 * hash + this.characterHuntingSkill;
+        hash = 79 * hash + this.characterGatheringSkill;
+        hash = 79 * hash + this.availability;
+        hash = 79 * hash + (int) (Double.doubleToLongBits(this.characterHealth) ^ (Double.doubleToLongBits(this.characterHealth) >>> 32));
+        hash = 79 * hash + (int) (Double.doubleToLongBits(this.money) ^ (Double.doubleToLongBits(this.money) >>> 32));
+        hash = 79 * hash + (int) (Double.doubleToLongBits(this.characterFood) ^ (Double.doubleToLongBits(this.characterFood) >>> 32));
+        hash = 79 * hash + Objects.hashCode(this.characters);
         return hash;
     }
 
     @Override
     public String toString() {
-        return "Character{" + "name=" + name + ", stamina=" + stamina + ", huntingSkill=" + huntingSkill + ", gatheringSkill=" + gatheringSkill + ", availability=" + availability + ", health=" + health + ", money=" + money + '}';
+        return "Character{" + "characterName=" + characterName + ", stamina=" + stamina + ", characterHuntingSkill=" + characterHuntingSkill + ", characterGatheringSkill=" + characterGatheringSkill + ", availability=" + availability + ", characterHealth=" + characterHealth + ", money=" + money + ", characterFood=" + characterFood + ", characters=" + characters + '}';
     }
-    
-    
 
+    
+    
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -130,27 +136,32 @@ public class Character implements Serializable{
         if (this.stamina != other.stamina) {
             return false;
         }
-        if (this.huntingSkill != other.huntingSkill) {
+        if (this.characterHuntingSkill != other.characterHuntingSkill) {
             return false;
         }
-        if (this.gatheringSkill != other.gatheringSkill) {
+        if (this.characterGatheringSkill != other.characterGatheringSkill) {
             return false;
         }
         if (this.availability != other.availability) {
             return false;
         }
-        if (Double.doubleToLongBits(this.health) != Double.doubleToLongBits(other.health)) {
+        if (Double.doubleToLongBits(this.characterHealth) != Double.doubleToLongBits(other.characterHealth)) {
             return false;
         }
         if (Double.doubleToLongBits(this.money) != Double.doubleToLongBits(other.money)) {
             return false;
         }
-        if (!Objects.equals(this.name, other.name)) {
+        if (Double.doubleToLongBits(this.characterFood) != Double.doubleToLongBits(other.characterFood)) {
+            return false;
+        }
+        if (!Objects.equals(this.characterName, other.characterName)) {
+            return false;
+        }
+        if (!Objects.equals(this.characters, other.characters)) {
             return false;
         }
         return true;
     }
-    
     
     
 }

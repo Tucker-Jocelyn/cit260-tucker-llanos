@@ -73,11 +73,19 @@ public class OregonTrail {
           
             teamOne.setName("Trekkies");
             teamOne.setStatus("Good");
-            teamOne.setSupplies("1 wagon, 6 oxen, 1500 pounds food");
+            teamOne.setTeamAllResources("1 wagon, 6 oxen, 1500 pounds food, 15 lbs of gathered plants, 40 lbs of hunted animals, $50");
             teamOne.setPace("Average");
             teamOne.setMembers(3);
-            teamOne.setDistanceTraveled("A really long way");
+            teamOne.setDailyDistanceTraveled("A really long way today");
             teamOne.setLivestock("Yep, you've got them all");
+            teamOne.setTeamInventoryResource("2 Oxen, 3 canned beans, 1 spare wagon wheel");
+            teamOne.setTeamAllSkillLevel(10);
+            teamOne.setTeamHuntingSkillLevel(5);
+            teamOne.setTeamGatheringSkillLevel(5);
+            teamOne.setTeamRest(true);
+            teamOne.setTeamAnimalWeight(45);
+            teamOne.setTeamPlantWeight(30);
+            
             
             System.out.println(teamOne.toString());
             
@@ -85,13 +93,15 @@ public class OregonTrail {
             //Character Class (kim)
             Character characterOne = new Character();
             
-            characterOne.setName("Character One");
+            characterOne.setCharacterName("Character One");
             characterOne.setStamina(1);
-            characterOne.setHuntingSkill(1);
-            characterOne.setGatheringSkill(1);
+            characterOne.setCharacterHuntingSkill(5);
+            characterOne.setCharacterGatheringSkill(5);
             characterOne.setAvailability(1);
-            characterOne.setHealth(1.0);
+            characterOne.setCharacterHealth(1.0);
             characterOne.setMoney(1000);
+            characterOne.setCharacterFood(25.5);
+            characterOne.setAvailability(3);
             
             System.out.println(characterOne.toString());
             
