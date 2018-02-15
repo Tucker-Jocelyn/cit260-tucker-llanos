@@ -7,11 +7,11 @@ package OregonTrail.control;
 
 /**
  *
- * @author Jocelyn Tucker
+ * @author Jocelyn & Kim
  */
+
 public class ResourceControl {
-   
-    
+
 public static double calcWagonLoadWeight(int teamAnimalWeight, int teamPlantWeight, double currentWagonLoadWeight, double maxCarryWeight) {
    
     if (teamAnimalWeight < 0){
