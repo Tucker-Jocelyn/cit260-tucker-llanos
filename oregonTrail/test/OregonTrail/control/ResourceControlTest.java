@@ -33,6 +33,9 @@ public class ResourceControlTest {
     * test 2 wagon load weight + animal & plant weight is over the max wagon load weight
     * test 3 upper boundary wagon load weight + animal & plant weights
     * test 4 lower boundary wagon load weight + animal & plant weights
+    * test 5 (invalids from ResourceControl code)teamAnimalWeight invalid
+    * test 6 (invalids from ResourceControl code)teamPlantWeight invalid
+    * test 7 (invalids from ResourceControl code)currentWagonWeight >= maxCarryWeight
     * 
     */
     
@@ -155,18 +158,65 @@ public class ResourceControlTest {
         //test to see if the result returned equals the expected result
         assertEquals(expResult, result, 0.0001);
    
-               //test 5 (invalids from ResourceControl code)teamAnimalWeight invalid
+        
+        //test 5 (invalids from ResourceControl code)teamAnimalWeight invalid
         System.out.println("calcWagonLoadWeight");
-        System.out.println("\tTest Case 4 (boundary columns 11 & 12 lower limit)");
+        System.out.println("\tTest Case 5 (invalids animals column 5)");
         
         //input variable
-        teamAnimalWeight = 45;
+        teamAnimalWeight = -1;
         teamPlantWeight = 30;
         currentWagonLoadWeight = 1300;
         maxCarryWeight = 4000;
         
         //expected output variable
-        expResult = 1375;
+        expResult = -999;
+        
+        //call the method
+        result = ResourceControl.calcWagonLoadWeight(teamAnimalWeight, teamPlantWeight, currentWagonLoadWeight, maxCarryWeight);
+        
+        System.out.println("expected result = " + expResult);
+        System.out.println("actual result = " + result);
+        
+        //test to see if the result returned equals the expected result
+        assertEquals(expResult, result, 0.0001);
+        
+        
+        //test 6 (invalids from ResourceControl code)teamPlantWeight invalid
+        System.out.println("calcWagonLoadWeight");
+        System.out.println("\tTest Case 6 (invalid plants column 6)");
+        
+        //input variable
+        teamAnimalWeight = 45;
+        teamPlantWeight = -1;
+        currentWagonLoadWeight = 1300;
+        maxCarryWeight = 4000;
+        
+        //expected output variable
+        expResult = -999;
+        
+        //call the method
+        result = ResourceControl.calcWagonLoadWeight(teamAnimalWeight, teamPlantWeight, currentWagonLoadWeight, maxCarryWeight);
+        
+        System.out.println("expected result = " + expResult);
+        System.out.println("actual result = " + result);
+        
+        //test to see if the result returned equals the expected result
+        assertEquals(expResult, result, 0.0001);
+        
+        
+        //test 7 (invalids from ResourceControl code)currentWagonWeight >= maxCarryWeight
+        System.out.println("calcWagonLoadWeight");
+        System.out.println("\tTest Case 7 (invalids currentWagonWeight >= maxCarryWeight)");
+        
+        //input variable
+        teamAnimalWeight = 45;
+        teamPlantWeight = 30;
+        currentWagonLoadWeight = 4000;
+        maxCarryWeight = 4000;
+        
+        //expected output variable
+        expResult = -999;
         
         //call the method
         result = ResourceControl.calcWagonLoadWeight(teamAnimalWeight, teamPlantWeight, currentWagonLoadWeight, maxCarryWeight);
