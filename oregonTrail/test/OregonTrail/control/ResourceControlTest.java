@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Tim
+ * @author Jocelyn & Kim
  */
 public class ResourceControlTest {
     
@@ -155,5 +155,27 @@ public class ResourceControlTest {
         //test to see if the result returned equals the expected result
         assertEquals(expResult, result, 0.0001);
    
+               //test 5 (invalids from ResourceControl code)teamAnimalWeight invalid
+        System.out.println("calcWagonLoadWeight");
+        System.out.println("\tTest Case 4 (boundary columns 11 & 12 lower limit)");
+        
+        //input variable
+        teamAnimalWeight = 45;
+        teamPlantWeight = 30;
+        currentWagonLoadWeight = 1300;
+        maxCarryWeight = 4000;
+        
+        //expected output variable
+        expResult = 1375;
+        
+        //call the method
+        result = ResourceControl.calcWagonLoadWeight(teamAnimalWeight, teamPlantWeight, currentWagonLoadWeight, maxCarryWeight);
+        
+        System.out.println("expected result = " + expResult);
+        System.out.println("actual result = " + result);
+        
+        //test to see if the result returned equals the expected result
+        assertEquals(expResult, result, 0.0001);
+        
 }
 }

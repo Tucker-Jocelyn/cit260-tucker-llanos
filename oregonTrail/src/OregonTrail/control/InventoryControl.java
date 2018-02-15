@@ -7,7 +7,7 @@ package OregonTrail.control;
 
 /**
  *
- * @author Tim
+ * @author Jocelyn Tucker
  */
 public class InventoryControl {
     
