@@ -41,6 +41,7 @@ public class CharacterControlTest {
     public void testCalcWagonLoadWeight() {
         System.out.println("calcWagonLoadWeight");
         System.out.println("\tTest Case 1 (columns 1 & 2) ");
+     
         
         //input variable
         int teamAnimalWeight = 45;
@@ -54,18 +55,45 @@ public class CharacterControlTest {
         //call the method
         double result = CharacterControl.calcWagonLoadWeight(teamAnimalWeight, teamPlantWeight, currentWagonLoadWeight, maxCarryWeight);
         
+        System.out.println("expected result = " + expResult);
+        System.out.println("actual result = " + result);
+        
         //test to see if the result returned equals the expected result
         assertEquals(expResult, result, 0.0001);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
    
     
-//test 2 (columns 3 & 4 of test matrix)Invalid parameters wagon load weight + team animal plant weight > max load weight
+//test 2-A (columns 3 of test matrix)Invalid parameters wagon load weight + team animal weight > max load weight
         System.out.println("calcWagonLoadWeight");
-        System.out.println("\tTest Case 2 (columns 3 & 4)");
+        System.out.println("\tTest Case 2-A (column 3: animal weight ONLY)");
         
         //input variable
         teamAnimalWeight = 45;
+        teamPlantWeight = 0;
+        currentWagonLoadWeight = 3990;
+        maxCarryWeight = 4000;
+        
+        //expected output variable
+        expResult = -999;
+        
+        //call the method
+        result = CharacterControl.calcWagonLoadWeight(teamAnimalWeight, teamPlantWeight, currentWagonLoadWeight, maxCarryWeight);
+        
+        System.out.println("expected result = " + expResult);
+        System.out.println("actual result = " + result);
+        
+        //test to see if the result returned equals the expected result
+        assertEquals(expResult, result, 0.0001);
+        //TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+        
+ //test 2-B (columns 4 of test matrix)Invalid parameters wagon load weight + team plant weight > max load weight
+        System.out.println("calcWagonLoadWeight");
+        System.out.println("\tTest Case 2-B (column 4: plant weight ONLY)");
+        
+        //input variable
+        teamAnimalWeight = 0;
         teamPlantWeight = 30;
         currentWagonLoadWeight = 3990;
         maxCarryWeight = 4000;
@@ -76,10 +104,14 @@ public class CharacterControlTest {
         //call the method
         result = CharacterControl.calcWagonLoadWeight(teamAnimalWeight, teamPlantWeight, currentWagonLoadWeight, maxCarryWeight);
         
+        System.out.println("expected result = " + expResult);
+        System.out.println("actual result = " + result);
+        
         //test to see if the result returned equals the expected result
         assertEquals(expResult, result, 0.0001);
-        // TODO review the generated test code and remove the default call to fail.
+        //TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
+        
         
        //test 3 (boundary columns 9 & 10 upper limit in test matrix)Upper wagon load weight boundary = valid with added animals and plants
         System.out.println("calcWagonLoadWeight");
@@ -96,6 +128,9 @@ public class CharacterControlTest {
         
         //call the method
         result = CharacterControl.calcWagonLoadWeight(teamAnimalWeight, teamPlantWeight, currentWagonLoadWeight, maxCarryWeight);
+        
+        System.out.println("expected result = " + expResult);
+        System.out.println("actual result = " + result);
         
         //test to see if the result returned equals the expected result
         assertEquals(expResult, result, 0.0001);
@@ -118,9 +153,14 @@ public class CharacterControlTest {
         //call the method
         result = CharacterControl.calcWagonLoadWeight(teamAnimalWeight, teamPlantWeight, currentWagonLoadWeight, maxCarryWeight);
         
+        System.out.println("expected result = " + expResult);
+        System.out.println("actual result = " + result);
+        
         //test to see if the result returned equals the expected result
         assertEquals(expResult, result, 0.0001);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
+
+   
 }
 }
