@@ -243,14 +243,16 @@ public class ResourceControlTest {
     7.	Calculate: Lower Boundary - Addition of Team Hunting Increase to Team Resources (valid)
   */  
 
-    
+    // Test #2, Column 2 of test matrix - Valid parameters: has animals, has skills, has animal weight
     @Test
     public void testCalcTeamHuntingIncrease() {
         System.out.println("calcTeamHuntingIncrease");
+        System.out.println("\tTest Case 1 (VALID col. #2: has animals, has skills, has animal weight) ");
+        
         int teamHuntingSkillLevel = 5;
         int animalPlantWeight = 15;
         int hasAnimal = 4;
-        int teamAnimalWeight = 0;
+        int teamAnimalWeight = 45;
         
         //expected output variable
         int expResult = 45;
@@ -268,3 +270,4 @@ public class ResourceControlTest {
 }
 
 
+teamAnimalWeight = (hasAnimal*animalPlantWeight)*(3/4);
