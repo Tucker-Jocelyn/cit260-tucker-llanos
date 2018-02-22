@@ -25,11 +25,9 @@ import OregonTrail.model.Scene;
 import OregonTrail.model.TownScene;
 import OregonTrail.model.RegularScene;
 import OregonTrail.model.FortScene;
-import OregonTrail.model.GeneralStoreScene;
 import OregonTrail.model.RiverScene;
 import OregonTrail.model.HotelScene;
 import OregonTrail.model.TrailStopScene;
-import OregonTrail.view.StartProgramView;
 
 
 /**
@@ -42,14 +40,6 @@ public class OregonTrail {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        StartProgramView startProgramView = new StartProgramView();
-        
-        startProgramView.displayStartProgramView();
-            }  
-}
-    
-            
- /*           
             //Game Class
             Game gameOne = new Game();
             
@@ -385,5 +375,6 @@ public class OregonTrail {
             System.out.println(RandomEvents.Prayer.toString());
             System.out.println(RandomEvents.Accident.toString());
             System.out.println(RandomEvents.Fhe.toString());           
-*/
+    }
+}
 
