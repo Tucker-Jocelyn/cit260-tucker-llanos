@@ -228,4 +228,43 @@ public class ResourceControlTest {
         assertEquals(expResult, result, 0.0001);
         
 }
+
+    /**
+     * Test of calcTeamHuntingIncrease method, of class ResourceControl.
+     */
+    
+  /*
+    1.	Calculate: Has Available Animals (valid)
+    2.	Calculate: Team Hunting Increase (valid)
+    3.	Calculate: Addition of Team Hunting Increase to Team Resources (valid)
+    4.	Calculate: Has Available Animals (invalid)
+    5.	Calculate: Team Hunting Increase (invalid)
+    6.	Calculate: Upper Boundary - Addition of Team Hunting Increase to Team Resources (valid)
+    7.	Calculate: Lower Boundary - Addition of Team Hunting Increase to Team Resources (valid)
+  */  
+
+    
+    @Test
+    public void testCalcTeamHuntingIncrease() {
+        System.out.println("calcTeamHuntingIncrease");
+        int teamHuntingSkillLevel = 5;
+        int animalPlantWeight = 15;
+        int hasAnimal = 4;
+        int teamAnimalWeight = 0;
+        
+        //expected output variable
+        int expResult = 45;
+        
+        //call the method
+        int result = ResourceControl.calcTeamHuntingIncrease(teamHuntingSkillLevel, animalPlantWeight, hasAnimal, teamAnimalWeight);
+        
+        System.out.println("expected result = " + expResult);
+        System.out.println("actual result = " + result);
+        
+        //test to see if the result returned equals the expected result
+        assertEquals(expResult, result, 0.0001);
+
+    }
 }
+
+

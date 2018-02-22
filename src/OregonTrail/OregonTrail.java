@@ -207,11 +207,11 @@ public class OregonTrail {
             System.out.println(events.toString());
             
             //GeneralStoreScene
-            GeneralStoreScene store = new GeneralStoreScene();
+           // GeneralStoreScene store = new GeneralStoreScene();
             
-            store.setItem(13);
+            //store.setItem(13);
             
-            System.out.println(store.toString());
+            //System.out.println(store.toString());
                         
             //InventoryItem Class
             InventoryItem stuff = new InventoryItem();
