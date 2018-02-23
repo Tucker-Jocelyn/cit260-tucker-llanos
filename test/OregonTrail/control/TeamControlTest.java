@@ -43,10 +43,10 @@ public class TeamControlTest {
         int teamHuntingSkillLevel = 0; 
         int animalPlantWeight = 0;
         int hasAnimal = 0;
-        int teamAnimalWeight = 0;
+        double teamAnimalWeight = 0;
         
         //expected output variable
-        int expResult = -999;
+        double expResult = -999;
         
         //call the method
         double result = TeamControl.calcTeamHuntingIncrease(teamHuntingSkillLevel, animalPlantWeight, hasAnimal, teamAnimalWeight);
@@ -69,13 +69,13 @@ public class TeamControlTest {
         int teamHuntingSkillLevel = 5;
         int animalPlantWeight = 15;
         int hasAnimal = 0;
-        int teamAnimalWeight = 0;
+        double teamAnimalWeight = 0;
         
         //expected output variable
-        int expResult = -999;
+        double expResult = -999;
         
         //call the method
-        int result = TeamControl.calcTeamHuntingIncrease(teamHuntingSkillLevel, animalPlantWeight, hasAnimal, teamAnimalWeight);
+        double result = TeamControl.calcTeamHuntingIncrease(teamHuntingSkillLevel, animalPlantWeight, hasAnimal, teamAnimalWeight);
         
         System.out.println("expected result = " + expResult);
         System.out.println("actual result = " + result);
@@ -96,13 +96,13 @@ public class TeamControlTest {
         int teamHuntingSkillLevel = 0;
         int animalPlantWeight = 15;
         int hasAnimal = 4;
-        int teamAnimalWeight = 0;
+        double teamAnimalWeight = 0;
         
         //expected output variable
-        int expResult = -999;
+        double expResult = -999;
         
         //call the method
-        int result = TeamControl.calcTeamHuntingIncrease(teamHuntingSkillLevel, animalPlantWeight, hasAnimal, teamAnimalWeight);
+        double result = TeamControl.calcTeamHuntingIncrease(teamHuntingSkillLevel, animalPlantWeight, hasAnimal, teamAnimalWeight);
         
         System.out.println("expected result = " + expResult);
         System.out.println("actual result = " + result);
@@ -122,13 +122,13 @@ public class TeamControlTest {
         int teamHuntingSkillLevel = 6;
         int animalPlantWeight = 15;
         int hasAnimal = 4;
-        int teamAnimalWeight = 45;
+        double teamAnimalWeight = 45;
         
         //expected output variable
-        int expResult = 45;
+        double expResult = 45;
         
         //call the method
-        int result = TeamControl.calcTeamHuntingIncrease(teamHuntingSkillLevel, animalPlantWeight, hasAnimal, teamAnimalWeight);
+        double result = TeamControl.calcTeamHuntingIncrease(teamHuntingSkillLevel, animalPlantWeight, hasAnimal, teamAnimalWeight);
         
         System.out.println("expected result = " + expResult);
         System.out.println("actual result = " + result);
@@ -148,13 +148,13 @@ public class TeamControlTest {
         int teamHuntingSkillLevel = 0;
         int animalPlantWeight = 15;
         int hasAnimal = 4;
-        int teamAnimalWeight = 15;
+        double teamAnimalWeight = 15;
         
         //expected output variable
-        int expResult = 15;
+        double expResult = 15;
         
         //call the method
-        int result = TeamControl.calcTeamHuntingIncrease(teamHuntingSkillLevel, animalPlantWeight, hasAnimal, teamAnimalWeight);
+        double result = TeamControl.calcTeamHuntingIncrease(teamHuntingSkillLevel, animalPlantWeight, hasAnimal, teamAnimalWeight);
         
         System.out.println("expected result = " + expResult);
         System.out.println("actual result = " + result);
@@ -163,6 +163,34 @@ public class TeamControlTest {
         assertEquals(expResult, result);
 
     }
+        
+        @Test
+        public void testCase555 (){
+        //#555 & #666 Upper-Boundary VALID team HUNTING SKILLS (level 6), and HIGH amount of animals (75% retention)
+        System.out.println("\ncalcTeamHuntingIncrease");
+        System.out.println("\tLower-Boundary Test #1 (VALID hunting skill (level 0), 1++ animals to hunt) ");
+        
+        //input variables
+        int teamHuntingSkillLevel = 0;
+        int animalPlantWeight = 15;
+        int hasAnimal = 10;
+        double teamAnimalWeight = 112.5;
+        
+        //expected output variable
+        double expResult = 112.5;
+        
+        //call the method
+        double result = TeamControl.calcTeamHuntingIncrease(teamHuntingSkillLevel, animalPlantWeight, hasAnimal, teamAnimalWeight);
+        
+        System.out.println("expected result = " + expResult);
+        System.out.println("actual result = " + result);
+        
+        //test to see if the result returned equals the expected result
+        assertEquals(expResult, result);
+    }
+        
+        
+        
         @Test
         public void testCase777 (){
         //#####Lower-Boundary VALID team HUNTING SKILLS (level 0), and ANY (1++) amount of animals (@min 25% retention)
@@ -173,13 +201,13 @@ public class TeamControlTest {
         int teamHuntingSkillLevel = 0;
         int animalPlantWeight = 15;
         int hasAnimal = 8;
-        int teamAnimalWeight = 30;
+        double teamAnimalWeight = 30;
         
         //expected output variable
-        int expResult = 30;
+        double expResult = 30;
         
         //call the method
-        int result = TeamControl.calcTeamHuntingIncrease(teamHuntingSkillLevel, animalPlantWeight, hasAnimal, teamAnimalWeight);
+        double result = TeamControl.calcTeamHuntingIncrease(teamHuntingSkillLevel, animalPlantWeight, hasAnimal, teamAnimalWeight);
         
         System.out.println("expected result = " + expResult);
         System.out.println("actual result = " + result);
