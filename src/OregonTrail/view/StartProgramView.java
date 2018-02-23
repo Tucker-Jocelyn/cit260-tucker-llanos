@@ -27,6 +27,8 @@ Start Menu
  */
 package OregonTrail.view;
 
+import OregonTrail.control.GameControl;
+import OregonTrail.model.Player;
 import java.util.Scanner;
 
 /**
@@ -104,9 +106,21 @@ public class StartProgramView {
     }
 
     private boolean doAction(String[] inputs) {
-        System.out.println("**** doAction() called ***");
-        System.out.println("tinputs = " + inputs[0]);
+        String playersName = inputs[0];
+        Player player = GameControl.savePlayer(playersName);
+
+        if (player == null) {
+            System.out.println("Could not create the player. Enter a different name.");
+            return false;
+        }
+
+        System.out.println(("\nWelcome to the Oregon Trail" + playersName)
+                + ("\nGood luck on your journey to the Salt Lake Valley!"));
+
+        MainMenuView mainMenuView = new MainMenuView();
+        mainMenuView.displayMainMenuView();
 
         return true;
     }
+
 }

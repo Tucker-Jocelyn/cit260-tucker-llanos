@@ -5,10 +5,17 @@
  */
 package OregonTrail.control;
 
+import OregonTrail.model.Player;
+
 /**
  *
- * @author Jocelyn Tucker
+ * @author Jocelyn Tucker and Kim
  */
 public class GameControl {
-    
+
+    public static Player savePlayer(String playersName) {
+        System.out.println("*** savePlayer() called ***");
+        return new Player();
+    }
+
 }
