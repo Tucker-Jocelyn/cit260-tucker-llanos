@@ -114,7 +114,7 @@ public class StartProgramView {
             return false;
         }
 
-        System.out.println(("\nWelcome to the Oregon Trail" + playersName)
+        System.out.println(("\nWelcome to the Oregon Trail, " + playersName)
                 + ("\nGood luck on your journey to the Salt Lake Valley!"));
 
         MainMenuView mainMenuView = new MainMenuView();

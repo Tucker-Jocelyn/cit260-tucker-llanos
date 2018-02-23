@@ -36,7 +36,26 @@ import OregonTrail.view.StartProgramView;
  * @author kim-jocelyn
  */
 public class OregonTrail {
+ private static Player currentPlayer = null;
+ private static Game currentGame = null;
 
+    public static Player getCurrentPlayer() {
+        return currentPlayer;
+    }
+
+    public static void setCurrentPlayer(Player currentPlayer) {
+        OregonTrail.currentPlayer = currentPlayer;
+    }
+
+    public static Game getCurrentGame() {
+        return currentGame;
+    }
+
+    public static void setCurrentGame(Game currentGame) {
+        OregonTrail.currentGame = currentGame;
+    }
+ 
+ 
     /**
      * @param args the command line arguments
      */

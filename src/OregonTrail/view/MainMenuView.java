@@ -100,4 +100,12 @@ class MainMenuView {
     }
             return false;
     }
+    
+    
+    private void startNewGame() {
+        
+        
+        GameMenuView gameMenuView = new GameMenuView();
+        gameMenuView.displayGameMenuView();
+    }
 }

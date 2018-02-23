@@ -18,4 +18,8 @@ public class GameControl {
         return new Player();
     }
 
+  public static void createNewGame(Player player) {  
+      System.out.println("Welcome! You Have Started a New Game.");
+  }
+    
 }
