@@ -79,10 +79,6 @@ public static double calcTeamHuntingIncrease (int teamHuntingSkillLevel, int ani
         }
     }
 
-
-	
-
- 
         return teamAnimalWeight;
         }       
 }
