@@ -13,17 +13,33 @@ package OregonTrail.control;
 public class TeamControl {
     
 public static double calcTeamHuntingIncrease (int teamHuntingSkillLevel, int animalPlantWeight, int hasAnimal, double teamAnimalWeight) {
-    //#1 check to see if there are available animals to hunt
-   /* if (hasAnimal <=0) {
+    
+    //#1 NO hunting skills (level 0), NO animals
+    if (teamHuntingSkillLevel<=0 & hasAnimal <=0) {
+     teamAnimalWeight = teamAnimalWeight * hasAnimal;
+    }
+	
+	//#2 VALID team HUNTING SKILLS (level 0), NO animals
+    if (teamHuntingSkillLevel<=0 & hasAnimal>0) {
+     teamAnimalWeight = teamAnimalWeight * hasAnimal;
+    }
+	   
+    //#777 & #888 Lower-Boundary VALID team HUNTING SKILLS (level 0), and ANY (1++) amount of animals (@min 25% retention)
+    if (teamHuntingSkillLevel<=0 & hasAnimal>0) {
+     teamAnimalWeight = (hasAnimal*animalPlantWeight)/4;
+    }
+	
+	
+/*	//check for AVAILABLE ANIMALS to hunt
+    if (hasAnimal <=0) {
        return -999;   
     } 
     
-     //#2 check to see if hunting skill levels are valid to hunt
+     //check for VALID HUNTING SKILLS
      if ((teamHuntingSkillLevel)<=0) {    
        return -999;  
     }
-  */    
-
+*/
     //#3 hunting and retention of hunted animals based on skill levels (1) retention @25% 
     if (teamHuntingSkillLevel>=1 && teamHuntingSkillLevel<2) {
     teamAnimalWeight = (hasAnimal*animalPlantWeight)/4;
