@@ -22,40 +22,25 @@ public static int calcTeamHuntingIncrease (int teamHuntingSkillLevel, int animal
      if ((teamHuntingSkillLevel)<=0) {    
        return -999;  
     }
-
     
     //hunting and retention of hunted animals based on skill levels retention @25%
-    if ((teamHuntingSkillLevel)<=1) {
-    teamAnimalWeight = (hasAnimal*animalPlantWeight)/4;
-    }
-    
-    //hunting and retention of hunted animals based on skill levels retention @25%
-    if ((teamHuntingSkillLevel)<=2) {
+    else if (teamHuntingSkillLevel<=0 && teamHuntingSkillLevel<=2) {
     teamAnimalWeight = (hasAnimal*animalPlantWeight)/4;
     }
    
+
     //hunting and retention of hunted animals based on skill levels retention @50%
-    if ((teamHuntingSkillLevel)<=3) {
+    else if (teamHuntingSkillLevel<=3 && teamHuntingSkillLevel<=4) {
     teamAnimalWeight = (hasAnimal*animalPlantWeight)/2;
     }
-    
-    //hunting and retention of hunted animals based on skill levels retention @50%
-    if ((teamHuntingSkillLevel)<=4) {
-    teamAnimalWeight = (hasAnimal*animalPlantWeight)/2;
-    }
-    
+
     
     //hunting and retention of hunted animals based on skill levels retention @75%
-    if ((teamHuntingSkillLevel)<=5) {        
-    teamAnimalWeight = (hasAnimal*animalPlantWeight)*(3/4);
-    }
-    
-    //hunting and retention of hunted animals based on skill levels retention @75%
-    if (teamHuntingSkillLevel<=6) {       
+    else if (teamHuntingSkillLevel<=5 && teamHuntingSkillLevel<=6) {       
     teamAnimalWeight = (hasAnimal*animalPlantWeight)*(3/4);
     }
 
-    return teamAnimalWeight;
+        return teamAnimalWeight;
+        }       
 }
 
-}
