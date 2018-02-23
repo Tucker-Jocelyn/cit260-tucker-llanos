@@ -97,7 +97,7 @@ public class StartProgramView {
                 continue;
             }
 
-            name = inputs[0];
+            inputs[0] = name;
             valid = true;
 
         }

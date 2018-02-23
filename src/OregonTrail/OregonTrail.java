@@ -46,8 +46,9 @@ public class OregonTrail {
         startProgramView.displayStartProgramView();
     }
 }
-/*
-            //Game Class
+
+            
+/*//Game Class
             Game gameOne = new Game();
 
             gameOne.setTeam("Newbies");
@@ -382,5 +383,11 @@ public class OregonTrail {
             System.out.println(RandomEvents.Prayer.toString());
             System.out.println(RandomEvents.Accident.toString());
             System.out.println(RandomEvents.Fhe.toString());
-*/
 
+
+
+
+   }
+}
+
+*/

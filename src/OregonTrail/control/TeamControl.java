@@ -9,19 +9,21 @@ package OregonTrail.control;
 /**
  *
  * @author Kim Llanos
+ * v3.2 TeamControl
  */
 public class TeamControl {
     
 public static double calcTeamHuntingIncrease (int teamHuntingSkillLevel, int animalPlantWeight, int hasAnimal, double teamAnimalWeight) {
     
-    //#1 NO hunting skills (level 0), NO animals
-    if (teamHuntingSkillLevel<=0 & hasAnimal <=0) {
-     teamAnimalWeight = teamAnimalWeight * hasAnimal;
+    //#1 NO hunting skills (level 0), NO animals [v3.1 correct]
+    if (teamHuntingSkillLevel<=0 & hasAnimal<=0) {
+     //teamAnimalWeight = teamAnimalWeight * hasAnimal;
+    return -999;
     }
 	
 	//#2 VALID team HUNTING SKILLS (level 0), NO animals
-    if (teamHuntingSkillLevel<=0 & hasAnimal>0) {
-     teamAnimalWeight = teamAnimalWeight * hasAnimal;
+    if (teamHuntingSkillLevel>=0 & hasAnimal<=0) {
+     return -999;
     }
 	   
 	//#555 & #666 Upper-Boundary VALID team HUNTING SKILLS (level 6), and HIGH amount of animals (75% retention)
