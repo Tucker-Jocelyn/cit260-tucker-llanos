@@ -24,6 +24,11 @@ public static double calcTeamHuntingIncrease (int teamHuntingSkillLevel, int ani
      teamAnimalWeight = teamAnimalWeight * hasAnimal;
     }
 	   
+	//#555 & #666 Upper-Boundary VALID team HUNTING SKILLS (level 6), and HIGH amount of animals (75% retention)
+    if (teamHuntingSkillLevel<=0 & hasAnimal>8) {
+     teamAnimalWeight = (hasAnimal*animalPlantWeight)*(3/4);
+    }  
+	   
     //#777 & #888 Lower-Boundary VALID team HUNTING SKILLS (level 0), and ANY (1++) amount of animals (@min 25% retention)
     if (teamHuntingSkillLevel<=0 & hasAnimal>0) {
      teamAnimalWeight = (hasAnimal*animalPlantWeight)/4;
@@ -40,11 +45,13 @@ public static double calcTeamHuntingIncrease (int teamHuntingSkillLevel, int ani
        return -999;  
     }
 */
-    //#3 hunting and retention of hunted animals based on skill levels (1) retention @25% 
+      
+
+    //#3: 25% retention of hunted animals: skill level (1) 
     if (teamHuntingSkillLevel>=1 && teamHuntingSkillLevel<2) {
     teamAnimalWeight = (hasAnimal*animalPlantWeight)/4;
     
-        //#4 hunting and retention of hunted animals based on skill level (2) retention @25% 
+        //#4 25% retention of hunted animals:skill level (2) 
         if (teamHuntingSkillLevel>=2 && teamHuntingSkillLevel<3) {
         teamAnimalWeight = (hasAnimal*animalPlantWeight)/4;
         }
@@ -72,11 +79,9 @@ public static double calcTeamHuntingIncrease (int teamHuntingSkillLevel, int ani
         }
     }
 
-   
-    // #8 team hunting skills = (0), and any amount of animals
-    if (teamHuntingSkillLevel<=0 & hasAnimal>0) {
-     teamAnimalWeight = (hasAnimal*animalPlantWeight)/4;
-    }
+
+	
+
  
         return teamAnimalWeight;
         }       
