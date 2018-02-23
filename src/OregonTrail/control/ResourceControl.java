@@ -12,7 +12,7 @@ package OregonTrail.control;
 
 public class ResourceControl {
 
-public static double calcWagonLoadWeight(int teamAnimalWeight, int teamPlantWeight, double currentWagonLoadWeight, double maxCarryWeight) {
+public static double calcWagonLoadWeight(double teamAnimalWeight, double teamPlantWeight, double currentWagonLoadWeight, double maxCarryWeight) {
    
     if (teamAnimalWeight < 0){
         return -999;
