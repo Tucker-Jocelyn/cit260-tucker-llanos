@@ -51,7 +51,7 @@ public static int calcTeamHuntingIncrease (int teamHuntingSkillLevel, int animal
     }
     
     //hunting and retention of hunted animals based on skill levels retention @75%
-    if ((teamHuntingSkillLevel)<=6) {        
+    if (teamHuntingSkillLevel<=6) {       
     teamAnimalWeight = (hasAnimal*animalPlantWeight)*(3/4);
     }
 
