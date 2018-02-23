@@ -29,8 +29,8 @@ public class Team implements Serializable {
     private int teamGatheringSkillLevel;
     private boolean teamRest;
     private int teamSkillLevel;
-    private int teamAnimalWeight;
-    private int teamPlantWeight;
+    private double teamAnimalWeight;
+    private double teamPlantWeight;
     private Game game;
     private Player player;
     private ArrayList<Character> characters = new ArrayList<>();
@@ -150,6 +150,22 @@ public class Team implements Serializable {
         this.teamSkillLevel = teamSkillLevel;
     }
 
+    public double getTeamAnimalWeight() {
+        return teamAnimalWeight;
+    }
+
+    public void setTeamAnimalWeight(double teamAnimalWeight) {
+        this.teamAnimalWeight = teamAnimalWeight;
+    }
+
+    public double getTeamPlantWeight() {
+        return teamPlantWeight;
+    }
+
+    public void setTeamPlantWeight(double teamPlantWeight) {
+        this.teamPlantWeight = teamPlantWeight;
+    }
+
     public Game getGame() {
         return game;
     }
@@ -174,48 +190,37 @@ public class Team implements Serializable {
         this.characters = characters;
     }
 
-    public int getTeamAnimalWeight() {
-        return teamAnimalWeight;
-    }
-
-    public void setTeamAnimalWeight(int teamAnimalWeight) {
-        this.teamAnimalWeight = teamAnimalWeight;
-    }
-
-    public int getTeamPlantWeight() {
-        return teamPlantWeight;
-    }
-
-    public void setTeamPlantWeight(int teamPlantWeight) {
-        this.teamPlantWeight = teamPlantWeight;
-    }
-
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 67 * hash + Objects.hashCode(this.name);
-        hash = 67 * hash + Objects.hashCode(this.status);
-        hash = 67 * hash + Objects.hashCode(this.teamAllResources);
-        hash = 67 * hash + Objects.hashCode(this.pace);
-        hash = 67 * hash + this.members;
-        hash = 67 * hash + Objects.hashCode(this.dailyDistanceTraveled);
-        hash = 67 * hash + Objects.hashCode(this.livestock);
-        hash = 67 * hash + (int) (Double.doubleToLongBits(this.currentWagonLoadWeight) ^ (Double.doubleToLongBits(this.currentWagonLoadWeight) >>> 32));
-        hash = 67 * hash + Objects.hashCode(this.teamInventoryResource);
-        hash = 67 * hash + this.teamAllSkillLevel;
-        hash = 67 * hash + this.teamHuntingSkillLevel;
-        hash = 67 * hash + this.teamGatheringSkillLevel;
-        hash = 67 * hash + (this.teamRest ? 1 : 0);
-        hash = 67 * hash + this.teamSkillLevel;
-        hash = 67 * hash + this.teamAnimalWeight;
-        hash = 67 * hash + this.teamPlantWeight;
+        int hash = 5;
+        hash = 53 * hash + Objects.hashCode(this.name);
+        hash = 53 * hash + Objects.hashCode(this.status);
+        hash = 53 * hash + Objects.hashCode(this.teamAllResources);
+        hash = 53 * hash + Objects.hashCode(this.pace);
+        hash = 53 * hash + this.members;
+        hash = 53 * hash + Objects.hashCode(this.dailyDistanceTraveled);
+        hash = 53 * hash + Objects.hashCode(this.livestock);
+        hash = 53 * hash + (int) (Double.doubleToLongBits(this.currentWagonLoadWeight) ^ (Double.doubleToLongBits(this.currentWagonLoadWeight) >>> 32));
+        hash = 53 * hash + Objects.hashCode(this.teamInventoryResource);
+        hash = 53 * hash + this.teamAllSkillLevel;
+        hash = 53 * hash + this.teamHuntingSkillLevel;
+        hash = 53 * hash + this.teamGatheringSkillLevel;
+        hash = 53 * hash + (this.teamRest ? 1 : 0);
+        hash = 53 * hash + this.teamSkillLevel;
+        hash = 53 * hash + (int) (Double.doubleToLongBits(this.teamAnimalWeight) ^ (Double.doubleToLongBits(this.teamAnimalWeight) >>> 32));
+        hash = 53 * hash + (int) (Double.doubleToLongBits(this.teamPlantWeight) ^ (Double.doubleToLongBits(this.teamPlantWeight) >>> 32));
+        hash = 53 * hash + Objects.hashCode(this.game);
+        hash = 53 * hash + Objects.hashCode(this.player);
+        hash = 53 * hash + Objects.hashCode(this.characters);
         return hash;
     }
 
     @Override
     public String toString() {
-        return "Team{" + "name=" + name + ", status=" + status + ", teamAllResources=" + teamAllResources + ", pace=" + pace + ", members=" + members + ", dailyDistanceTraveled=" + dailyDistanceTraveled + ", livestock=" + livestock + ", currentWagonLoadWeight=" + currentWagonLoadWeight + ", teamInventoryResource=" + teamInventoryResource + ", teamAllSkillLevel=" + teamAllSkillLevel + ", teamHuntingSkillLevel=" + teamHuntingSkillLevel + ", teamGatheringSkillLevel=" + teamGatheringSkillLevel + ", teamRest=" + teamRest + ", teamSkillLevel=" + teamSkillLevel + ", teamAnimalWeight=" + teamAnimalWeight + ", teamPlantWeight=" + teamPlantWeight + '}';
+        return "Team{" + "name=" + name + ", status=" + status + ", teamAllResources=" + teamAllResources + ", pace=" + pace + ", members=" + members + ", dailyDistanceTraveled=" + dailyDistanceTraveled + ", livestock=" + livestock + ", currentWagonLoadWeight=" + currentWagonLoadWeight + ", teamInventoryResource=" + teamInventoryResource + ", teamAllSkillLevel=" + teamAllSkillLevel + ", teamHuntingSkillLevel=" + teamHuntingSkillLevel + ", teamGatheringSkillLevel=" + teamGatheringSkillLevel + ", teamRest=" + teamRest + ", teamSkillLevel=" + teamSkillLevel + ", teamAnimalWeight=" + teamAnimalWeight + ", teamPlantWeight=" + teamPlantWeight + ", game=" + game + ", player=" + player + ", characters=" + characters + '}';
     }
+    
+    
 
     @Override
     public boolean equals(Object obj) {
@@ -250,10 +255,10 @@ public class Team implements Serializable {
         if (this.teamSkillLevel != other.teamSkillLevel) {
             return false;
         }
-        if (this.teamAnimalWeight != other.teamAnimalWeight) {
+        if (Double.doubleToLongBits(this.teamAnimalWeight) != Double.doubleToLongBits(other.teamAnimalWeight)) {
             return false;
         }
-        if (this.teamPlantWeight != other.teamPlantWeight) {
+        if (Double.doubleToLongBits(this.teamPlantWeight) != Double.doubleToLongBits(other.teamPlantWeight)) {
             return false;
         }
         if (!Objects.equals(this.name, other.name)) {
@@ -277,10 +282,17 @@ public class Team implements Serializable {
         if (!Objects.equals(this.teamInventoryResource, other.teamInventoryResource)) {
             return false;
         }
+        if (!Objects.equals(this.game, other.game)) {
+            return false;
+        }
+        if (!Objects.equals(this.player, other.player)) {
+            return false;
+        }
+        if (!Objects.equals(this.characters, other.characters)) {
+            return false;
+        }
         return true;
     }
 
-     
-}
-
     
+}

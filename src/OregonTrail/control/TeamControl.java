@@ -12,54 +12,56 @@ package OregonTrail.control;
  */
 public class TeamControl {
     
-public static int calcTeamHuntingIncrease (int teamHuntingSkillLevel, int animalPlantWeight, int hasAnimal, int teamAnimalWeight) {
-    //check to see if there are available animals to hunt
-    
-    
-    if (hasAnimal <=0) {
+public static double calcTeamHuntingIncrease (int teamHuntingSkillLevel, int animalPlantWeight, int hasAnimal, double teamAnimalWeight) {
+    //#1 check to see if there are available animals to hunt
+   /* if (hasAnimal <=0) {
        return -999;   
     } 
-   
-    // lowest threshold of team hunting skills and any amount of animals
-    if (teamHuntingSkillLevel<=0 && hasAnimal >=0) {
-     teamAnimalWeight = (hasAnimal*animalPlantWeight)/4;
-    }
     
-    //check to see if hunting skill levels are valid to hunt
+     //#2 check to see if hunting skill levels are valid to hunt
      if ((teamHuntingSkillLevel)<=0) {    
        return -999;  
     }
-    
-    //hunting and retention of hunted animals based on skill levels retention @25% 
-    if (teamHuntingSkillLevel<=0 && teamHuntingSkillLevel<=1) {
-    teamAnimalWeight = (hasAnimal*animalPlantWeight)/4;
-    
-    //hunting and retention of hunted animals based on skill levels retention @25% 
-    if (teamHuntingSkillLevel<=2 && teamHuntingSkillLevel<=3) {
-    teamAnimalWeight = (hasAnimal*animalPlantWeight)/4;
-    }
-    
-    }
-   
-    
-    //hunting and retention of hunted animals based on skill levels retention @25% 
-    else if (teamHuntingSkillLevel<=2 && teamHuntingSkillLevel<=3) {
-    teamAnimalWeight = (hasAnimal*animalPlantWeight)/4;
-    }
+  */    
 
-    //hunting and retention of hunted animals based on skill levels retention @50% (level 3 & 4) 
-    else if (teamHuntingSkillLevel<=3 && teamHuntingSkillLevel<=4) {
+    //#3 hunting and retention of hunted animals based on skill levels (1) retention @25% 
+    if (teamHuntingSkillLevel>=1 && teamHuntingSkillLevel<2) {
+    teamAnimalWeight = (hasAnimal*animalPlantWeight)/4;
+    
+        //#4 hunting and retention of hunted animals based on skill level (2) retention @25% 
+        if (teamHuntingSkillLevel>=2 && teamHuntingSkillLevel<3) {
+        teamAnimalWeight = (hasAnimal*animalPlantWeight)/4;
+        }
+    }
+    
+ 
+    //#6 hunting and retention of hunted animals based on skill level (3) retention @50% 
+    if (teamHuntingSkillLevel>=3 && teamHuntingSkillLevel<4) {
     teamAnimalWeight = (hasAnimal*animalPlantWeight)/2;
+
+        //#6 hunting and retention of hunted animals based on skill level (4) retention @50% 
+        if (teamHuntingSkillLevel>=4 && teamHuntingSkillLevel<5) {
+        teamAnimalWeight = (hasAnimal*animalPlantWeight)/2;
+        }
     }
 
     
-    //hunting and retention of hunted animals based on skill levels retention @75% (level 5 & 6)
-    else if (teamHuntingSkillLevel<=5 && teamHuntingSkillLevel<=6) {       
+    //#7 hunting and retention of hunted animals based on skill levels (5) retention @75% 
+    if (teamHuntingSkillLevel>=5 && teamHuntingSkillLevel<6) {       
     teamAnimalWeight = (hasAnimal*animalPlantWeight)*(3/4);
+    
+        //#7 hunting and retention of hunted animals based on skill level (6) retention @75% 
+        if (teamHuntingSkillLevel>=6 && teamHuntingSkillLevel<7) {       
+        teamAnimalWeight = (hasAnimal*animalPlantWeight)*(3/4);
+        }
     }
 
+   
+    // #8 team hunting skills = (0), and any amount of animals
+    if (teamHuntingSkillLevel<=0 & hasAnimal>0) {
+     teamAnimalWeight = (hasAnimal*animalPlantWeight)/4;
+    }
+ 
         return teamAnimalWeight;
         }       
 }
-
-

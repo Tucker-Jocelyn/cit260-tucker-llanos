@@ -82,7 +82,7 @@ public class OregonTrail {
             teamOne.setTeamHuntingSkillLevel(5);
             teamOne.setTeamGatheringSkillLevel(5);
             teamOne.setTeamRest(true);
-            teamOne.setTeamAnimalWeight(45);
+            teamOne.setTeamAnimalWeight(45.5);
             teamOne.setTeamPlantWeight(30);
             teamOne.setCurrentWagonLoadWeight (1500);
             
