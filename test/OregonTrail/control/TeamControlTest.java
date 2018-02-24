@@ -13,6 +13,7 @@ import static org.junit.Assert.*;
 /**
  *
  * @author Kim Llanos
+ * v3.2 TeamControlTest
  */
 public class TeamControlTest {
     
@@ -33,7 +34,7 @@ public class TeamControlTest {
     
    
     
-    //#1 INVALID OVERALL: no teamHuntingSkillLevel; no available animals
+    //#1 INVALID OVERALL: no teamHuntingSkillLevel; no available animals v3.1 correct
     @Test
     public void testCalcTeamHuntingIncrease() {
         System.out.println("\ncalcTeamHuntingIncrease");
@@ -59,35 +60,8 @@ public class TeamControlTest {
      }
     
 
-        @Test
+    @Test
         public void testCase2 (){
-        //#3: 25% retention of hunted animals: skill level (1)
-        System.out.println("\ncalcTeamHuntingIncrease");
-        System.out.println("\tValidity Test #2 (VALID hunting skills, NO animals to hunt) ");
-        
-        //input variables
-        int teamHuntingSkillLevel = 5;
-        int animalPlantWeight = 15;
-        int hasAnimal = 0;
-        double teamAnimalWeight = 0;
-        
-        //expected output variable
-        double expResult = -999;
-        
-        //call the method
-        double result = TeamControl.calcTeamHuntingIncrease(teamHuntingSkillLevel, animalPlantWeight, hasAnimal, teamAnimalWeight);
-        
-        System.out.println("expected result = " + expResult);
-        System.out.println("actual result = " + result);
-        
-        //test to see if the result returned equals the expected result
-        assertEquals(expResult, result, 0.0);
-
-    }
-        
-        
-        @Test
-        public void testCase3 (){
         //#3 AVAILABLE animals to hunt, but NO hunting skills
         System.out.println("\ncalcTeamHuntingIncrease");
         System.out.println("\tValidity Test #3 (AVAILABLE animals to hunt, but NO hunting skills) ");
@@ -111,6 +85,35 @@ public class TeamControlTest {
         assertEquals(expResult, result, 0.0);
 
     }
+    
+        @Test
+        public void testCase3 (){
+        //#3: 25% retention of hunted animals: skill level (1)
+        System.out.println("\ncalcTeamHuntingIncrease");
+        System.out.println("\tValidity Test #2 (VALID hunting skills, NO animals to hunt) ");
+        
+        //input variables
+        int teamHuntingSkillLevel = 5;
+        int animalPlantWeight = 15;
+        int hasAnimal = 0;
+        double teamAnimalWeight = 0;
+        
+        //expected output variable
+        double expResult = -999;
+        
+        //call the method
+        double result = TeamControl.calcTeamHuntingIncrease(teamHuntingSkillLevel, animalPlantWeight, hasAnimal, teamAnimalWeight);
+        
+        System.out.println("expected result = " + expResult);
+        System.out.println("actual result = " + result);
+        
+        //test to see if the result returned equals the expected result
+        assertEquals(expResult, result, 0.000001);
+
+    }
+        
+        
+        
         
         @Test
         public void testCase6 (){
