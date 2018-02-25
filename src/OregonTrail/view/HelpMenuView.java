@@ -30,10 +30,10 @@ class HelpMenuView {
         String[] inputs = new String[1];
 
         System.out.println("\nHere are your Help Menu Options:"
-                + "\nG - Game objective\n"
-                + "\nM - How to move\n"
+                + "\nG - Game Objective\n"
+                + "\nM - How to Move\n"
                 + "\nT - Tips\n"
-                + "\nR - Return to previous menu");
+                + "\nE - Exit Help Menu");
 
         boolean valid = false;
 
@@ -73,26 +73,29 @@ class HelpMenuView {
                 System.out.println("T - Displaying tips for the game\n");
                 getTips();
                 break;
-            case 'R':
-                System.out.println("R = Returning to the previous menu\n");
+            case 'E':
+                System.out.println("E = Returning to the previous menu\n");
                 return true;
             default:
-                System.out.println("Only \"G, M, T, and R\" are Valid Options\n");
+                System.out.println("Only \"G, M, T, and E\" are Valid Options\n");
                 break;
         }
         return false;
     }
 
     private void gameObjective() {
-        System.out.println("*** gameObjective() called ***");
+        ViewGameObjective viewGameObjective=new ViewGameObjective();
+        ViewGameObjective.displayViewGameObjective();
     }
 
     private void howToMove() {
-        System.out.println("*** howToMove() called ***");
+        ViewMoveOptions viewMoveOptions=new ViewMoveOptions();
+        ViewMoveOptions.displayViewMoveOptions();
     }
 
     private void getTips() {
-        System.out.println("*** getTips() called ***");
+        ViewGameTips viewGameTips=new ViewGameTips();
+        ViewGameTips.displayViewGameTips();
     }
 
 }

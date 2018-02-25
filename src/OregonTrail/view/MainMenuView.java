@@ -26,11 +26,7 @@ class MainMenuView {
                 return;
             }
 
-            //commenting these lines out becasue we wil be adding this logic in the do function
-            // check to see if the value = "N" if true, then return
-            //if (value.equals("N")) {
-            //return;
-            //}
+
             endOfView = doAction(inputs);
 
         } while (endOfView != true);
