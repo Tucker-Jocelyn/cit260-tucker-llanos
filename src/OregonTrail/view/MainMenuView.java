@@ -5,6 +5,8 @@
  */
 package OregonTrail.view;
 
+import OregonTrail.OregonTrail;
+import OregonTrail.control.GameControl;
 import java.util.Scanner;
 
 /**
@@ -14,12 +16,7 @@ import java.util.Scanner;
 class MainMenuView {
 
     void displayMainMenuView() {
-        System.out.println("Here are your Game Play Options:"
-                + "\nN - Start new game\n"
-                + "\nR - Restart existing game\n"
-                + "\nH - Get help on how to play the game\n"
-                + "\nE - Exit");
-        
+
         boolean endOfView = false;
         do {
             String[] inputs = this.getInputs();
@@ -29,22 +26,11 @@ class MainMenuView {
                 return;
             }
 
-            //retrieve 1st value in array and convert input to uppercase
-            String value = inputs[0];
-            
-            //commenting  this out becasue it does not apper to be working (entered name = "Kim" and displayed same)
-            //value = value.toUpperCase();
-
-            
             //commenting these lines out becasue we wil be adding this logic in the do function
             // check to see if the value = "N" if true, then return
             //if (value.equals("N")) {
-                //return;
+            //return;
             //}
-
-
-            /*need logic & syntax for "next step", which is:  the do action function we are tyring
-                to call (endofView = doAction(inputs); */
             endOfView = doAction(inputs);
 
         } while (endOfView != true);
@@ -56,22 +42,29 @@ class MainMenuView {
 
         String[] inputs = new String[1];
 
+        System.out.println("\nHere are your Game Play Options:"
+                + "\nN - Start new game\n"
+                + "\nR - Restart existing game\n"
+                + "\nH - Get help on how to play the game\n"
+                + "\nS - Save game\n"
+                + "\nE - Exit");
+
         boolean valid = false;
 
         while (valid == false) {
 
-            System.out.println("\nPlease Choose and Option ");
-            String name = in.nextLine();
+            System.out.println("\nPlease Choose an Option");
+            String option = in.nextLine();
 
-            name = name.trim();
+            option = option.trim();
 
-            if (name.length() < 1) {
-                System.out.println("You must enter a value, blanks are not accepted here. ");
+            if (option.length() < 1) {
+                System.out.println("You must enter a value, blanks are not accepted here.");
 
                 continue;
             }
 
-            inputs[0] = name;
+            inputs[0] = option;
             valid = true;
 
         }
@@ -80,32 +73,51 @@ class MainMenuView {
     }
 
     private boolean doAction(String[] inputs) {
-    char choice = Character.toUpperCase(inputs[0].charAt(0));
-            switch (choice) {
+        char choice = Character.toUpperCase(inputs[0].charAt(0));
+        switch (choice) {
             case 'N':
-                System.out.println("N - Starting New Game");
+                System.out.println("N - Starting New Game\n");
+                startNewGame();
                 break;
             case 'R':
-                System.out.println("R - Restarting the Game");
+                System.out.println("R - Restarting the Game\n");
+                restartGame();
                 break;
             case 'H':
-                System.out.println("H - Help is On the Way");
+                System.out.println("H - Help is On the Way\n");
+                getHelp();
                 break;
-            case 'E':
-                System.out.println("E = Exiting the Game");
+            case 'S':
+                System.out.println("S = Saving the Game\n");
+                saveGame();
                 return true;
-            default: 
-                System.out.println("Only \"N, R, H, and E\"  are Valid Options");
+            case 'E':
+                System.out.println("E = Exiting the Game\n");
+                return true;
+            default:
+                System.out.println("Only \"N, R, H, S, and E\" are Valid Options\n");
                 break;
+        }
+        return false;
     }
-            return false;
-    }
-    
-    
+
     private void startNewGame() {
-        
-        
+        GameControl.createNewGame(OregonTrail.getCurrentPlayer());
         GameMenuView gameMenuView = new GameMenuView();
         gameMenuView.displayGameMenuView();
+    }
+
+    private void restartGame() {
+        StartExistingGameView startExistingGameView = new StartExistingGameView();
+        startExistingGameView.displayStartExistingGameView();
+    }
+
+    private void getHelp() {
+        HelpMenuView helpMenuView = new HelpMenuView();
+        helpMenuView.displayHelpMenuView();
+    }
+
+    private void saveGame() {
+        System.out.println("*** saveGame() called ***");
     }
 }

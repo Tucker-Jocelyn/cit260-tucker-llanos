@@ -7,12 +7,12 @@ package OregonTrail.view;
 
 /**
  *
- * @author kimta
+ * @author Jocelyn
  */
-public class GameMenuView {
+class StartExistingGameView {
 
-    void displayGameMenuView() {
-        System.out.println("*** displayGameMenuView() called ***");
+    void displayStartExistingGameView() {
+        System.out.println("*** displayStartExistingGameView() called ***");
     }
     
 }

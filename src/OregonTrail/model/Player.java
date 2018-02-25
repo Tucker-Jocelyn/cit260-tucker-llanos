@@ -9,20 +9,18 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
 
-
 /**
  *
  * @author kim-jocelyn
  */
-public class Player implements Serializable{
-    
+public class Player implements Serializable {
+
     //class instance variables
     private String name;
     private ArrayList<Game> games = new ArrayList<>();
 
     public Player() {
     }
-    
 
     public String getName() {
         return name;
@@ -30,7 +28,7 @@ public class Player implements Serializable{
 
     public void setName(String name) {
         this.name = name;
-        
+
     }
 
     public ArrayList<Game> getGames() {
@@ -38,8 +36,8 @@ public class Player implements Serializable{
     }
 
     public void setGames(ArrayList<Game> games) {
-        this.games = games;      
-        
+        this.games = games;
+
     }
 
     @Override
@@ -55,7 +53,6 @@ public class Player implements Serializable{
         return "Player{" + "name=" + name + ", games=" + games + '}';
     }
 
-    
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -77,6 +74,4 @@ public class Player implements Serializable{
         return true;
     }
 
-
 }
-    
