@@ -5,6 +5,7 @@
  */
 package OregonTrail.control;
 
+import OregonTrail.OregonTrail;
 import OregonTrail.model.Player;
 
 /**
@@ -14,12 +15,18 @@ import OregonTrail.model.Player;
 public class GameControl {
 
     public static Player savePlayer(String playersName) {
-        System.out.println("*** savePlayer() called ***");
-        return new Player();
+        if (playersName == null || playersName.length() < 1) {
+            return null;
+        }
+
+        Player player = new Player();
+        player.setName(playersName);
+        OregonTrail.setCurrentPlayer(player);
+        return player;
     }
 
-  public static void createNewGame(Player player) {  
-      System.out.println("Welcome! You Have Started a New Game.");
-  }
-    
+    public static void createNewGame(Player currentPlayer) {
+        System.out.println("Welcome! You Have Started a New Game.");
+    }
+
 }

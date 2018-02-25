@@ -1,30 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
- /*2-21-18 12:02 am
-To DO:
-1) resilve error [(endOfView = doAction(inputs);]
-2) call new instance of StartProgramView in the main OregonTrail.java file (imports??)
-3) continue on with the instructions - left off on Pg. 9 item #6
-
-****so far we are still working on "Q" (quit and exit game play) of the Start Menu
-Help Menu
-    Game Objective
-    How to Move
-    Tips
-    Return to Previous Menu (which is the Main Menu)
-Main Menu
-    Start (or return to) Game
-    Help Menu
-    Save Game
-    Exit Main Menu (return to Start Menu)
-Start Menu
-    Start a New Game
-    Reload a Saved Game
-    Quit Program (exit game play)
- */
 package OregonTrail.view;
 
 import OregonTrail.control.GameControl;
@@ -60,9 +33,6 @@ public class StartProgramView {
                 return;
             }
 
-
-            /*need logic & syntax for "next step", which is:  the do action function we are tyring
-                to call (endofView = doAction(inputs); */
             endOfView = doAction(inputs);
 
         } while (endOfView != true);
@@ -92,7 +62,7 @@ public class StartProgramView {
             name = name.trim();
 
             if (name.length() < 1) {
-                System.out.println("You must enter a value, blanks are not accepted here. ");
+                System.out.println("You must enter a value, blanks are not accepted here.");
 
                 continue;
             }
