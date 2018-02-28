@@ -17,6 +17,28 @@ public class TeamPaceMenuViewTest {
     public TeamPaceMenuViewTest() {
     }
 
+
+    /**
+     * Test of displayTeamPaceMenuView method, of class TeamPaceMenuView.
+     */
+    @Test
+    public void testDisplayTeamPaceMenuView() {
+        System.out.println("displayTeamPaceMeniView");
+        System.out.println("test case 1");
+        
+        //input parameter
+        //String name = "P";
+        
+        //expected result "Set the Team Pace"
+        
+
+
+    }
+    
+    
+    
+    
+    
     @Test
     public void testSomeMethod() {
 
