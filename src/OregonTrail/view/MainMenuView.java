@@ -42,6 +42,7 @@ class MainMenuView {
                 + "\nN - Start new game\n"
                 + "\nR - Restart existing game\n"
                 + "\nH - Get help on how to play the game\n"
+                + "\nP - Set the Team Pace\n"
                 + "\nS - Save game\n"
                 + "\nE - Exit");
 
@@ -83,6 +84,10 @@ class MainMenuView {
                 System.out.println("H - Help is On the Way\n");
                 getHelp();
                 break;
+            case 'P':
+                System.out.println("P - Setting the Team Pace\n");
+                setPace();
+                break;
             case 'S':
                 System.out.println("S = Saving the Game\n");
                 saveGame();
@@ -91,7 +96,7 @@ class MainMenuView {
                 System.out.println("E = Exiting the Game\n");
                 return true;
             default:
-                System.out.println("Only \"N, R, H, S, and E\" are Valid Options\n");
+                System.out.println("Only \"N, R, H, P, S, and E\" are Valid Options\n");
                 break;
         }
         return false;
@@ -115,5 +120,10 @@ class MainMenuView {
 
     private void saveGame() {
         System.out.println("*** saveGame() called ***");
+    }
+
+    private void setPace() {
+        TeamPaceMenuView teamPaceMenuView = new TeamPaceMenuView();
+        teamPaceMenuView.displayTeamPaceMenuView();
     }
 }
