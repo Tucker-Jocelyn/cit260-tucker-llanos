@@ -11,23 +11,14 @@ import java.io.Serializable;
  *
  * @author Jocelyn Tucker
  */
-public class InventoryOx extends InventoryItem implements Serializable{
+public class InventoryOx implements Serializable{
     
     //class instance variables
-    private int position;
     private double pullWeight;
     private int oxHealth;
     private boolean oxRest;
 
     public InventoryOx() {
-    }
-
-    public int getPosition() {
-        return position;
-    }
-
-    public void setPosition(int position) {
-        this.position = position;
     }
 
     public double getPullWeight() {
@@ -57,33 +48,29 @@ public class InventoryOx extends InventoryItem implements Serializable{
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 89 * hash + this.position;
-        hash = 89 * hash + (int) (Double.doubleToLongBits(this.pullWeight) ^ (Double.doubleToLongBits(this.pullWeight) >>> 32));
-        hash = 89 * hash + this.oxHealth;
-        hash = 89 * hash + (this.oxRest ? 1 : 0);
+        hash = 37 * hash + (int) (Double.doubleToLongBits(this.pullWeight) ^ (Double.doubleToLongBits(this.pullWeight) >>> 32));
+        hash = 37 * hash + this.oxHealth;
+        hash = 37 * hash + (this.oxRest ? 1 : 0);
         return hash;
     }
 
     @Override
     public String toString() {
-        return String.format("InventoryOx{%s, position=%d, pullWeight=%s, oxHealth=%d, oxRest=%s}", super.toString(), position, pullWeight, oxHealth, oxRest);
+        return "InventoryOx{" + "pullWeight=" + pullWeight + ", oxHealth=" + oxHealth + ", oxRest=" + oxRest + '}';
     }
-
+      
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
         }
-        if (super.equals(obj) == false) {
+        if (obj == null) {
             return false;
         }
         if (getClass() != obj.getClass()) {
             return false;
         }
         final InventoryOx other = (InventoryOx) obj;
-        if (this.position != other.position) {
-            return false;
-        }
         if (Double.doubleToLongBits(this.pullWeight) != Double.doubleToLongBits(other.pullWeight)) {
             return false;
         }

@@ -11,7 +11,7 @@ import java.io.Serializable;
  *
  * @author Jocelyn Tucker
  */
-public class InventoryWagon extends InventoryItem implements Serializable{
+public class InventoryWagon implements Serializable{
     
     //class instance variables
     private double maxCarryWeight;
