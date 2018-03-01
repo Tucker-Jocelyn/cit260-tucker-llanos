@@ -26,7 +26,7 @@ public class GeneralStoreView {
 
     private String[] getInputs() {
         Scanner in = new Scanner(System.in);
-        
+
         String[] inputs = new String[1];
 
         System.out.println("\nWelcome to the General Store. These are the items we carry and their prices:"

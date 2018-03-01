@@ -59,7 +59,6 @@ public enum InventoryItem {
         return "InventoryItem{" + "index=" + index + ", inventoryType=" + inventoryName + ", itemWeight=" + itemWeight + ", inventoryDescription=" + inventoryDescription + ", inventoryCost=" + inventoryCost + '}';
     }
 
-    
 }
 
 /*public class InventoryItem implements Serializable{
@@ -189,4 +188,4 @@ public enum InventoryItem {
 
 
 }
-*/
+ */

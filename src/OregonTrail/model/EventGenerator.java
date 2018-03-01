@@ -13,8 +13,8 @@ import java.util.Objects;
  *
  * @author Jocelyn Tucker
  */
-public class EventGenerator implements Serializable{
-    
+public class EventGenerator implements Serializable {
+
     //class instance variables
     private int event;
     private String character;
@@ -22,7 +22,7 @@ public class EventGenerator implements Serializable{
 
     public EventGenerator() {
     }
-        
+
     public int getEvent() {
         return event;
     }
@@ -81,5 +81,4 @@ public class EventGenerator implements Serializable{
         return true;
     }
 
-    
 }

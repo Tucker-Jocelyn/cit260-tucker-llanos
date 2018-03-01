@@ -12,8 +12,8 @@ import java.util.Objects;
  *
  * @author Jocelyn Tucker
  */
-public class AnimalsPlants implements Serializable{
-    
+public class AnimalsPlants implements Serializable {
+
     //class instance variables
     private String animalPlantType;
     private int animalPlantWeight;
@@ -37,7 +37,7 @@ public class AnimalsPlants implements Serializable{
     public void setAnimalPlantWeight(int animalPlantWeight) {
         this.animalPlantWeight = animalPlantWeight;
     }
-    
+
     public TrailStopScene getTrailStopScene() {
         return trailStopScene;
     }
@@ -79,6 +79,5 @@ public class AnimalsPlants implements Serializable{
         }
         return true;
     }
- 
-  
+
 }

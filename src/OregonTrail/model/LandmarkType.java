@@ -5,20 +5,18 @@
  */
 package OregonTrail.model;
 
-
-
 /**
  *
  * @author Jocelyn Tucker
  */
 public enum LandmarkType {
-    
-    Nauvoo ("Nauvoo"),
-    ChimmneyRock ("Chimney Rock"),
-    IndependenceRock ("Independence Rock"),
-    MartinsCove ("Martin's Cove"),
-    SaltLakeValley ("Salt Lake Valley");
-    
+
+    Nauvoo("Nauvoo"),
+    ChimmneyRock("Chimney Rock"),
+    IndependenceRock("Independence Rock"),
+    MartinsCove("Martin's Cove"),
+    SaltLakeValley("Salt Lake Valley");
+
     //class instance variables
     private String landmarkName;
 
@@ -34,6 +32,5 @@ public enum LandmarkType {
     public String toString() {
         return "LandmarkType{" + "landmarkName=" + landmarkName + '}';
     }
-   
-    
+
 }

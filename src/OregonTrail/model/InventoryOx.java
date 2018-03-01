@@ -11,8 +11,8 @@ import java.io.Serializable;
  *
  * @author Jocelyn Tucker
  */
-public class InventoryOx implements Serializable{
-    
+public class InventoryOx implements Serializable {
+
     //class instance variables
     private double pullWeight;
     private int oxHealth;
@@ -58,7 +58,7 @@ public class InventoryOx implements Serializable{
     public String toString() {
         return "InventoryOx{" + "pullWeight=" + pullWeight + ", oxHealth=" + oxHealth + ", oxRest=" + oxRest + '}';
     }
-      
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -83,5 +83,4 @@ public class InventoryOx implements Serializable{
         return true;
     }
 
-    
 }

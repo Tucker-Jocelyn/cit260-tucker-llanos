@@ -13,14 +13,14 @@ import java.util.Objects;
  *
  * @author Jocelyn Tucker
  */
-public class CurrentDate implements Serializable{
-    
+public class CurrentDate implements Serializable {
+
     //class instance variables
     private int date;
     private String dayOfWeek;
     private ArrayList<Game> games = new ArrayList<>();
     private Location location;
-    
+
     public CurrentDate() {
     }
 
@@ -89,6 +89,5 @@ public class CurrentDate implements Serializable{
         }
         return true;
     }
-    
-    
+
 }

@@ -112,8 +112,8 @@ class BuySuppliesView {
         }
 
         int inventoryAmount;
-        
-        try{
+
+        try {
             inventoryAmount = Integer.parseInt(inputs[1]);
         } catch (NumberFormatException e) {
             System.out.println("\nOnly Numbers are Valid Options\n");
