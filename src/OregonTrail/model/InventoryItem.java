@@ -11,24 +11,24 @@ package OregonTrail.model;
  */
 public enum InventoryItem {
 
-    OX(0, "Ox", 0, "A single ox can pull 550 lbs.", 20),
+    OX(0, "Oxen", 0, "A single ox can pull 550 lbs.", 20),
     SMALL_WAGON(1, "Small Wagon", 1250, "A small wagon weighs 1250 lbs and can carry 1800 lbs of supplies.", 60),
     MEDIUM_WAGON(2, "Medium Wagon", 1300, "A medium wagon weighs 1300 lbs and can carry 2000 lbs of supplies.", 70),
     LARGE_WAGON(3, "Large Wagon", 1350, "A large wagon weighs 1350 lbs and can carry 2200 lbs of supplies.", 80),
     FOOD(5, "Food", 1, "5 pounds of food per person per day is suggested.", 0.20),
     WHEEL(6, "Spare Wagon Wheel", 10, "Spare wheel for the wagon.", 10),
-    AMMO(7, "Ammunition", 1, "Each box contains 20 bullets. Amount is the number of total bullets", 2);
+    AMMO(7, "Bullets", 1, "Each box contains 20 bullets. Amount is the number of total bullets", 2);
 
     //class instance variables
     public int index;
-    public String inventoryType;
+    public String inventoryName;
     public int itemWeight;
     public String inventoryDescription;
     public double inventoryCost;
 
-    InventoryItem(int index, String inventoryType, int itemWeight, String inventoryDescription, double inventoryCost) {
+    InventoryItem(int index, String inventoryName, int itemWeight, String inventoryDescription, double inventoryCost) {
         this.index = index;
-        this.inventoryType = inventoryType;
+        this.inventoryName = inventoryName;
         this.itemWeight = itemWeight;
         this.inventoryDescription = inventoryDescription;
         this.inventoryCost = inventoryCost;
@@ -38,8 +38,8 @@ public enum InventoryItem {
         return index;
     }
 
-    public String getInventoryType() {
-        return inventoryType;
+    public String getInventoryName() {
+        return inventoryName;
     }
 
     public int getItemWeight() {
@@ -56,7 +56,7 @@ public enum InventoryItem {
 
     @Override
     public String toString() {
-        return "InventoryItem{" + "index=" + index + ", inventoryType=" + inventoryType + ", itemWeight=" + itemWeight + ", inventoryDescription=" + inventoryDescription + ", inventoryCost=" + inventoryCost + '}';
+        return "InventoryItem{" + "index=" + index + ", inventoryType=" + inventoryName + ", itemWeight=" + itemWeight + ", inventoryDescription=" + inventoryDescription + ", inventoryCost=" + inventoryCost + '}';
     }
 
     

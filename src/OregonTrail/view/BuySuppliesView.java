@@ -2,6 +2,7 @@ package OregonTrail.view;
 
 import OregonTrail.control.InventoryControl;
 import OregonTrail.control.ResourceControl;
+import OregonTrail.model.InventoryItem;
 import java.util.Scanner;
 
 /**
@@ -59,9 +60,13 @@ class BuySuppliesView {
             }
 
             inputs[0] = option;
+            option = option.toUpperCase();
 
-            if (option.equals("E") || option.equals("e")) {
+            if (option.equals("E")) {
                 valid = true;
+            } else if (!option.equals("O") && !option.equals("S") && !option.equals("M") && !option.equals("L") && !option.equals("F") && !option.equals("W") && !option.equals("A")) {
+                System.out.println("Only \"O, S, M, L, F, W, A, and E\" are Valid Options\n");
+                continue;
             } else {
                 System.out.println("\nPlease Enter the Amount You Would Like to Buy:");
                 String itemAmount = in.nextLine();
@@ -83,30 +88,22 @@ class BuySuppliesView {
 
     private boolean doAction(String[] inputs) {
         char choice = Character.toUpperCase(inputs[0].charAt(0));
-        int inventoryType;
-        String inventoryName = null;
+        InventoryItem inventoryType;
 
         if (choice == 'O') {
-            inventoryType = 0;
-            inventoryName = "oxen";
+            inventoryType = InventoryItem.OX;
         } else if (choice == 'S') {
-            inventoryType = 1;
-            inventoryName = "small wagon";
+            inventoryType = InventoryItem.SMALL_WAGON;
         } else if (choice == 'M') {
-            inventoryType = 2;
-            inventoryName = "medium wagon";
+            inventoryType = InventoryItem.MEDIUM_WAGON;
         } else if (choice == 'L') {
-            inventoryType = 3;
-            inventoryName = "large wagon";
+            inventoryType = InventoryItem.LARGE_WAGON;
         } else if (choice == 'F') {
-            inventoryType = 4;
-            inventoryName = "lbs of food";
+            inventoryType = InventoryItem.FOOD;
         } else if (choice == 'W') {
-            inventoryType = 5;
-            inventoryName = "spare wagon wheel";
+            inventoryType = InventoryItem.WHEEL;
         } else if (choice == 'A') {
-            inventoryType = 6;
-            inventoryName = "bullets";
+            inventoryType = InventoryItem.AMMO;
         } else if (choice == 'E') {
             return true;
         } else {
@@ -114,29 +111,36 @@ class BuySuppliesView {
             return false;
         }
 
-        int inventoryAmount = Integer.parseInt(inputs[1]);
+        int inventoryAmount;
+        
+        try{
+            inventoryAmount = Integer.parseInt(inputs[1]);
+        } catch (NumberFormatException e) {
+            System.out.println("\nOnly Numbers are Valid Options\n");
+            return false;
+        }
 
         if (choice == 'A') {
             inventoryAmount *= 20;
         }
 
-        double moneyAvailable = ResourceControl.calcMoneyResource(inventoryType, inventoryAmount);
-        
-        if (moneyAvailable == -999){
+        double moneyAvailable = ResourceControl.calcMoneyResource(inventoryType.index, inventoryAmount);
+
+        if (moneyAvailable == -999) {
             System.out.println("\nYou do not have enough funds to complete this purchase. Please try again.\n");
             return false;
         }
 
         double inventoryWeight = InventoryControl.calcTotalInventoryWeight();
-        
-        if (inventoryWeight == -999){
+
+        if (inventoryWeight == -999) {
             System.out.println("\nYour wagon can't carry this much weight. Please try again.\n");
             return false;
         }
-                
-        InventoryControl.calcAddStoreItem(inventoryType, inventoryAmount);
 
-        System.out.println(inventoryAmount + " " + inventoryName + " added to your inventory.\n"
+        InventoryControl.calcAddStoreItem(inventoryType.index, inventoryAmount);
+
+        System.out.println(inventoryAmount + " " + inventoryType.inventoryName + " added to your inventory.\n"
                 + "$" + moneyAvailable + " is how much you have available to spend."
                 + "\nYour total inventory weight is " + inventoryWeight);
 
