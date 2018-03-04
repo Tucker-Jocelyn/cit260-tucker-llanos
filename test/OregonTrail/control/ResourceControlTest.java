@@ -56,7 +56,8 @@ public class ResourceControlTest {
         double expResult = 3075;
         
         //call the method
-        double result = ResourceControl.calcWagonLoadWeight(teamAnimalWeight, teamPlantWeight, currentWagonLoadWeight, maxCarryWeight);
+        double result = ResourceControl.calcWagonLoadWeight(teamAnimalWeight, teamPlantWeight, 
+                currentWagonLoadWeight, maxCarryWeight);
         
         System.out.println("expected result = " + expResult);
         System.out.println("actual result = " + result);
@@ -80,7 +81,8 @@ public class ResourceControlTest {
         expResult = -999;
         
         //call the method
-        result = ResourceControl.calcWagonLoadWeight(teamAnimalWeight, teamPlantWeight, currentWagonLoadWeight, maxCarryWeight);
+        result = ResourceControl.calcWagonLoadWeight(teamAnimalWeight, teamPlantWeight, 
+                currentWagonLoadWeight, maxCarryWeight);
         
         System.out.println("expected result = " + expResult);
         System.out.println("actual result = " + result);
@@ -103,7 +105,8 @@ public class ResourceControlTest {
         expResult = -999;
         
         //call the method
-        result = ResourceControl.calcWagonLoadWeight(teamAnimalWeight, teamPlantWeight, currentWagonLoadWeight, maxCarryWeight);
+        result = ResourceControl.calcWagonLoadWeight(teamAnimalWeight, teamPlantWeight, 
+                currentWagonLoadWeight, maxCarryWeight);
         
         System.out.println("expected result = " + expResult);
         System.out.println("actual result = " + result);
@@ -113,7 +116,8 @@ public class ResourceControlTest {
 
         
         
-       //test 3 (boundary columns 9 & 10 upper limit in test matrix)Upper wagon load weight boundary = valid with added animals and plants
+       //test 3 (boundary columns 9 & 10 upper limit in test matrix)Upper wagon load 
+       //weight boundary = valid with added animals and plants
         System.out.println("calcWagonLoadWeight");
         System.out.println("\tTest Case 3 (boundary columns 9 & 10 upper limit)");
         
@@ -127,7 +131,8 @@ public class ResourceControlTest {
         expResult = 4000;
         
         //call the method
-        result = ResourceControl.calcWagonLoadWeight(teamAnimalWeight, teamPlantWeight, currentWagonLoadWeight, maxCarryWeight);
+        result = ResourceControl.calcWagonLoadWeight(teamAnimalWeight, teamPlantWeight, 
+                currentWagonLoadWeight, maxCarryWeight);
         
         System.out.println("expected result = " + expResult);
         System.out.println("actual result = " + result);
