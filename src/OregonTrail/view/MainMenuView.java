@@ -26,7 +26,6 @@ class MainMenuView {
                 return;
             }
 
-
             endOfView = doAction(inputs);
 
         } while (endOfView != true);
@@ -43,6 +42,7 @@ class MainMenuView {
                 + "\nR - Restart existing game\n"
                 + "\nH - Get help on how to play the game\n"
                 + "\nP - Set the Team Pace\n"
+                + "\nG - General Store Menu\n"
                 + "\nS - Save game\n"
                 + "\nE - Exit");
 
@@ -88,6 +88,10 @@ class MainMenuView {
                 System.out.println("P - Setting the Team Pace\n");
                 setPace();
                 break;
+            case 'G':
+                System.out.println("G - General Store Menu\n");
+                generalStore();
+                break;
             case 'S':
                 System.out.println("S = Saving the Game\n");
                 saveGame();
@@ -96,7 +100,7 @@ class MainMenuView {
                 System.out.println("E = Exiting the Game\n");
                 return true;
             default:
-                System.out.println("Only \"N, R, H, P, S, and E\" are Valid Options\n");
+                System.out.println("Only \"N, R, H, P, G, S, and E\" are Valid Options\n");
                 break;
         }
         return false;
@@ -125,5 +129,10 @@ class MainMenuView {
     private void setPace() {
         TeamPaceMenuView teamPaceMenuView = new TeamPaceMenuView();
         teamPaceMenuView.displayTeamPaceMenuView();
+    }
+
+    private void generalStore() {
+        GeneralStoreView generalStoreView = new GeneralStoreView();
+        generalStoreView.displayGeneralStoreView();
     }
 }

@@ -39,4 +39,12 @@ public static double calcWagonLoadWeight(double teamAnimalWeight, double teamPla
     }
     
 }
+
+    public static double calcMoneyResource(int inventoryType, int inventoryAmount) {
+       double money = 0;
+        System.out.println("*** calcMoneyResource() called ***");
+       
+       return money;
+               
+    }
 }

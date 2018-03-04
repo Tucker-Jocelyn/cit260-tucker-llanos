@@ -11,8 +11,8 @@ import java.io.Serializable;
  *
  * @author Jocelyn Tucker
  */
-public class InventoryWagon extends InventoryItem implements Serializable{
-    
+public class InventoryWagon implements Serializable {
+
     //class instance variables
     private double maxCarryWeight;
     private int length;
@@ -59,7 +59,7 @@ public class InventoryWagon extends InventoryItem implements Serializable{
         //return "InventoryWagon{" + "maxCarryWeight=" + maxCarryWeight + ", length=" + length + ", wagonWeight=" + wagonWeight + '}';
         return String.format("InventoryWagon{%s, maxCarryWeight=%s, length=%d, wagonWeight=%s}", super.toString(), maxCarryWeight, length, wagonWeight);
     }
-    
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -84,5 +84,4 @@ public class InventoryWagon extends InventoryItem implements Serializable{
         return true;
     }
 
-    
 }

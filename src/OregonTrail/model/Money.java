@@ -12,17 +12,16 @@ import java.util.ArrayList;
  *
  * @author Jocelyn Tucker
  */
-public class Money implements Serializable{
-    
+public class Money implements Serializable {
+
     //class instance variables
     private double teamTotal;
-    private ArrayList<InventoryItem> inventoryItems = new ArrayList <>();
+    private ArrayList<InventoryItem> inventoryItems = new ArrayList<>();
     private ArrayList<Character> characters = new ArrayList<>();
-    
 
     public Money() {
     }
-        
+
     public double getTeamTotal() {
         return teamTotal;
     }
@@ -76,6 +75,5 @@ public class Money implements Serializable{
         }
         return true;
     }
-    
-    
+
 }

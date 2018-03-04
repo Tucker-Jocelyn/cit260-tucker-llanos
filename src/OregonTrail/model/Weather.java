@@ -13,8 +13,8 @@ import java.util.Objects;
  *
  * @author Jocelyn Tucker
  */
-public class Weather implements Serializable{
-    
+public class Weather implements Serializable {
+
     //class instance variables
     private String weatherType;
     private int weatherValue;
@@ -22,7 +22,7 @@ public class Weather implements Serializable{
 
     public Weather() {
     }
-    
+
     public String getWeatherType() {
         return weatherType;
     }
@@ -59,7 +59,7 @@ public class Weather implements Serializable{
     public String toString() {
         return "Weather{" + "weatherType=" + weatherType + ", weatherValue=" + weatherValue + '}';
     }
-    
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -80,6 +80,5 @@ public class Weather implements Serializable{
         }
         return true;
     }
-    
-   
+
 }

@@ -12,14 +12,13 @@ import java.util.ArrayList;
  *
  * @author Jocelyn Tucker
  */
-public class GeneralStoreScene extends Scene implements Serializable{
-    
+public class GeneralStoreScene extends Scene implements Serializable {
+
     //class instance variables
     private int item;
     private TownScene townScene;
     private FortScene fortScene;
     private ArrayList<InventoryItem> inventoryItems = new ArrayList<>();
-    
 
     public GeneralStoreScene() {
     }
@@ -85,6 +84,5 @@ public class GeneralStoreScene extends Scene implements Serializable{
         }
         return true;
     }
-    
-   
+
 }
