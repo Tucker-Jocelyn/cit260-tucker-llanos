@@ -13,8 +13,21 @@ import java.util.Scanner;
  *
  * @author Jocelyn and Kim
  */
-class MainMenuView {
+public class MainMenuView extends View {
 
+    public MainMenuView() {
+        super ("\nHere are your Game Play Options:"
+                    + "\nN - Start new game\n"
+                    + "\nR - Restart existing game\n"
+                    + "\nH - Get help on how to play the game\n"
+                    + "\nP - Set the Team Pace\n"
+                    + "\nG - General Store Menu\n"
+                    + "\nS - Save game\n"
+                    + "\nE - Exit the Game");
+        }
+    
+     //logic for lines 31-82 now in the super class   
+    /*
     void displayMainMenuView() {
 
         boolean endOfView = false;
@@ -31,7 +44,8 @@ class MainMenuView {
         } while (endOfView != true);
 
     }
-
+         */
+        /*
     private String[] getInputs() {
         Scanner in = new Scanner(System.in);
 
@@ -68,8 +82,10 @@ class MainMenuView {
         return inputs;
 
     }
+         */
 
-    private boolean doAction(String[] inputs) {
+    @Override
+    public boolean doAction(String[] inputs) {
         char choice = Character.toUpperCase(inputs[0].charAt(0));
         switch (choice) {
             case 'N':
@@ -119,7 +135,7 @@ class MainMenuView {
 
     private void getHelp() {
         HelpMenuView helpMenuView = new HelpMenuView();
-        helpMenuView.displayHelpMenuView();
+        helpMenuView.display();
     }
 
     private void saveGame() {
@@ -128,11 +144,11 @@ class MainMenuView {
 
     private void setPace() {
         TeamPaceMenuView teamPaceMenuView = new TeamPaceMenuView();
-        teamPaceMenuView.displayTeamPaceMenuView();
+        teamPaceMenuView.display();
     }
 
     private void generalStore() {
         GeneralStoreView generalStoreView = new GeneralStoreView();
-        generalStoreView.displayGeneralStoreView();
+        generalStoreView.display();
     }
 }

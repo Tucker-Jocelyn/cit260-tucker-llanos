@@ -6,8 +6,23 @@ import java.util.Scanner;
  *
  * @author Jocelyn Tucker
  */
-public class GeneralStoreView {
+public class GeneralStoreView extends View {
 
+    public GeneralStoreView() {
+        super("\nWelcome to the General Store. These are the items we carry and their prices:"
+                + "\nOxen: $20 each"
+                + "\nWagons: Small $60, Medium $70, Large $80"
+                + "\nFood: $0.20/lb"
+                + "\nSpare Wagon Wheels: $10 each"
+                + "\nAmmunition: $2/box\n\n"
+                + "\nV - View Current Supplies"
+                + "\nB - Buy"
+                + "\nS - Sell"
+                + "\nE - Exit the General Store (Back to the Main Menu)");
+    }
+
+
+    /*
     void displayGeneralStoreView() {
         boolean endOfView = false;
         do {
@@ -23,12 +38,14 @@ public class GeneralStoreView {
         } while (endOfView != true);
 
     }
-
-    private String[] getInputs() {
+     */
+    @Override
+    public String[] getInput() {
         Scanner in = new Scanner(System.in);
 
         String[] inputs = new String[1];
 
+        /*
         System.out.println("\nWelcome to the General Store. These are the items we carry and their prices:"
                 + "\nOxen: $20 each"
                 + "\nWagons: Small $60, Medium $70, Large $80"
@@ -39,12 +56,12 @@ public class GeneralStoreView {
         System.out.println("\nV - View Current Supplies"
                 + "\nB - Buy"
                 + "\nS - Sell"
-                + "\nE - Exit the General Store");
-
+                + "\nE - Exit the General Store (Back to Main Menu)");
+         */
         boolean valid = false;
 
         while (valid == false) {
-
+            System.out.println("\n" + this.displayMessage);
             System.out.println("\nPlease Choose an Option:");
             String option = in.nextLine();
             option = option.trim();
@@ -62,7 +79,8 @@ public class GeneralStoreView {
 
     }
 
-    private boolean doAction(String[] inputs) {
+    @Override
+    public boolean doAction(String[] inputs) {
         char choice = Character.toUpperCase(inputs[0].charAt(0));
         switch (choice) {
             case 'V':
@@ -78,7 +96,7 @@ public class GeneralStoreView {
                 sellSupplies();
                 break;
             case 'E':
-                System.out.println("E - Exiting the General Store\n");
+                System.out.println("E - Exiting the General Store (Back to Main Menu)\n");
                 return true;
             default:
                 System.out.println("Only \"V, B, S, and E\" are Valid Options\n");
@@ -95,7 +113,7 @@ public class GeneralStoreView {
 
     private void buySupplies() {
         BuySuppliesView buySuppliesView = new BuySuppliesView();
-        buySuppliesView.displayBuySuppliesView();
+        buySuppliesView.display();
     }
 
     private void sellSupplies() {

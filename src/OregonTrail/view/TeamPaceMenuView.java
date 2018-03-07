@@ -12,7 +12,19 @@ import java.util.Scanner;
  *
  * @author Kim Tanton
  */
-public class TeamPaceMenuView {
+public class TeamPaceMenuView extends View {
+    
+    public TeamPaceMenuView() {
+      super("\nHere are Team Pace Menu Options:"
+                + "\nS - Slow Pace\n"
+                + "\nA - Average Pace\n"
+                + "\nF - Fast Pace\n"
+                + "\nE - Exit (Back to Main Menu)");  
+    }
+    
+    
+    
+    /*
     void displayTeamPaceMenuView() {
         System.out.println("*** displayTeamPaceMenuView() called ***");
         boolean endOfView = false;
@@ -62,8 +74,11 @@ public class TeamPaceMenuView {
         return inputs;
 
     }
+    
+    */
 
-    private boolean doAction(String[] inputs) {
+    @Override
+    public boolean doAction(String[] inputs) {
         char choice = Character.toUpperCase(inputs[0].charAt(0));
         
         //temporary setting of a Team within this View Menu - not for end-functionality
@@ -90,7 +105,7 @@ public class TeamPaceMenuView {
                 trekkies.setPace("Fast");
                 return true;
             case 'E':
-                System.out.println("E = Returning to the previous menu(Game Play)\n");
+                System.out.println("E = Exit (Back to Main Menu)\n");
                 return true;
             default:
                 System.out.println("Only \"S, A, F, and E\" are Valid Options\n");

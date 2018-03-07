@@ -6,10 +6,20 @@ import java.util.Scanner;
  *
  * @author Jocelyn
  */
-class HelpMenuView {
-
+public class HelpMenuView extends View{
+    public HelpMenuView () {
+      super ("\nHere are your Help Menu Options:"
+                + "\nG - Game Objective\n"
+                + "\nM - How to Move\n"
+                + "\nT - Tips\n"
+                + "\nE - Exit Help Menu (Back to Main Menu)");  
+    }
+     
+/*
     void displayHelpMenuView() {
-        //System.out.println("*** displayHelpMenuView() called ***");
+        
+        
+        System.out.println("*** displayHelpMenuView() called ***");
         boolean endOfView = false;
         do {
             String[] inputs = this.getInputs();
@@ -58,7 +68,10 @@ class HelpMenuView {
 
     }
 
-    private boolean doAction(String[] inputs) {
+*/
+
+    @Override
+    public boolean doAction(String[] inputs) {
         char choice = Character.toUpperCase(inputs[0].charAt(0));
         switch (choice) {
             case 'G':
@@ -74,7 +87,7 @@ class HelpMenuView {
                 getTips();
                 break;
             case 'E':
-                System.out.println("E = Returning to the previous menu\n");
+                System.out.println("E = Exit (Back to Main Menu)\n");
                 return true;
             default:
                 System.out.println("Only \"G, M, T, and E\" are Valid Options\n");

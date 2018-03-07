@@ -7,12 +7,11 @@ package OregonTrail.view;
 
 /**
  *
- * @author Jocelyn
+ * @author Kim & Jocelyn
  */
- class StartExistingGameView {
-
-    void displayStartExistingGameView() {
-        System.out.println("*** displayStartExistingGameView() called ***");
-    }
-    
+public interface ViewInterface {
+    public void display();
+    public String[] getInput();
+    public boolean doAction(String[] inputs);
+   
 }
