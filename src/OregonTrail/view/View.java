@@ -11,16 +11,17 @@ import java.util.Scanner;
  *
  * @author Kim & Jocelyn
  */
-public abstract class View implements ViewInterface{
+public abstract class View implements ViewInterface {
+
     protected String displayMessage;
-    
-    public View() {   
+
+    public View() {
     }
-        
+
     public View(String message) {
         this.displayMessage = message;
     }
-    
+
     @Override
     public void display() {
 
@@ -30,16 +31,16 @@ public abstract class View implements ViewInterface{
             String[] inputs = this.getInput();
             String value = inputs[0];
             if (value.toUpperCase().equals("Q")) //user wants to quit
+            {
                 return; //exit the view
-            
+            }
             //do the requestee action and display the next view
             endOfView = this.doAction(inputs);
-            
-        }   while (endOfView != true); // exit the view when endOFView == true
+
+        } while (endOfView != true); // exit the view when endOFView == true
 
     }
-            
-    
+
     @Override
     public String[] getInput() {
         Scanner in = new Scanner(System.in);
@@ -48,9 +49,8 @@ public abstract class View implements ViewInterface{
 
         while (valid == false) {
 
-              
             System.out.println("\n" + this.displayMessage);
-            
+
             String option = in.nextLine();
             option = option.trim();
 
@@ -58,13 +58,12 @@ public abstract class View implements ViewInterface{
                 System.out.println("You must enter a value, blanks are not accepted here.");
                 continue;
             }
-                     
-            inputs[0] = option;
-            valid = true;    
-        }
-        
-       return inputs;
-        
-        }
-    }
 
+            inputs[0] = option;
+            valid = true;
+        }
+
+        return inputs;
+
+    }
+}

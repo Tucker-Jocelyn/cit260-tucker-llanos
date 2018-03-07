@@ -16,17 +16,17 @@ import java.util.Scanner;
 public class MainMenuView extends View {
 
     public MainMenuView() {
-        super ("\nHere are your Game Play Options:"
-                    + "\nN - Start new game\n"
-                    + "\nR - Restart existing game\n"
-                    + "\nH - Get help on how to play the game\n"
-                    + "\nP - Set the Team Pace\n"
-                    + "\nG - General Store Menu\n"
-                    + "\nS - Save game\n"
-                    + "\nE - Exit the Game");
-        }
-    
-     //logic for lines 31-82 now in the super class   
+        super("\nHere are your Game Play Options:"
+                + "\nN - Start new game\n"
+                + "\nR - Restart existing game\n"
+                + "\nH - Get help on how to play the game\n"
+                + "\nP - Set the Team Pace\n"
+                + "\nG - General Store Menu\n"
+                + "\nS - Save game\n"
+                + "\nE - Exit the Game");
+    }
+
+    //logic for lines 31-82 now in the super class
     /*
     void displayMainMenuView() {
 
@@ -44,8 +44,8 @@ public class MainMenuView extends View {
         } while (endOfView != true);
 
     }
-         */
-        /*
+     */
+ /*
     private String[] getInputs() {
         Scanner in = new Scanner(System.in);
 
@@ -82,8 +82,7 @@ public class MainMenuView extends View {
         return inputs;
 
     }
-         */
-
+     */
     @Override
     public boolean doAction(String[] inputs) {
         char choice = Character.toUpperCase(inputs[0].charAt(0));

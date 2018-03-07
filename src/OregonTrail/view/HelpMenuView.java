@@ -6,19 +6,20 @@ import java.util.Scanner;
  *
  * @author Jocelyn
  */
-public class HelpMenuView extends View{
-    public HelpMenuView () {
-      super ("\nHere are your Help Menu Options:"
+public class HelpMenuView extends View {
+
+    public HelpMenuView() {
+        super("\nHere are your Help Menu Options:"
                 + "\nG - Game Objective\n"
                 + "\nM - How to Move\n"
                 + "\nT - Tips\n"
-                + "\nE - Exit Help Menu (Back to Main Menu)");  
+                + "\nE - Exit Help Menu (Back to Main Menu)");
     }
-     
-/*
+
+    /*
     void displayHelpMenuView() {
-        
-        
+
+
         System.out.println("*** displayHelpMenuView() called ***");
         boolean endOfView = false;
         do {
@@ -68,8 +69,7 @@ public class HelpMenuView extends View{
 
     }
 
-*/
-
+     */
     @Override
     public boolean doAction(String[] inputs) {
         char choice = Character.toUpperCase(inputs[0].charAt(0));
@@ -97,17 +97,17 @@ public class HelpMenuView extends View{
     }
 
     private void gameObjective() {
-        ViewGameObjective viewGameObjective=new ViewGameObjective();
+        ViewGameObjective viewGameObjective = new ViewGameObjective();
         ViewGameObjective.displayViewGameObjective();
     }
 
     private void howToMove() {
-        ViewMoveOptions viewMoveOptions=new ViewMoveOptions();
+        ViewMoveOptions viewMoveOptions = new ViewMoveOptions();
         ViewMoveOptions.displayViewMoveOptions();
     }
 
     private void getTips() {
-        ViewGameTips viewGameTips=new ViewGameTips();
+        ViewGameTips viewGameTips = new ViewGameTips();
         ViewGameTips.displayViewGameTips();
     }
 

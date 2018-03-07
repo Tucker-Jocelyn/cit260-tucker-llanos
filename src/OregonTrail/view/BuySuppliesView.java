@@ -10,8 +10,9 @@ import java.util.Scanner;
  * @author Jocelyn Tucker
  */
 public class BuySuppliesView extends View {
-    public BuySuppliesView () {
-     super ("\nO - Oxen: $20 each"
+
+    public BuySuppliesView() {
+        super("\nO - Oxen: $20 each"
                 + "\n\tEach ox can pull 550 lbs. We suggest you purchase 6\n"
                 + "\nS - Small Wagon: $60"
                 + "\n\tA small wagon weighs 1250 lbs and can carry 1800 lbs of supplies\n"
@@ -42,8 +43,7 @@ public class BuySuppliesView extends View {
 
         } while (endOfView != true);
     }
-*/
-    
+     */
     @Override
     public String[] getInput() {
         Scanner in = new Scanner(System.in);
@@ -65,7 +65,7 @@ public class BuySuppliesView extends View {
                 + "\nA - Ammunition: $2/box"
                 + "\n\tEach box contains 20 bullets\n"
                 + "\nE - Exit (Back to General Store)");
-*/
+         */
         boolean valid = false;
 
         while (valid == false) {
@@ -106,7 +106,6 @@ public class BuySuppliesView extends View {
 
     }
 
-    
     @Override
     public boolean doAction(String[] inputs) {
         char choice = Character.toUpperCase(inputs[0].charAt(0));

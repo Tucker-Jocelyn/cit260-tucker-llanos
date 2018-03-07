@@ -13,17 +13,15 @@ import java.util.Scanner;
  * @author Kim Tanton
  */
 public class TeamPaceMenuView extends View {
-    
+
     public TeamPaceMenuView() {
-      super("\nHere are Team Pace Menu Options:"
+        super("\nHere are Team Pace Menu Options:"
                 + "\nS - Slow Pace\n"
                 + "\nA - Average Pace\n"
                 + "\nF - Fast Pace\n"
-                + "\nE - Exit (Back to Main Menu)");  
+                + "\nE - Exit (Back to Main Menu)");
     }
-    
-    
-    
+
     /*
     void displayTeamPaceMenuView() {
         System.out.println("*** displayTeamPaceMenuView() called ***");
@@ -74,33 +72,32 @@ public class TeamPaceMenuView extends View {
         return inputs;
 
     }
-    
-    */
 
+     */
     @Override
     public boolean doAction(String[] inputs) {
         char choice = Character.toUpperCase(inputs[0].charAt(0));
-        
+
         //temporary setting of a Team within this View Menu - not for end-functionality
         Team trekkies = new Team();
-        
+
         switch (choice) {
             case 'S':
                 System.out.println("S - Setting Team Pace to Slow\n");
-                
+
                 //need help with connecting the setPace function to the Team Pace Menu View
-               trekkies.setPace("Slow");
-               
+                trekkies.setPace("Slow");
+
                 return true;
             case 'A':
                 System.out.println("A - Setting Team Pace to Average\n");
-                
+
                 //need help with connecting the setPace function to the Team Pace Menu View
                 trekkies.setPace("Average");
                 return true;
             case 'F':
                 System.out.println("F - Setting Team Pace to Fast\n");
-                
+
                 //need help with connecting the setPace function to the Team Pace Menu View
                 trekkies.setPace("Fast");
                 return true;
@@ -112,8 +109,7 @@ public class TeamPaceMenuView extends View {
                 break;
         }
         return false;
-        
-        
+
     }
 
     /*private void setSlowPace() {
@@ -121,14 +117,13 @@ public class TeamPaceMenuView extends View {
     }
 
     private void setAveragePace() {
-    
+
     }
 
     private void setFastPace() {
-       
+
     }
 
 
-*/
+     */
 }
-
