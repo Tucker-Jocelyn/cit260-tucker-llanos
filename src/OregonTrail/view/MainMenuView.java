@@ -16,12 +16,13 @@ import java.util.Scanner;
 public class MainMenuView extends View {
 
     public MainMenuView() {
-        super("\nHere are your Game Play Options:"
+        super("\nHere are your Main Menu Options:"
                 + "\nN - Start new game\n"
                 + "\nR - Restart existing game\n"
                 + "\nH - Get help on how to play the game\n"
                 + "\nP - Set the Team Pace\n"
                 + "\nG - General Store Menu\n"
+                + "\nT - Daily Trail Stop Menu\n"
                 + "\nS - Save game\n"
                 + "\nE - Exit the Game");
     }
@@ -107,6 +108,10 @@ public class MainMenuView extends View {
                 System.out.println("G - General Store Menu\n");
                 generalStore();
                 break;
+             case 'T':
+                System.out.println("T - Daily Trail Menu\n");
+                dailyTrailStop();
+                break;
             case 'S':
                 System.out.println("S = Saving the Game\n");
                 saveGame();
@@ -115,7 +120,7 @@ public class MainMenuView extends View {
                 System.out.println("E = Exiting the Game\n");
                 return true;
             default:
-                System.out.println("Only \"N, R, H, P, G, S, and E\" are Valid Options\n");
+                System.out.println("Only \"N, R, H, P, G, T, S, and E\" are Valid Options\n");
                 break;
         }
         return false;
@@ -149,5 +154,10 @@ public class MainMenuView extends View {
     private void generalStore() {
         GeneralStoreView generalStoreView = new GeneralStoreView();
         generalStoreView.display();
+    }
+
+    private void dailyTrailStop() {
+        DailyTrailStopSceneMenuView view = new DailyTrailStopSceneMenuView();
+        view.display();
     }
 }
