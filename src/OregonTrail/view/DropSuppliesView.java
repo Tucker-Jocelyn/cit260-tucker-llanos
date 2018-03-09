@@ -3,16 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package OregonTrail.control;
+package OregonTrail.view;
 
 /**
  *
  * @author Jocelyn Tucker
  */
-public class MapControl {
+class DropSuppliesView {
 
-    public static void moveTeam() {
-        System.out.println("*** moveTeam() called ***");
+    void displayDropSuppliesView() {
+        System.out.println("*** displayDropSuppliesView() called ***");
     }
     
 }

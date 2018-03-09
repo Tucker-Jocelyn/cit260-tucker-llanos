@@ -22,8 +22,10 @@ public class MainMenuView extends View {
                 + "\nH - Get help on how to play the game\n"
                 + "\nP - Set the Team Pace\n"
                 + "\nG - General Store Menu\n"
+                + "\nC - River Crossing Menu\n"
                 + "\nS - Save game\n"
-                + "\nE - Exit the Game");
+                + "\nE - Exit the Game\n"
+                + "\nPlease Choose an Option:");
     }
 
     //logic for lines 31-82 now in the super class
@@ -107,12 +109,16 @@ public class MainMenuView extends View {
                 System.out.println("G - General Store Menu\n");
                 generalStore();
                 break;
+            case 'C':
+                System.out.println("C - River Crossing Menu\n");
+                riverCrossing();
+                break;
             case 'S':
-                System.out.println("S = Saving the Game\n");
+                System.out.println("S - Saving the Game\n");
                 saveGame();
                 return true;
             case 'E':
-                System.out.println("E = Exiting the Game\n");
+                System.out.println("E - Exiting the Game\n");
                 return true;
             default:
                 System.out.println("Only \"N, R, H, P, G, S, and E\" are Valid Options\n");
@@ -149,5 +155,10 @@ public class MainMenuView extends View {
     private void generalStore() {
         GeneralStoreView generalStoreView = new GeneralStoreView();
         generalStoreView.display();
+    }
+
+    private void riverCrossing() {
+        RiverCrossingView riverCrossingView = new RiverCrossingView();
+        riverCrossingView.display();
     }
 }

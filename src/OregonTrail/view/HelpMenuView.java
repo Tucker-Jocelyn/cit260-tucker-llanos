@@ -13,7 +13,8 @@ public class HelpMenuView extends View {
                 + "\nG - Game Objective\n"
                 + "\nM - How to Move\n"
                 + "\nT - Tips\n"
-                + "\nE - Exit Help Menu (Back to Main Menu)");
+                + "\nE - Exit Help Menu (Back to Main Menu)\n"
+                + "\nPlease Choose an Option:");
     }
 
     /*

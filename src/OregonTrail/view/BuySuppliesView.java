@@ -28,44 +28,12 @@ public class BuySuppliesView extends View {
                 + "\nE - Exit (Back to General Store)");
     }
 
-    /*
-    void displayBuySuppliesView() {
-        boolean endOfView = false;
-        do {
-            String[] inputs = this.getInputs();
-
-            //check input length
-            if (inputs.length < 1) {
-                return;
-            }
-
-            endOfView = doAction(inputs);
-
-        } while (endOfView != true);
-    }
-     */
     @Override
     public String[] getInput() {
         Scanner in = new Scanner(System.in);
 
         String[] inputs = new String[2];
 
-        /*
-        System.out.println("\nO - Oxen: $20 each"
-                + "\n\tEach ox can pull 550 lbs. We suggest you purchase 6\n"
-                + "\nS - Small Wagon: $60"
-                + "\n\tA small wagon weighs 1250 lbs and can carry 1800 lbs of supplies\n"
-                + "\nM - Medium Wagon: $70"
-                + "\n\tA medium wagon weighs 1300 lbs and can carry 2000 lbs of supplies\n"
-                + "\nL - Large Wagon: $80"
-                + "\n\tA large wagon weighs 1350 lbs and can carry 2200 lbs of supplies\n"
-                + "\nF - Food: $0.20/lb"
-                + "\n\tWe suggest you purchase 5 lbs of food per person per day\n"
-                + "\nW - Spare Wagon Wheels: $10 each\n"
-                + "\nA - Ammunition: $2/box"
-                + "\n\tEach box contains 20 bullets\n"
-                + "\nE - Exit (Back to General Store)");
-         */
         boolean valid = false;
 
         while (valid == false) {

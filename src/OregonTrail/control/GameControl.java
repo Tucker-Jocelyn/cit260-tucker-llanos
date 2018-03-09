@@ -29,4 +29,8 @@ public class GameControl {
         System.out.println("Welcome! You Have Started a New Game.");
     }
 
+    public static void determineWin() {
+        System.out.println("*** determineWin() called ***");
+    }
+
 }

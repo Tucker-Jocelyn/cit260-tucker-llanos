@@ -18,65 +18,8 @@ public class GeneralStoreView extends View {
                 + "\nV - View Current Supplies"
                 + "\nB - Buy"
                 + "\nS - Sell"
-                + "\nE - Exit the General Store (Back to the Main Menu)");
-    }
-
-
-    /*
-    void displayGeneralStoreView() {
-        boolean endOfView = false;
-        do {
-            String[] inputs = this.getInputs();
-
-            //check input length
-            if (inputs.length < 1) {
-                return;
-            }
-
-            endOfView = doAction(inputs);
-
-        } while (endOfView != true);
-
-    }
-     */
-    @Override
-    public String[] getInput() {
-        Scanner in = new Scanner(System.in);
-
-        String[] inputs = new String[1];
-
-        /*
-        System.out.println("\nWelcome to the General Store. These are the items we carry and their prices:"
-                + "\nOxen: $20 each"
-                + "\nWagons: Small $60, Medium $70, Large $80"
-                + "\nFood: $0.20/lb"
-                + "\nSpare Wagon Wheels: $10 each"
-                + "\nAmmunition: $2/box\n");
-
-        System.out.println("\nV - View Current Supplies"
-                + "\nB - Buy"
-                + "\nS - Sell"
-                + "\nE - Exit the General Store (Back to Main Menu)");
-         */
-        boolean valid = false;
-
-        while (valid == false) {
-            System.out.println("\n" + this.displayMessage);
-            System.out.println("\nPlease Choose an Option:");
-            String option = in.nextLine();
-            option = option.trim();
-
-            if (option.length() < 1) {
-                System.out.println("You must enter a value, blanks are not accepted here.");
-                continue;
-            }
-
-            inputs[0] = option;
-            valid = true;
-        }
-
-        return inputs;
-
+                + "\nE - Exit the General Store (Back to the Main Menu)\n"
+                + "\nPlease Choose an Option:");
     }
 
     @Override
