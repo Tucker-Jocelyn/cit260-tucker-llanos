@@ -13,16 +13,17 @@ import java.util.ArrayList;
  *
  * @author kimllanos
  */
-public class Location implements Serializable{
+public class Location implements Serializable {
+
     private String name;
     private String description;
     private String scene;
     private ArrayList<Weather> weather = new ArrayList<>();
+    private Map map;
+    public LocationType type;
 
     public Location() {
     }
-    
-    
 
     public String getName() {
         return name;
@@ -56,22 +57,39 @@ public class Location implements Serializable{
         this.weather = weather;
     }
 
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+
+    public LocationType getType() {
+        return type;
+    }
+
+    public void setType(LocationType type) {
+        this.type = type;
+    }
+
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 79 * hash + Objects.hashCode(this.name);
-        hash = 79 * hash + Objects.hashCode(this.description);
-        hash = 79 * hash + Objects.hashCode(this.scene);
+        hash = 73 * hash + Objects.hashCode(this.name);
+        hash = 73 * hash + Objects.hashCode(this.description);
+        hash = 73 * hash + Objects.hashCode(this.scene);
+        hash = 73 * hash + Objects.hashCode(this.weather);
+        hash = 73 * hash + Objects.hashCode(this.map);
+        hash = 73 * hash + Objects.hashCode(this.type);
         return hash;
     }
 
     @Override
     public String toString() {
-        return "Location{" + "name=" + name + ", description=" + description + ", scene=" + scene + '}';
+        return "Location{" + "name=" + name + ", description=" + description + ", scene=" + scene + ", weather=" + weather + ", map=" + map + ", type=" + type + '}';
     }
 
-    
-    
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -93,9 +111,16 @@ public class Location implements Serializable{
         if (!Objects.equals(this.scene, other.scene)) {
             return false;
         }
+        if (!Objects.equals(this.weather, other.weather)) {
+            return false;
+        }
+        if (!Objects.equals(this.map, other.map)) {
+            return false;
+        }
+        if (this.type != other.type) {
+            return false;
+        }
         return true;
     }
-    
-    
-    
+
 }

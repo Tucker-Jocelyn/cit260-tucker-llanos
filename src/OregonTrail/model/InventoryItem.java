@@ -15,9 +15,9 @@ public enum InventoryItem {
     SMALL_WAGON(1, "Small Wagon", 1250, "A small wagon weighs 1250 lbs and can carry 1800 lbs of supplies.", 60),
     MEDIUM_WAGON(2, "Medium Wagon", 1300, "A medium wagon weighs 1300 lbs and can carry 2000 lbs of supplies.", 70),
     LARGE_WAGON(3, "Large Wagon", 1350, "A large wagon weighs 1350 lbs and can carry 2200 lbs of supplies.", 80),
-    FOOD(5, "Food", 1, "5 pounds of food per person per day is suggested.", 0.20),
-    WHEEL(6, "Spare Wagon Wheel", 10, "Spare wheel for the wagon.", 10),
-    AMMO(7, "Bullets", 1, "Each box contains 20 bullets. Amount is the number of total bullets", 2);
+    FOOD(4, "Food", 1, "5 pounds of food per person per day is suggested.", 0.20),
+    WHEEL(5, "Spare Wagon Wheel", 10, "Spare wheel for the wagon.", 10),
+    AMMO(6, "Bullets", 1, "Each box contains 20 bullets. Amount is the number of total bullets", 2);
 
     //class instance variables
     public int index;

@@ -13,18 +13,30 @@ import java.util.ArrayList;
  *
  * @author kimllanos
  */
-public class Character implements Serializable{
+public class Character implements Serializable {
+
     private String characterName;
     private int stamina;
     private int characterHuntingSkill;
     private int characterGatheringSkill;
-    private int availability;
+    private boolean availability;
     private double characterHealth;
     private double money;
     private double characterFood;
     private ArrayList<Character> characters = new ArrayList<>();
 
     public Character() {
+    }
+
+    public Character(String characterName, int stamina, int characterHuntingSkill, int characterGatheringSkill, boolean availability, double characterHealth, double money, double characterFood) {
+        this.characterName = characterName;
+        this.stamina = stamina;
+        this.characterHuntingSkill = characterHuntingSkill;
+        this.characterGatheringSkill = characterGatheringSkill;
+        this.availability = availability;
+        this.characterHealth = characterHealth;
+        this.money = money;
+        this.characterFood = characterFood;
     }
 
     public String getCharacterName() {
@@ -59,11 +71,11 @@ public class Character implements Serializable{
         this.characterGatheringSkill = characterGatheringSkill;
     }
 
-    public int getAvailability() {
+    public boolean isAvailability() {
         return availability;
     }
 
-    public void setAvailability(int availability) {
+    public void setAvailability(boolean availability) {
         this.availability = availability;
     }
 
@@ -101,16 +113,16 @@ public class Character implements Serializable{
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 79 * hash + Objects.hashCode(this.characterName);
-        hash = 79 * hash + this.stamina;
-        hash = 79 * hash + this.characterHuntingSkill;
-        hash = 79 * hash + this.characterGatheringSkill;
-        hash = 79 * hash + this.availability;
-        hash = 79 * hash + (int) (Double.doubleToLongBits(this.characterHealth) ^ (Double.doubleToLongBits(this.characterHealth) >>> 32));
-        hash = 79 * hash + (int) (Double.doubleToLongBits(this.money) ^ (Double.doubleToLongBits(this.money) >>> 32));
-        hash = 79 * hash + (int) (Double.doubleToLongBits(this.characterFood) ^ (Double.doubleToLongBits(this.characterFood) >>> 32));
-        hash = 79 * hash + Objects.hashCode(this.characters);
+        int hash = 3;
+        hash = 37 * hash + Objects.hashCode(this.characterName);
+        hash = 37 * hash + this.stamina;
+        hash = 37 * hash + this.characterHuntingSkill;
+        hash = 37 * hash + this.characterGatheringSkill;
+        hash = 37 * hash + (this.availability ? 1 : 0);
+        hash = 37 * hash + (int) (Double.doubleToLongBits(this.characterHealth) ^ (Double.doubleToLongBits(this.characterHealth) >>> 32));
+        hash = 37 * hash + (int) (Double.doubleToLongBits(this.money) ^ (Double.doubleToLongBits(this.money) >>> 32));
+        hash = 37 * hash + (int) (Double.doubleToLongBits(this.characterFood) ^ (Double.doubleToLongBits(this.characterFood) >>> 32));
+        hash = 37 * hash + Objects.hashCode(this.characters);
         return hash;
     }
 
@@ -119,8 +131,6 @@ public class Character implements Serializable{
         return "Character{" + "characterName=" + characterName + ", stamina=" + stamina + ", characterHuntingSkill=" + characterHuntingSkill + ", characterGatheringSkill=" + characterGatheringSkill + ", availability=" + availability + ", characterHealth=" + characterHealth + ", money=" + money + ", characterFood=" + characterFood + ", characters=" + characters + '}';
     }
 
-    
-    
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -162,6 +172,6 @@ public class Character implements Serializable{
         }
         return true;
     }
-    
-    
+
+
 }

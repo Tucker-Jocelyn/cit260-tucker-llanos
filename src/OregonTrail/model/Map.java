@@ -6,23 +6,22 @@
 package OregonTrail.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
-
 
 /**
  *
  * @author kimllanos
  */
 public class Map implements Serializable {
-    
+
     private String currentLocation;
     private double milePost;
     private Game game;
+    private ArrayList<Location> locations = new ArrayList<>();
 
     public Map() {
     }
-    
-    
 
     public String getCurrentLocation() {
         return currentLocation;
@@ -30,7 +29,7 @@ public class Map implements Serializable {
 
     public void setCurrentLocation(String currentLocation) {
         this.currentLocation = currentLocation;
-        
+
     }
 
     public double getMilePost() {
@@ -40,7 +39,7 @@ public class Map implements Serializable {
     public void setMilePost(double milePost) {
         this.milePost = milePost;
     }
-    
+
     public Game getGame() {
         return game;
     }
@@ -49,17 +48,27 @@ public class Map implements Serializable {
         this.game = game;
     }
 
+    public ArrayList<Location> getLocations() {
+        return locations;
+    }
+
+    public void setLocations(ArrayList<Location> locations) {
+        this.locations = locations;
+    }
+
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 19 * hash + Objects.hashCode(this.currentLocation);
-        hash = 19 * hash + (int) (Double.doubleToLongBits(this.milePost) ^ (Double.doubleToLongBits(this.milePost) >>> 32));
+        hash = 53 * hash + Objects.hashCode(this.currentLocation);
+        hash = 53 * hash + (int) (Double.doubleToLongBits(this.milePost) ^ (Double.doubleToLongBits(this.milePost) >>> 32));
+        hash = 53 * hash + Objects.hashCode(this.game);
+        hash = 53 * hash + Objects.hashCode(this.locations);
         return hash;
     }
 
     @Override
     public String toString() {
-        return "Map{" + "currentLocation=" + currentLocation + ", milePost=" + milePost + '}';
+        return "Map{" + "currentLocation=" + currentLocation + ", milePost=" + milePost + ", game=" + game + ", locations=" + locations + '}';
     }
 
     @Override
@@ -80,8 +89,13 @@ public class Map implements Serializable {
         if (!Objects.equals(this.currentLocation, other.currentLocation)) {
             return false;
         }
+        if (!Objects.equals(this.game, other.game)) {
+            return false;
+        }
+        if (!Objects.equals(this.locations, other.locations)) {
+            return false;
+        }
         return true;
     }
-    
 
 }
