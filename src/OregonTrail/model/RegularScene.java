@@ -14,7 +14,8 @@ import java.util.Objects;
  */
 public class RegularScene extends Scene implements Serializable {
 
-    private Places placeName;
+    public Places placeName;
+    private String mapSymbol;
 
     public RegularScene(int sceneType, String name, String description) {
         setSceneType(sceneType);
@@ -30,16 +31,25 @@ public class RegularScene extends Scene implements Serializable {
         this.placeName = placeName;
     }
 
+    public String getMapSymbol() {
+        return mapSymbol;
+    }
+
+    public void setMapSymbol(String mapSymbol) {
+        this.mapSymbol = mapSymbol;
+    }
+
     @Override
     public int hashCode() {
         int hash = 7;
         hash = 79 * hash + Objects.hashCode(this.placeName);
+        hash = 79 * hash + Objects.hashCode(this.mapSymbol);
         return hash;
     }
 
     @Override
     public String toString() {
-        return "RegularScene{" + "placeName=" + placeName + '}';
+        return "RegularScene{" + "placeName=" + placeName + ", mapSymbol=" + mapSymbol + '}';
     }
 
     @Override
@@ -54,7 +64,10 @@ public class RegularScene extends Scene implements Serializable {
             return false;
         }
         final RegularScene other = (RegularScene) obj;
-        if (!Objects.equals(this.placeName, other.placeName)) {
+        if (!Objects.equals(this.mapSymbol, other.mapSymbol)) {
+            return false;
+        }
+        if (this.placeName != other.placeName) {
             return false;
         }
         return true;

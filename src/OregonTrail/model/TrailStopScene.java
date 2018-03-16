@@ -22,6 +22,7 @@ public class TrailStopScene extends Scene implements Serializable {
     private String nearbyFortName;
     private int hasAnimal;
     private int hasPlant;
+    private String mapSymbol;
 
     public TrailStopScene() {
     }
@@ -74,21 +75,30 @@ public class TrailStopScene extends Scene implements Serializable {
         this.hasPlant = hasPlant;
     }
 
+    public String getMapSymbol() {
+        return mapSymbol;
+    }
+
+    public void setMapSymbol(String mapSymbol) {
+        this.mapSymbol = mapSymbol;
+    }
+
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 47 * hash + Objects.hashCode(this.hasNearbyTown);
-        hash = 47 * hash + Objects.hashCode(this.nearbyTownName);
-        hash = 47 * hash + Objects.hashCode(this.hasNearbyFort);
-        hash = 47 * hash + Objects.hashCode(this.nearbyFortName);
-        hash = 47 * hash + this.hasAnimal;
-        hash = 47 * hash + this.hasPlant;
+        hash = 71 * hash + Objects.hashCode(this.hasNearbyTown);
+        hash = 71 * hash + Objects.hashCode(this.nearbyTownName);
+        hash = 71 * hash + Objects.hashCode(this.hasNearbyFort);
+        hash = 71 * hash + Objects.hashCode(this.nearbyFortName);
+        hash = 71 * hash + this.hasAnimal;
+        hash = 71 * hash + this.hasPlant;
+        hash = 71 * hash + Objects.hashCode(this.mapSymbol);
         return hash;
     }
 
     @Override
     public String toString() {
-        return "TrailStopScene{" + "hasNearbyTown=" + hasNearbyTown + ", nearbyTownName=" + nearbyTownName + ", hasNearbyFort=" + hasNearbyFort + ", nearbyFortName=" + nearbyFortName + ", hasAnimal=" + hasAnimal + ", hasPlant=" + hasPlant + '}';
+        return "TrailStopScene{" + "hasNearbyTown=" + hasNearbyTown + ", nearbyTownName=" + nearbyTownName + ", hasNearbyFort=" + hasNearbyFort + ", nearbyFortName=" + nearbyFortName + ", hasAnimal=" + hasAnimal + ", hasPlant=" + hasPlant + ", mapSymbol=" + mapSymbol + '}';
     }
 
     @Override
@@ -119,6 +129,9 @@ public class TrailStopScene extends Scene implements Serializable {
             return false;
         }
         if (!Objects.equals(this.nearbyFortName, other.nearbyFortName)) {
+            return false;
+        }
+        if (!Objects.equals(this.mapSymbol, other.mapSymbol)) {
             return false;
         }
         return true;

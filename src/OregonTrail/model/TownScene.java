@@ -14,7 +14,8 @@ import java.util.Objects;
  */
 public class TownScene extends Scene implements Serializable {
 
-    private Places placeName;
+    public Places placeName;
+    private String mapSymbol;
 
     public TownScene(int sceneType, String name, String description) {
         setSceneType(sceneType);
@@ -30,16 +31,25 @@ public class TownScene extends Scene implements Serializable {
         this.placeName = placeName;
     }
 
+    public String getMapSymbol() {
+        return mapSymbol;
+    }
+
+    public void setMapSymbol(String mapSymbol) {
+        this.mapSymbol = mapSymbol;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 79 * hash + Objects.hashCode(this.placeName);
+        int hash = 7;
+        hash = 47 * hash + Objects.hashCode(this.placeName);
+        hash = 47 * hash + Objects.hashCode(this.mapSymbol);
         return hash;
     }
 
     @Override
     public String toString() {
-        return "TownScene{" + "placeName=" + placeName + '}';
+        return "TownScene{" + "placeName=" + placeName + ", mapSymbol=" + mapSymbol + '}';
     }
 
     @Override
@@ -54,7 +64,10 @@ public class TownScene extends Scene implements Serializable {
             return false;
         }
         final TownScene other = (TownScene) obj;
-        if (!Objects.equals(this.placeName, other.placeName)) {
+        if (!Objects.equals(this.mapSymbol, other.mapSymbol)) {
+            return false;
+        }
+        if (this.placeName != other.placeName) {
             return false;
         }
         return true;

@@ -17,10 +17,10 @@ public class Location implements Serializable {
 
     private String name;
     private String description;
-    private String scene;
-    private ArrayList<Weather> weather = new ArrayList<>();
-    private Map map;
     public LocationType type;
+    private boolean currentLocation;
+    private ArrayList<Weather> weather = new ArrayList<>();
+    private Scene scene;
 
     public Location() {
     }
@@ -41,28 +41,12 @@ public class Location implements Serializable {
         this.description = description;
     }
 
-    public String getScene() {
-        return scene;
-    }
-
-    public void setScene(String scene) {
-        this.scene = scene;
-    }
-
     public ArrayList<Weather> getWeather() {
         return weather;
     }
 
     public void setWeather(ArrayList<Weather> weather) {
         this.weather = weather;
-    }
-
-    public Map getMap() {
-        return map;
-    }
-
-    public void setMap(Map map) {
-        this.map = map;
     }
 
     public LocationType getType() {
@@ -73,21 +57,37 @@ public class Location implements Serializable {
         this.type = type;
     }
 
+    public Scene getScene() {
+        return scene;
+    }
+
+    public void setScene(Scene scene) {
+        this.scene = scene;
+    }
+
+    public boolean isCurrentLocation() {
+        return currentLocation;
+    }
+
+    public void setCurrentLocation(boolean currentLocation) {
+        this.currentLocation = currentLocation;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 73 * hash + Objects.hashCode(this.name);
-        hash = 73 * hash + Objects.hashCode(this.description);
-        hash = 73 * hash + Objects.hashCode(this.scene);
-        hash = 73 * hash + Objects.hashCode(this.weather);
-        hash = 73 * hash + Objects.hashCode(this.map);
-        hash = 73 * hash + Objects.hashCode(this.type);
+        int hash = 3;
+        hash = 29 * hash + Objects.hashCode(this.name);
+        hash = 29 * hash + Objects.hashCode(this.description);
+        hash = 29 * hash + Objects.hashCode(this.type);
+        hash = 29 * hash + (this.currentLocation ? 1 : 0);
+        hash = 29 * hash + Objects.hashCode(this.weather);
+        hash = 29 * hash + Objects.hashCode(this.scene);
         return hash;
     }
 
     @Override
     public String toString() {
-        return "Location{" + "name=" + name + ", description=" + description + ", scene=" + scene + ", weather=" + weather + ", map=" + map + ", type=" + type + '}';
+        return "Location{" + "name=" + name + ", description=" + description + ", type=" + type + ", currentLocation=" + currentLocation + ", weather=" + weather + ", scene=" + scene + '}';
     }
 
     @Override
@@ -102,22 +102,22 @@ public class Location implements Serializable {
             return false;
         }
         final Location other = (Location) obj;
+        if (this.currentLocation != other.currentLocation) {
+            return false;
+        }
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }
         if (!Objects.equals(this.description, other.description)) {
             return false;
         }
-        if (!Objects.equals(this.scene, other.scene)) {
+        if (this.type != other.type) {
             return false;
         }
         if (!Objects.equals(this.weather, other.weather)) {
             return false;
         }
-        if (!Objects.equals(this.map, other.map)) {
-            return false;
-        }
-        if (this.type != other.type) {
+        if (!Objects.equals(this.scene, other.scene)) {
             return false;
         }
         return true;

@@ -22,10 +22,10 @@ public class Character implements Serializable {
     private double characterFood;
 
     public Character(CharacterDefinitions dfn) {
-        this.characterName = characterName;
+        this.characterName = dfn;
         this.availability = true;
         this.characterHealth = 100;
-        this.characterFood = dfn.stamina;
+        ***this.characterFood = dfn.stamina; //we need this to be changeable, but it needs to have a starting value that matches stamina
     }
 
     public CharacterDefinitions getCharacterName() {

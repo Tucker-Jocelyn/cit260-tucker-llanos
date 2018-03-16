@@ -7,6 +7,7 @@ package OregonTrail.control;
 
 import OregonTrail.OregonTrail;
 import OregonTrail.model.Character;
+import OregonTrail.model.CharacterDefinitions;
 import OregonTrail.model.Game;
 import OregonTrail.model.Inventory;
 import OregonTrail.model.Map;
@@ -39,12 +40,12 @@ public class GameControl {
         Game game = new Game();
         game.setPlayer(currentPlayer);
         OregonTrail.setCurrentGame(game);
-        ArrayList<Team> team = new ArrayList<>(); //create team object arrayList
-        //team = team.getTeamMembers(); //actors = createActors() populating the team with characters*************Connor
-        //game.setTeam(teamMembers);//Save the list of actors in the Game object***************Connor
-//Assign an actor to the player *************Connor
+        //CharacterDefinitions[] team = TeamControl.createTeam(); //**********Connor IS THIS RIGHT?  
+        Team team = TeamControl.createTeam();
+        game.setTeam(team);//Save the team in the Game object***************Connor
+//Assign an character to the player *************Connor
         Inventory inventory = InventoryControl.createInventory();
-//Save the list of items in the game ****************Connor
+        game.setInventory(inventory);
         int noOfLocations = 81;
         Map map = MapControl.createMap(noOfLocations);
         if (map == null) {
