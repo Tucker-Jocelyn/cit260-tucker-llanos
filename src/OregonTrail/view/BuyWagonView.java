@@ -5,28 +5,38 @@
  */
 package OregonTrail.view;
 
+import OregonTrail.OregonTrail;
+import OregonTrail.model.Wagon;
+
 /**
  *
- * @author kimta
+ * @author Jocelyn
  */
-public class GameMenuView extends View {
+public class BuyWagonView extends View {
 
-    public GameMenuView() {
-        super("E - Exit the Game");
+    BuyWagonView() {
+        super("buy a wagon");
     }
 
+    @Override
     public boolean doAction(String[] inputs) {
         char choice = Character.toUpperCase(inputs[0].charAt(0));
         switch (choice) {
-            
+            case 'B':
+                buyWagon();
+                return true;
             case 'E':
-                System.out.println("E - Exiting the Game Play Menu (Back to Main Menu)\n");
                 return true;
             default:
-                System.out.println("Only \"V, B, S, and E\" are Valid Options\n");
-                break;
+                System.out.println("Only \"B and E\" are Valid Options\n");
         }
-
         return false;
     }
+
+    private void buyWagon() {
+        Wagon wagon = new Wagon();
+        OregonTrail.getCurrentGame().getTeam().setWagon(wagon);
+
+    }
+
 }

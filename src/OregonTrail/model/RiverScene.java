@@ -16,7 +16,6 @@ public class RiverScene extends Scene implements Serializable {
 
     private double waterDepth;
     public Places placeName;
-    private String mapSymbol;
 
     public RiverScene(int sceneType, String name, String description, double waterDepth) {
         setSceneType(sceneType);
@@ -41,26 +40,17 @@ public class RiverScene extends Scene implements Serializable {
         this.placeName = placeName;
     }
 
-    public String getMapSymbol() {
-        return mapSymbol;
-    }
-
-    public void setMapSymbol(String mapSymbol) {
-        this.mapSymbol = mapSymbol;
-    }
-
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 67 * hash + (int) (Double.doubleToLongBits(this.waterDepth) ^ (Double.doubleToLongBits(this.waterDepth) >>> 32));
-        hash = 67 * hash + Objects.hashCode(this.placeName);
-        hash = 67 * hash + Objects.hashCode(this.mapSymbol);
+        int hash = 7;
+        hash = 37 * hash + (int) (Double.doubleToLongBits(this.waterDepth) ^ (Double.doubleToLongBits(this.waterDepth) >>> 32));
+        hash = 37 * hash + Objects.hashCode(this.placeName);
         return hash;
     }
 
     @Override
     public String toString() {
-        return "RiverScene{" + "waterDepth=" + waterDepth + ", placeName=" + placeName + ", mapSymbol=" + mapSymbol + '}';
+        return "RiverScene{" + "waterDepth=" + waterDepth + ", placeName=" + placeName + '}';
     }
 
     @Override
@@ -76,9 +66,6 @@ public class RiverScene extends Scene implements Serializable {
         }
         final RiverScene other = (RiverScene) obj;
         if (Double.doubleToLongBits(this.waterDepth) != Double.doubleToLongBits(other.waterDepth)) {
-            return false;
-        }
-        if (!Objects.equals(this.mapSymbol, other.mapSymbol)) {
             return false;
         }
         if (this.placeName != other.placeName) {

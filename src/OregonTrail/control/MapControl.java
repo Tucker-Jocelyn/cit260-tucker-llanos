@@ -34,7 +34,7 @@ public class MapControl {
         Location[] locations = createLocations(noOfLocations);
         map.setLocations(locations);
         Scene[] scenes = createScenes();
-//assignItemsToScenes() **************weather and animals/plants for our game?
+//assignItemsToScenes() **************weather and  for our game?
         assignScenesToLocations(map, scenes);
         return map;
     }
@@ -70,16 +70,14 @@ public class MapControl {
 
         Scene[] scenes = new Scene[7]; //scenes = Create an array Scene objects
 
-        scenes[SceneType.GENERAL_STORE_SCENE.ordinal()] = new GeneralStoreScene(SceneType.GENERAL_STORE_SCENE.ordinal(), "General Store", "Buy or sell supplies for your trek to the Salt Lake Valley", Inventory ?);
-// ***************still need to overload constructor to populate attributes
-
+        scenes[SceneType.GENERAL_STORE_SCENE.ordinal()] = new GeneralStoreScene(SceneType.GENERAL_STORE_SCENE.ordinal(), "General Store", "Buy or sell supplies for your trek to the Salt Lake Valley");
         scenes[SceneType.TOWN_SCENE.ordinal()] = new TownScene(SceneType.TOWN_SCENE.ordinal(), "Town", "Welcome to town! Feel free to visit the hotel or general store.");
         scenes[SceneType.REGULAR_SCENE.ordinal()] = new RegularScene(SceneType.REGULAR_SCENE.ordinal(), "Landmark", "We're sorry, there are no ammenities here.");
         scenes[SceneType.FORT_SCENE.ordinal()] = new FortScene(SceneType.FORT_SCENE.ordinal(), "Fort", "Welcome to the fort! Feel free to visit the general store.");
         scenes[SceneType.RIVER_SCENE.ordinal()] = new RiverScene(SceneType.RIVER_SCENE.ordinal(), "River", "You must decided if you want to cross the river or not.", RiverCrossingControl.getWaterDepth());
         scenes[SceneType.HOTEL_SCENE.ordinal()] = new HotelScene(SceneType.HOTEL_SCENE.ordinal(), "Hotel", "Welcome to the hotel! Feel free to add a member to your party if you have space available.");
-        scenes[SceneType.TRAIL_STOP_SCENE.ordinal()] = new TrailStopScene(SceneType.TRAIL_STOP_SCENE.ordinal(), "Trail", "What would you like to do along the trail today?", SceneControl.hasNearbyTown ?, nearbyTownName ?, hasNearbyFort ?, nearbyFortName ?, SceneControl.getAnimals(), SceneControl.getPlants());
-// ***************still need to overload constructor to populate attributes
+        scenes[SceneType.TRAIL_STOP_SCENE.ordinal()] = new TrailStopScene(SceneType.TRAIL_STOP_SCENE.ordinal(), "Trail", "What would you like to do along the trail today?", SceneControl.getAnimals(), SceneControl.getPlants());
+
         return scenes;
     }
 
@@ -105,8 +103,8 @@ public class MapControl {
                 location[i].setCurrentLocation(false);
             }
 //********************still need to assign actual names of places and mapSymbol
-            location[0].scene.setName(Places.SALT_LAKE_VALLEY.name());
-            location[0].
+            location[0].getScene().setName(Places.SALT_LAKE_VALLEY.name());
+            location[0].setMapSymbol(Places.SALT_LAKE_VALLEY.mapSymbol);
         }
     }
 

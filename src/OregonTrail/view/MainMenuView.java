@@ -23,7 +23,7 @@ public class MainMenuView extends View {
                 + "\nP - Set the Team Pace\n"
                 + "\nG - General Store Menu\n"
                 + "\nT - Daily Trail Stop Menu\n"
-                + "\nC - River Crossing Menu\n"
+                + "\nC - River Crossing Menu\n"          
                 + "\nS - Save game\n"
                 + "\nE - Exit the Game\n"
                 + "\nPlease Choose an Option:");
@@ -134,8 +134,13 @@ public class MainMenuView extends View {
 
     private void startNewGame() {
         GameControl.createNewGame(OregonTrail.getCurrentPlayer());
+        System.out.println(OregonTrail.getCurrentGame().getTeam().getWagon());
+        BuyWagonView buyWagonView = new BuyWagonView();
+        buyWagonView.display();
+        System.out.println(OregonTrail.getCurrentGame().getTeam().getWagon());
+        //****************insert buy oxen view here
         GameMenuView gameMenuView = new GameMenuView();
-        gameMenuView.displayGameMenuView();
+        gameMenuView.display();
     }
 
     private void restartGame() {

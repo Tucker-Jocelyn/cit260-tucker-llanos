@@ -18,7 +18,6 @@ public class Map implements Serializable {
 
     private String currentLocation;
     private double milePost;
-    private Game game;
     private Location[] locations = new Location[81];
 
     public Map() {
@@ -41,14 +40,6 @@ public class Map implements Serializable {
         this.milePost = milePost;
     }
 
-    public Game getGame() {
-        return game;
-    }
-
-    public void setGame(Game game) {
-        this.game = game;
-    }
-
     public Location[] getLocations() {
         return locations;
     }
@@ -59,17 +50,16 @@ public class Map implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 59 * hash + Objects.hashCode(this.currentLocation);
-        hash = 59 * hash + (int) (Double.doubleToLongBits(this.milePost) ^ (Double.doubleToLongBits(this.milePost) >>> 32));
-        hash = 59 * hash + Objects.hashCode(this.game);
-        hash = 59 * hash + Arrays.deepHashCode(this.locations);
+        int hash = 5;
+        hash = 89 * hash + Objects.hashCode(this.currentLocation);
+        hash = 89 * hash + (int) (Double.doubleToLongBits(this.milePost) ^ (Double.doubleToLongBits(this.milePost) >>> 32));
+        hash = 89 * hash + Arrays.deepHashCode(this.locations);
         return hash;
     }
 
     @Override
     public String toString() {
-        return "Map{" + "currentLocation=" + currentLocation + ", milePost=" + milePost + ", game=" + game + ", locations=" + locations + '}';
+        return "Map{" + "currentLocation=" + currentLocation + ", milePost=" + milePost + ", locations=" + locations + '}';
     }
 
     @Override
@@ -88,9 +78,6 @@ public class Map implements Serializable {
             return false;
         }
         if (!Objects.equals(this.currentLocation, other.currentLocation)) {
-            return false;
-        }
-        if (!Objects.equals(this.game, other.game)) {
             return false;
         }
         if (!Arrays.deepEquals(this.locations, other.locations)) {

@@ -50,7 +50,7 @@ public class TeamControlTest {
         double expResult = -999;
         
         //call the method
-        double result = TeamControl.calcTeamHuntingIncrease(teamHuntingSkillLevel, animalPlantWeight, hasAnimal);
+        double result = TeamControl.calcTeamHuntingIncrease(teamHuntingSkillLevel, hasAnimal);
         
         System.out.println("expected result = " + expResult);
         System.out.println("actual result = " + result);
@@ -76,7 +76,7 @@ public class TeamControlTest {
         double expResult = 15;
         
         //call the method
-        double result = TeamControl.calcTeamHuntingIncrease(teamHuntingSkillLevel, animalPlantWeight, hasAnimal);
+        double result = TeamControl.calcTeamHuntingIncrease(teamHuntingSkillLevel, hasAnimal);
         
         System.out.println("expected result = " + expResult);
         System.out.println("actual result = " + result);
@@ -102,7 +102,7 @@ public class TeamControlTest {
         double expResult = -999;
         
         //call the method
-        double result = TeamControl.calcTeamHuntingIncrease(teamHuntingSkillLevel, animalPlantWeight, hasAnimal);
+        double result = TeamControl.calcTeamHuntingIncrease(teamHuntingSkillLevel, hasAnimal);
         
         System.out.println("expected result = " + expResult);
         System.out.println("actual result = " + result);
@@ -129,7 +129,7 @@ public class TeamControlTest {
         double expResult = 45;
         
         //call the method
-        double result = TeamControl.calcTeamHuntingIncrease(teamHuntingSkillLevel, animalPlantWeight, hasAnimal);
+        double result = TeamControl.calcTeamHuntingIncrease(teamHuntingSkillLevel, hasAnimal);
         
         System.out.println("expected result = " + expResult);
         System.out.println("actual result = " + result);
@@ -155,7 +155,7 @@ public class TeamControlTest {
         double expResult = 15;
         
         //call the method
-        double result = TeamControl.calcTeamHuntingIncrease(teamHuntingSkillLevel, animalPlantWeight, hasAnimal);
+        double result = TeamControl.calcTeamHuntingIncrease(teamHuntingSkillLevel, hasAnimal);
         
         System.out.println("expected result = " + expResult);
         System.out.println("actual result = " + result);
@@ -181,7 +181,7 @@ public class TeamControlTest {
         double expResult = 37.5;
         
         //call the method
-        double result = TeamControl.calcTeamHuntingIncrease(teamHuntingSkillLevel, animalPlantWeight, hasAnimal);
+        double result = TeamControl.calcTeamHuntingIncrease(teamHuntingSkillLevel, hasAnimal);
         
         System.out.println("expected result = " + expResult);
         System.out.println("actual result = " + result);
@@ -208,7 +208,7 @@ public class TeamControlTest {
         double expResult = 30;
         
         //call the method
-        double result = TeamControl.calcTeamHuntingIncrease(teamHuntingSkillLevel, animalPlantWeight, hasAnimal);
+        double result = TeamControl.calcTeamHuntingIncrease(teamHuntingSkillLevel, hasAnimal);
         
         System.out.println("expected result = " + expResult);
         System.out.println("actual result = " + result);
@@ -233,7 +233,7 @@ public class TeamControlTest {
         double expResult = 3.75;
         
         //call the method
-        double result = TeamControl.calcTeamHuntingIncrease(teamHuntingSkillLevel, animalPlantWeight, hasAnimal);
+        double result = TeamControl.calcTeamHuntingIncrease(teamHuntingSkillLevel, hasAnimal);
         
         System.out.println("expected result = " + expResult);
         System.out.println("actual result = " + result);

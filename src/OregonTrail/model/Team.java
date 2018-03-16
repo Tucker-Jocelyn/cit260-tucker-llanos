@@ -7,8 +7,6 @@ package OregonTrail.model;
 
 import java.io.Serializable;
 import java.util.Objects;
-import java.util.ArrayList;
-import OregonTrail.model.CharacterDefinitions;
 import java.util.Arrays;
 
 /**
@@ -33,9 +31,10 @@ public class Team implements Serializable {
     private double teamAnimalWeight;
     private double teamPlantWeight;
     private int money;
+    private Wagon wagon; //***************************update hashcode etc
 
     //public CharacterDefinitions[] teamMembers = CharacterDefinitions.values();
-    private Character[] team = new Character[6];
+    private Character[] team = new Character[CharacterDefinitions.values().length];
     private Inventory inventory;
 
     public Team() {
@@ -183,6 +182,14 @@ public class Team implements Serializable {
 
     public void setInventory(Inventory inventory) {
         this.inventory = inventory;
+    }
+
+    public Wagon getWagon() {
+        return wagon;
+    }
+
+    public void setWagon(Wagon wagon) {
+        this.wagon = wagon;
     }
 
     @Override

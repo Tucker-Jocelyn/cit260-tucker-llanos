@@ -11,14 +11,15 @@ import java.io.Serializable;
  *
  * @author Jocelyn Tucker
  */
-public class InventoryWagon implements Serializable {
+public class Wagon implements Serializable {
 
     //class instance variables
     private double maxCarryWeight;
     private int length;
     private double wagonWeight;
+    //put inventory here
 
-    public InventoryWagon() {
+    public Wagon() {
     }
 
     public double getMaxCarryWeight() {
@@ -71,7 +72,7 @@ public class InventoryWagon implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final InventoryWagon other = (InventoryWagon) obj;
+        final Wagon other = (Wagon) obj;
         if (Double.doubleToLongBits(this.maxCarryWeight) != Double.doubleToLongBits(other.maxCarryWeight)) {
             return false;
         }

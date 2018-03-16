@@ -17,60 +17,6 @@ public class HelpMenuView extends View {
                 + "\nPlease Choose an Option:");
     }
 
-    /*
-    void displayHelpMenuView() {
-
-
-        System.out.println("*** displayHelpMenuView() called ***");
-        boolean endOfView = false;
-        do {
-            String[] inputs = this.getInputs();
-
-            //check input length
-            if (inputs.length < 1) {
-                return;
-            }
-
-            endOfView = doAction(inputs);
-
-        } while (endOfView != true);
-    }
-
-    private String[] getInputs() {
-        Scanner in = new Scanner(System.in);
-
-        String[] inputs = new String[1];
-
-        System.out.println("\nHere are your Help Menu Options:"
-                + "\nG - Game Objective\n"
-                + "\nM - How to Move\n"
-                + "\nT - Tips\n"
-                + "\nE - Exit Help Menu");
-
-        boolean valid = false;
-
-        while (valid == false) {
-
-            System.out.println("\nPlease Choose an Option");
-            String option = in.nextLine();
-
-            option = option.trim();
-
-            if (option.length() < 1) {
-                System.out.println("You must enter a value, blanks are not accepted here.");
-
-                continue;
-            }
-
-            inputs[0] = option;
-            valid = true;
-
-        }
-        return inputs;
-
-    }
-
-     */
     @Override
     public boolean doAction(String[] inputs) {
         char choice = Character.toUpperCase(inputs[0].charAt(0));

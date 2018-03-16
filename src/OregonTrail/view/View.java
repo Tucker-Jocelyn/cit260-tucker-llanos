@@ -27,7 +27,7 @@ public abstract class View implements ViewInterface {
 
         boolean endOfView = false;
         do {
-
+         System.out.println("\n" + this.displayMessage);
             String[] inputs = this.getInput();
             String value = inputs[0];
             if (value.toUpperCase().equals("Q")) //user wants to quit
@@ -49,7 +49,7 @@ public abstract class View implements ViewInterface {
 
         while (valid == false) {
 
-            System.out.println("\n" + this.displayMessage);
+   
 
             String option = in.nextLine();
             option = option.trim();

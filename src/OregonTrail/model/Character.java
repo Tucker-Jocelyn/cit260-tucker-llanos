@@ -25,7 +25,7 @@ public class Character implements Serializable {
         this.characterName = dfn;
         this.availability = true;
         this.characterHealth = 100;
-        ***this.characterFood = dfn.stamina; //we need this to be changeable, but it needs to have a starting value that matches stamina
+        this.characterFood = dfn.stamina;
     }
 
     public CharacterDefinitions getCharacterName() {

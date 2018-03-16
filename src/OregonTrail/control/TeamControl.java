@@ -5,6 +5,7 @@
  */
 package OregonTrail.control;
 
+import OregonTrail.model.AnimalsPlants;
 import OregonTrail.model.CharacterDefinitions;
 import OregonTrail.model.Team;
 import java.util.ArrayList;
@@ -20,11 +21,10 @@ public abstract class TeamControl {
      * Calculates how much of the hunted animals (in pounds) the team retains.
      *
      * @param teamHuntingSkillLevel
-     * @param animalPlantWeight - Always 15
      * @param hasAnimal
      * @return
      */
-    public static double calcTeamHuntingIncrease(int teamHuntingSkillLevel, int animalPlantWeight, int hasAnimal) {
+    public static double calcTeamHuntingIncrease(int teamHuntingSkillLevel, int hasAnimal) {
 
         //basic validity rules: NO hunting skills (level 0), NO animals
         if (teamHuntingSkillLevel < 0 || hasAnimal < 1) {
@@ -32,7 +32,7 @@ public abstract class TeamControl {
             return -999;
         }
 
-        double teamAnimalWeight = animalPlantWeight * hasAnimal;
+        double teamAnimalWeight = AnimalsPlants.ANIMAL.weight * hasAnimal;
 
         if (teamHuntingSkillLevel == 6 || teamHuntingSkillLevel == 5) {
             teamAnimalWeight *= 0.75;
@@ -57,7 +57,7 @@ public abstract class TeamControl {
         CharacterDefinitions[] charDef = CharacterDefinitions.values();
         Character[] teamMembers = new Character[6];
         for (CharacterDefinitions current: charDef){
-            teamMembers[current.CharacterDefinitions.ordinal()] = new Character(current);
+            teamMembers[current.ordinal()] = new Character(current);
         }
         Team team = new Team();
         team.setTeam(teamMembers);

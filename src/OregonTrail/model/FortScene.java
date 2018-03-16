@@ -15,7 +15,8 @@ import java.io.Serializable;
 public class FortScene extends Scene implements Serializable {
 
     public Places placeName;
-    private String mapSymbol;
+
+    private GeneralStoreScene generalStoreScene;
 
     public FortScene(int sceneType, String name, String description) {
         setSceneType(sceneType);
@@ -31,25 +32,17 @@ public class FortScene extends Scene implements Serializable {
         this.placeName = placeName;
     }
 
-    public String getMapSymbol() {
-        return mapSymbol;
-    }
-
-    public void setMapSymbol(String mapSymbol) {
-        this.mapSymbol = mapSymbol;
-    }
-
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 17 * hash + Objects.hashCode(this.placeName);
-        hash = 17 * hash + Objects.hashCode(this.mapSymbol);
+        int hash = 5;
+        hash = 29 * hash + Objects.hashCode(this.placeName);
+        hash = 29 * hash + Objects.hashCode(this.generalStoreScene);
         return hash;
     }
 
     @Override
     public String toString() {
-        return "FortScene{" + "placeName=" + placeName + ", mapSymbol=" + mapSymbol + '}';
+        return "FortScene{" + "placeName=" + placeName + ", generalStoreScene=" + generalStoreScene + '}';
     }
 
     @Override
@@ -64,10 +57,10 @@ public class FortScene extends Scene implements Serializable {
             return false;
         }
         final FortScene other = (FortScene) obj;
-        if (!Objects.equals(this.mapSymbol, other.mapSymbol)) {
+        if (this.placeName != other.placeName) {
             return false;
         }
-        if (this.placeName != other.placeName) {
+        if (!Objects.equals(this.generalStoreScene, other.generalStoreScene)) {
             return false;
         }
         return true;

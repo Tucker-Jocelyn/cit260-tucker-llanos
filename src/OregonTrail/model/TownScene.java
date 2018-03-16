@@ -16,6 +16,7 @@ public class TownScene extends Scene implements Serializable {
 
     public Places placeName;
     private String mapSymbol;
+    private GeneralStoreScene generalStoreScene;
 
     public TownScene(int sceneType, String name, String description) {
         setSceneType(sceneType);

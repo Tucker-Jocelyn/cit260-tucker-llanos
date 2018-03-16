@@ -16,47 +16,14 @@ import java.util.Objects;
  */
 public class TrailStopScene extends Scene implements Serializable {
 
-    private String hasNearbyTown;
-    private String nearbyTownName;
-    private String hasNearbyFort;
-    private String nearbyFortName;
+//    private String hasNearbyTown;
+    //private String nearbyTownName;
+    //private String hasNearbyFort;
+    //private String nearbyFortName;
     private int hasAnimal;
     private int hasPlant;
-    private String mapSymbol;
 
-    public TrailStopScene() {
-    }
-
-    public String getHasNearbyTown() {
-        return hasNearbyTown;
-    }
-
-    public void setHasNearbyTown(String hasNearbyTown) {
-        this.hasNearbyTown = hasNearbyTown;
-    }
-
-    public String getNearbyTownName() {
-        return nearbyTownName;
-    }
-
-    public void setNearbyTownName(String nearbyTownName) {
-        this.nearbyTownName = nearbyTownName;
-    }
-
-    public String getHasNearbyFort() {
-        return hasNearbyFort;
-    }
-
-    public void setHasNearbyFort(String hasNearbyFort) {
-        this.hasNearbyFort = hasNearbyFort;
-    }
-
-    public String getNearbyFortName() {
-        return nearbyFortName;
-    }
-
-    public void setNearbyFortName(String nearbyFortName) {
-        this.nearbyFortName = nearbyFortName;
+    public TrailStopScene(int sceneType, String name, String description, int hasAnimal, int hasPlant) {
     }
 
     public int getHasAnimal() {
@@ -75,30 +42,17 @@ public class TrailStopScene extends Scene implements Serializable {
         this.hasPlant = hasPlant;
     }
 
-    public String getMapSymbol() {
-        return mapSymbol;
-    }
-
-    public void setMapSymbol(String mapSymbol) {
-        this.mapSymbol = mapSymbol;
-    }
-
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 71 * hash + Objects.hashCode(this.hasNearbyTown);
-        hash = 71 * hash + Objects.hashCode(this.nearbyTownName);
-        hash = 71 * hash + Objects.hashCode(this.hasNearbyFort);
-        hash = 71 * hash + Objects.hashCode(this.nearbyFortName);
-        hash = 71 * hash + this.hasAnimal;
-        hash = 71 * hash + this.hasPlant;
-        hash = 71 * hash + Objects.hashCode(this.mapSymbol);
+        int hash = 7;
+        hash = 73 * hash + this.hasAnimal;
+        hash = 73 * hash + this.hasPlant;
         return hash;
     }
 
     @Override
     public String toString() {
-        return "TrailStopScene{" + "hasNearbyTown=" + hasNearbyTown + ", nearbyTownName=" + nearbyTownName + ", hasNearbyFort=" + hasNearbyFort + ", nearbyFortName=" + nearbyFortName + ", hasAnimal=" + hasAnimal + ", hasPlant=" + hasPlant + ", mapSymbol=" + mapSymbol + '}';
+        return "TrailStopScene{" + "hasAnimal=" + hasAnimal + ", hasPlant=" + hasPlant + '}';
     }
 
     @Override
@@ -117,21 +71,6 @@ public class TrailStopScene extends Scene implements Serializable {
             return false;
         }
         if (this.hasPlant != other.hasPlant) {
-            return false;
-        }
-        if (!Objects.equals(this.hasNearbyTown, other.hasNearbyTown)) {
-            return false;
-        }
-        if (!Objects.equals(this.nearbyTownName, other.nearbyTownName)) {
-            return false;
-        }
-        if (!Objects.equals(this.hasNearbyFort, other.hasNearbyFort)) {
-            return false;
-        }
-        if (!Objects.equals(this.nearbyFortName, other.nearbyFortName)) {
-            return false;
-        }
-        if (!Objects.equals(this.mapSymbol, other.mapSymbol)) {
             return false;
         }
         return true;

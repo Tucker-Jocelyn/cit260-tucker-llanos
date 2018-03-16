@@ -21,6 +21,7 @@ public class Location implements Serializable {
     private boolean currentLocation;
     private ArrayList<Weather> weather = new ArrayList<>();
     private Scene scene;
+    public String mapSymbol;
 
     public Location() {
     }
@@ -73,21 +74,30 @@ public class Location implements Serializable {
         this.currentLocation = currentLocation;
     }
 
+    public String getMapSymbol() {
+        return mapSymbol;
+    }
+
+    public void setMapSymbol(String mapSymbol) {
+        this.mapSymbol = mapSymbol;
+    }
+
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 29 * hash + Objects.hashCode(this.name);
-        hash = 29 * hash + Objects.hashCode(this.description);
-        hash = 29 * hash + Objects.hashCode(this.type);
-        hash = 29 * hash + (this.currentLocation ? 1 : 0);
-        hash = 29 * hash + Objects.hashCode(this.weather);
-        hash = 29 * hash + Objects.hashCode(this.scene);
+        hash = 67 * hash + Objects.hashCode(this.name);
+        hash = 67 * hash + Objects.hashCode(this.description);
+        hash = 67 * hash + Objects.hashCode(this.type);
+        hash = 67 * hash + (this.currentLocation ? 1 : 0);
+        hash = 67 * hash + Objects.hashCode(this.weather);
+        hash = 67 * hash + Objects.hashCode(this.scene);
+        hash = 67 * hash + Objects.hashCode(this.mapSymbol);
         return hash;
     }
 
     @Override
     public String toString() {
-        return "Location{" + "name=" + name + ", description=" + description + ", type=" + type + ", currentLocation=" + currentLocation + ", weather=" + weather + ", scene=" + scene + '}';
+        return "Location{" + "name=" + name + ", description=" + description + ", type=" + type + ", currentLocation=" + currentLocation + ", weather=" + weather + ", scene=" + scene + ", mapSymbol=" + mapSymbol + '}';
     }
 
     @Override
@@ -109,6 +119,9 @@ public class Location implements Serializable {
             return false;
         }
         if (!Objects.equals(this.description, other.description)) {
+            return false;
+        }
+        if (!Objects.equals(this.mapSymbol, other.mapSymbol)) {
             return false;
         }
         if (this.type != other.type) {

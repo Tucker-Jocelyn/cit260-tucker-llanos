@@ -45,7 +45,7 @@ public class GameControl {
         game.setTeam(team);//Save the team in the Game object***************Connor
 //Assign an character to the player *************Connor
         Inventory inventory = InventoryControl.createInventory();
-        game.setInventory(inventory);
+        team.setInventory(inventory);
         int noOfLocations = 81;
         Map map = MapControl.createMap(noOfLocations);
         if (map == null) {
