@@ -60,4 +60,9 @@ public class RiverCrossingControl {
 
         return percentSuccess;
     }
+
+    static double getWaterDepth() {
+        System.out.println("*** getWaterDepth() called *** returning filler number");
+        return 1;
+    }
 }

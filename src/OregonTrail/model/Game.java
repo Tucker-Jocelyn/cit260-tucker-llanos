@@ -15,32 +15,23 @@ import java.util.Objects;
  */
 public class Game implements Serializable {
 
-    //private String team;
-    private String map;
+    private Map map;
     private double totalDistanceTraveled;
     private String date;
     private double milesToSLC;
     private Player player;
     private CurrentDate currentDate;
     private ArrayList<InventoryItem> inventoryItems = new ArrayList<>();
-    private ArrayList<Team> team = new ArrayList<>();
+    private Team team;
 
     public Game() {
     }
 
-    /*public String getTeam() {
-        return team;
-    }
-
-    public void setTeam(String team) {
-        this.team = team;
-    }
-     */
-    public String getMap() {
+    public Map getMap() {
         return map;
     }
 
-    public void setMap(String map) {
+    public void setMap(Map map) {
         this.map = map;
     }
 
@@ -92,25 +83,25 @@ public class Game implements Serializable {
         this.inventoryItems = inventoryItems;
     }
 
-    public ArrayList<Team> getTeam() {
+    public Team getTeam() {
         return team;
     }
 
-    public void setTeam(ArrayList<Team> team) {
+    public void setTeam(Team team) {
         this.team = team;
     }
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 19 * hash + Objects.hashCode(this.map);
-        hash = 19 * hash + (int) (Double.doubleToLongBits(this.totalDistanceTraveled) ^ (Double.doubleToLongBits(this.totalDistanceTraveled) >>> 32));
-        hash = 19 * hash + Objects.hashCode(this.date);
-        hash = 19 * hash + (int) (Double.doubleToLongBits(this.milesToSLC) ^ (Double.doubleToLongBits(this.milesToSLC) >>> 32));
-        hash = 19 * hash + Objects.hashCode(this.player);
-        hash = 19 * hash + Objects.hashCode(this.currentDate);
-        hash = 19 * hash + Objects.hashCode(this.inventoryItems);
-        hash = 19 * hash + Objects.hashCode(this.team);
+        int hash = 7;
+        hash = 41 * hash + Objects.hashCode(this.map);
+        hash = 41 * hash + (int) (Double.doubleToLongBits(this.totalDistanceTraveled) ^ (Double.doubleToLongBits(this.totalDistanceTraveled) >>> 32));
+        hash = 41 * hash + Objects.hashCode(this.date);
+        hash = 41 * hash + (int) (Double.doubleToLongBits(this.milesToSLC) ^ (Double.doubleToLongBits(this.milesToSLC) >>> 32));
+        hash = 41 * hash + Objects.hashCode(this.player);
+        hash = 41 * hash + Objects.hashCode(this.currentDate);
+        hash = 41 * hash + Objects.hashCode(this.inventoryItems);
+        hash = 41 * hash + Objects.hashCode(this.team);
         return hash;
     }
 
@@ -137,10 +128,10 @@ public class Game implements Serializable {
         if (Double.doubleToLongBits(this.milesToSLC) != Double.doubleToLongBits(other.milesToSLC)) {
             return false;
         }
-        if (!Objects.equals(this.map, other.map)) {
+        if (!Objects.equals(this.date, other.date)) {
             return false;
         }
-        if (!Objects.equals(this.date, other.date)) {
+        if (!Objects.equals(this.map, other.map)) {
             return false;
         }
         if (!Objects.equals(this.player, other.player)) {

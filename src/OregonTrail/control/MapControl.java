@@ -5,10 +5,18 @@
  */
 package OregonTrail.control;
 
+import OregonTrail.model.FortScene;
+import OregonTrail.model.GeneralStoreScene;
+import OregonTrail.model.HotelScene;
 import OregonTrail.model.Location;
 import OregonTrail.model.LocationType;
 import OregonTrail.model.Map;
+import OregonTrail.model.RegularScene;
+import OregonTrail.model.RiverScene;
 import OregonTrail.model.Scene;
+import OregonTrail.model.SceneType;
+import OregonTrail.model.TownScene;
+import OregonTrail.model.TrailStopScene;
 
 /**
  *
@@ -22,13 +30,11 @@ public class MapControl {
         }
 
         Map map = new Map(); //Map map = new Map object
-//save the noOfRows in the map *****for us number of locations for array (81)
-//save the noOfColumns in the map
         Location[] locations = createLocations(noOfLocations); //locations = createLocations(noOfRows, noOfColumns)
         map.setLocations(locations); //Assign the locations array to the map
         Scene[] scenes = createScenes(); //scenes = createScenes()
-//assignItemsToScenes() **************weather for our game?
-        assignScenesToLocations(scenes, locations); //assignScenesToLocations()
+//assignItemsToScenes() **************weather and animals/plants for our game?
+        assignScenesToLocations(map, scenes, locations); //assignScenesToLocations()
         return map;
     }
 
@@ -49,6 +55,8 @@ public class MapControl {
                 location.setType(LocationType.FORT); //set the type attribute in location to fort
             } else if (i == 0 || i == 18 || i == 20 || i == 35) {
                 location.setType(LocationType.LANDMARK); //set the type attribute in location to landmark
+            } else if (i == 5 || i == 10 || i == 21 || i == 24 || i == 60 || i == 66 || i == 75 || i == 79) {
+                location.setType(LocationType.RIVER); //set the type attribute in location to river            
             } else {
                 location.setType(LocationType.TRAIL); //set the type attribute in location to trail
             }
@@ -58,12 +66,26 @@ public class MapControl {
     }
 
     private static Scene[] createScenes() {
-        System.out.println("*** createScenes() called ***");
-        return scenes;
+
+Scene[] scenes = new Scene[7]; //scenes = Create an array Scene objects  
+
+scenes[SceneType.GENERAL_STORE_SCENE.ordinal()] = new GeneralStoreScene(SceneType.GENERAL_STORE_SCENE.ordinal(), "General Store", "Buy or sell supplies for your trek to the Salt Lake Valley", inventoryItems?);  //scene1 = Create a new Scene object 
+// ***************still need to overload constructor to populate attributes
+
+scenes[SceneType.TOWN_SCENE.ordinal()] = new TownScene(SceneType.TOWN_SCENE.ordinal(), "Town", "Welcome to town! Feel free to visit the hotel or general store.");
+scenes[SceneType.REGULAR_SCENE.ordinal()] = new RegularScene(SceneType.REGULAR_SCENE.ordinal(), "Landmark", "We're sorry, there are no ammenities here.");
+scenes[SceneType.FORT_SCENE.ordinal()] = new FortScene(SceneType.FORT_SCENE.ordinal(), "Fort", "Welcome to the fort! Feel free to visit the general store.");
+scenes[SceneType.RIVER_SCENE.ordinal()] = new RiverScene(SceneType.RIVER_SCENE.ordinal(), "River", "You must decided if you want to cross the river or not.", RiverCrossingControl.getWaterDepth());
+scenes[SceneType.HOTEL_SCENE.ordinal()] = new HotelScene(SceneType.HOTEL_SCENE.ordinal(), "Hotel", "Welcome to the hotel! Feel free to add a member to your party if you have space available.");
+scenes[SceneType.TRAIL_STOP_SCENE.ordinal()] = new TrailStopScene(SceneType.TRAIL_STOP_SCENE.ordinal(), "Trail", "What would you like to do along the trail today?", hasNearbyTown?, nearbyTownName?, hasNearbyFort?, nearbyFortName?, SceneControl.getAnimals(), SceneControl.getPlants());
+// ***************still need to overload constructor to populate attributes
+return scenes; 
     }
 
-    private static void assignScenesToLocations(Scene[] scenes, Location[] locations) {
+    private static void assignScenesToLocations(Map map, Scene[] scenes, Location[] locations) {
         System.out.println("*** assignScenesToLocations() called ***");
+        Location[] location = map.getLocations();
+        
     }
 
 }

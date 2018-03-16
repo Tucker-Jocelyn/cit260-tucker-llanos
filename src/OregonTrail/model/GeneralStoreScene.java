@@ -7,6 +7,7 @@ package OregonTrail.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  *
@@ -15,20 +16,11 @@ import java.util.ArrayList;
 public class GeneralStoreScene extends Scene implements Serializable {
 
     //class instance variables
-    private int item;
     private TownScene townScene;
     private FortScene fortScene;
-    private ArrayList<InventoryItem> inventoryItems = new ArrayList<>();
+    private Inventory inventory;
 
     public GeneralStoreScene() {
-    }
-
-    public int getItem() {
-        return item;
-    }
-
-    public void setItem(int item) {
-        this.item = item;
     }
 
     public TownScene getTownScene() {
@@ -47,24 +39,26 @@ public class GeneralStoreScene extends Scene implements Serializable {
         this.fortScene = fortScene;
     }
 
-    public ArrayList<InventoryItem> getInventoryItems() {
-        return inventoryItems;
+    public Inventory getInventory() {
+        return inventory;
     }
 
-    public void setInventoryItems(ArrayList<InventoryItem> inventoryItems) {
-        this.inventoryItems = inventoryItems;
+    public void setInventory(Inventory inventory) {
+        this.inventory = inventory;
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 29 * hash + this.item;
+        int hash = 5;
+        hash = 71 * hash + Objects.hashCode(this.townScene);
+        hash = 71 * hash + Objects.hashCode(this.fortScene);
+        hash = 71 * hash + Objects.hashCode(this.inventory);
         return hash;
     }
 
     @Override
     public String toString() {
-        return String.format("GeneralStoreScene{%s, item=%d}", super.toString(), item);
+        return "GeneralStoreScene{" + "townScene=" + townScene + ", fortScene=" + fortScene + ", inventory=" + inventory + '}';
     }
 
     @Override
@@ -72,14 +66,20 @@ public class GeneralStoreScene extends Scene implements Serializable {
         if (this == obj) {
             return true;
         }
-        if (super.equals(obj) == false) {
+        if (obj == null) {
             return false;
         }
         if (getClass() != obj.getClass()) {
             return false;
         }
         final GeneralStoreScene other = (GeneralStoreScene) obj;
-        if (this.item != other.item) {
+        if (!Objects.equals(this.townScene, other.townScene)) {
+            return false;
+        }
+        if (!Objects.equals(this.fortScene, other.fortScene)) {
+            return false;
+        }
+        if (!Objects.equals(this.inventory, other.inventory)) {
             return false;
         }
         return true;

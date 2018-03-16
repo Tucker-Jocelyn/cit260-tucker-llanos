@@ -7,6 +7,7 @@ package OregonTrail.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -18,7 +19,7 @@ public class Map implements Serializable {
     private String currentLocation;
     private double milePost;
     private Game game;
-    private ArrayList<Location> locations = new ArrayList<>();
+    private Location[] locations = new Location[81];
 
     public Map() {
     }
@@ -48,21 +49,21 @@ public class Map implements Serializable {
         this.game = game;
     }
 
-    public ArrayList<Location> getLocations() {
+    public Location[] getLocations() {
         return locations;
     }
 
-    public void setLocations(ArrayList<Location> locations) {
+    public void setLocations(Location[] locations) {
         this.locations = locations;
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 53 * hash + Objects.hashCode(this.currentLocation);
-        hash = 53 * hash + (int) (Double.doubleToLongBits(this.milePost) ^ (Double.doubleToLongBits(this.milePost) >>> 32));
-        hash = 53 * hash + Objects.hashCode(this.game);
-        hash = 53 * hash + Objects.hashCode(this.locations);
+        int hash = 3;
+        hash = 59 * hash + Objects.hashCode(this.currentLocation);
+        hash = 59 * hash + (int) (Double.doubleToLongBits(this.milePost) ^ (Double.doubleToLongBits(this.milePost) >>> 32));
+        hash = 59 * hash + Objects.hashCode(this.game);
+        hash = 59 * hash + Arrays.deepHashCode(this.locations);
         return hash;
     }
 
@@ -92,7 +93,7 @@ public class Map implements Serializable {
         if (!Objects.equals(this.game, other.game)) {
             return false;
         }
-        if (!Objects.equals(this.locations, other.locations)) {
+        if (!Arrays.deepEquals(this.locations, other.locations)) {
             return false;
         }
         return true;

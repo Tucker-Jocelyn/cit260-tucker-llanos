@@ -45,16 +45,14 @@ public abstract class TeamControl {
         return teamAnimalWeight;
     }
 
-    //*****************Connor
     public static Team createTeam() {
-        ArrayList<Character> teamMembers = new ArrayList<>();
-        //Character member = new Character.KIRK();
-        teamMembers.add(CharacterDefinitions.value);
-        teamMembers.add(Character.SPOCK);
-        teamMembers.add(Character.BONES);
-        teamMembers.add(Character.REDSHIRT1);
-        teamMembers.add(Character.REDSHIRT2);
-        teamMembers.add(Character.PLAYER);
+        ArrayList<CharacterDefinitions> teamMembers = new ArrayList<>();
+        teamMembers.add(CharacterDefinitions.KIRK);
+        teamMembers.add(CharacterDefinitions.SPOCK);
+        teamMembers.add(CharacterDefinitions.BONES);
+        teamMembers.add(CharacterDefinitions.REDSHIRT1);
+        teamMembers.add(CharacterDefinitions.REDSHIRT2);
+        teamMembers.add(CharacterDefinitions.PLAYER);
         return teamMembers;
     }
 }

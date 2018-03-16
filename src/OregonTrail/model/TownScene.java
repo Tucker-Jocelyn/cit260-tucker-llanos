@@ -10,37 +10,37 @@ import java.util.Objects;
 
 /**
  *
- * @author kimllanos
+ * @author kimllanos and Jocelyn Tucker
  */
-public class TownScene implements Serializable{
-    private String description; 
+public class TownScene extends Scene implements Serializable {
 
-    public TownScene() {
-    }
-    
-    
+    private Places placeName;
 
-    public String getDescription() {
-        return description;
+    public TownScene(int sceneType, String name, String description) {
+        setSceneType(sceneType);
+        setName(name);
+        setDescription(description);
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public Places getPlaceName() {
+        return placeName;
+    }
+
+    public void setPlaceName(Places placeName) {
+        this.placeName = placeName;
     }
 
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 31 * hash + Objects.hashCode(this.description);
+        hash = 79 * hash + Objects.hashCode(this.placeName);
         return hash;
     }
 
     @Override
     public String toString() {
-        return "TownScene{" + "description=" + description + '}';
+        return "TownScene{" + "placeName=" + placeName + '}';
     }
-    
-    
 
     @Override
     public boolean equals(Object obj) {
@@ -54,12 +54,10 @@ public class TownScene implements Serializable{
             return false;
         }
         final TownScene other = (TownScene) obj;
-        if (!Objects.equals(this.description, other.description)) {
+        if (!Objects.equals(this.placeName, other.placeName)) {
             return false;
         }
         return true;
     }
-    
-    
-    
+
 }

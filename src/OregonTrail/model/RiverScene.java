@@ -10,23 +10,18 @@ import java.util.Objects;
 
 /**
  *
- * @author kimllanos
+ * @author kimllanos and Jocelyn Tucker
  */
-public class RiverScene implements Serializable {
-    private String description; 
+public class RiverScene extends Scene implements Serializable {
+
     private double waterDepth;
+    private Places placeName;
 
-    public RiverScene() {
-    }
-    
-    
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
+    public RiverScene(int sceneType, String name, String description, double waterDepth) {
+        setSceneType(sceneType);
+        setName(name);
+        setDescription(description);
+        setWaterDepth(waterDepth);
     }
 
     public double getWaterDepth() {
@@ -37,17 +32,25 @@ public class RiverScene implements Serializable {
         this.waterDepth = waterDepth;
     }
 
+    public Places getPlaceName() {
+        return placeName;
+    }
+
+    public void setPlaceName(Places placeName) {
+        this.placeName = placeName;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 37 * hash + Objects.hashCode(this.description);
-        hash = 37 * hash + (int) (Double.doubleToLongBits(this.waterDepth) ^ (Double.doubleToLongBits(this.waterDepth) >>> 32));
+        int hash = 7;
+        hash = 23 * hash + (int) (Double.doubleToLongBits(this.waterDepth) ^ (Double.doubleToLongBits(this.waterDepth) >>> 32));
+        hash = 23 * hash + Objects.hashCode(this.placeName);
         return hash;
     }
 
     @Override
     public String toString() {
-        return "RiverScene{" + "description=" + description + ", waterDepth=" + waterDepth + '}';
+        return "RiverScene{" + "waterDepth=" + waterDepth + ", placeName=" + placeName + '}';
     }
 
     @Override
@@ -65,11 +68,10 @@ public class RiverScene implements Serializable {
         if (Double.doubleToLongBits(this.waterDepth) != Double.doubleToLongBits(other.waterDepth)) {
             return false;
         }
-        if (!Objects.equals(this.description, other.description)) {
+        if (!Objects.equals(this.placeName, other.placeName)) {
             return false;
         }
         return true;
     }
 
-    
 }

@@ -10,37 +10,37 @@ import java.io.Serializable;
 
 /**
  *
- * @author kimllanos
+ * @author kimllanos and Jocelyn Tucker
  */
-public class FortScene implements Serializable {
-    private String description; 
+public class FortScene extends Scene implements Serializable {
 
-    public FortScene() {
-    }
-    
-    
+    private Places placeName;
 
-    public String getDescription() {
-        return description;
+    public FortScene(int sceneType, String name, String description) {
+        setSceneType(sceneType);
+        setName(name);
+        setDescription(description);
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public Places getPlaceName() {
+        return placeName;
+    }
+
+    public void setPlaceName(Places placeName) {
+        this.placeName = placeName;
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 73 * hash + Objects.hashCode(this.description);
+        int hash = 3;
+        hash = 53 * hash + Objects.hashCode(this.placeName);
         return hash;
     }
 
     @Override
     public String toString() {
-        return "FortScene{" + "description=" + description + '}';
+        return "FortScene{" + "placeName=" + placeName + '}';
     }
-    
-    
 
     @Override
     public boolean equals(Object obj) {
@@ -54,12 +54,10 @@ public class FortScene implements Serializable {
             return false;
         }
         final FortScene other = (FortScene) obj;
-        if (!Objects.equals(this.description, other.description)) {
+        if (!Objects.equals(this.placeName, other.placeName)) {
             return false;
         }
         return true;
     }
-    
-    
 
 }
