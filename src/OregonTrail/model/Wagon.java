@@ -6,6 +6,7 @@
 package OregonTrail.model;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  *
@@ -17,7 +18,7 @@ public class Wagon implements Serializable {
     private double maxCarryWeight;
     private int length;
     private double wagonWeight;
-    //put inventory here
+    private Inventory inventory;
 
     public Wagon() {
     }
@@ -46,19 +47,27 @@ public class Wagon implements Serializable {
         this.wagonWeight = wagonWeight;
     }
 
+    public Inventory getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(Inventory inventory) {
+        this.inventory = inventory;
+    }
+
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 17 * hash + (int) (Double.doubleToLongBits(this.maxCarryWeight) ^ (Double.doubleToLongBits(this.maxCarryWeight) >>> 32));
-        hash = 17 * hash + this.length;
-        hash = 17 * hash + (int) (Double.doubleToLongBits(this.wagonWeight) ^ (Double.doubleToLongBits(this.wagonWeight) >>> 32));
+        hash = 79 * hash + (int) (Double.doubleToLongBits(this.maxCarryWeight) ^ (Double.doubleToLongBits(this.maxCarryWeight) >>> 32));
+        hash = 79 * hash + this.length;
+        hash = 79 * hash + (int) (Double.doubleToLongBits(this.wagonWeight) ^ (Double.doubleToLongBits(this.wagonWeight) >>> 32));
+        hash = 79 * hash + Objects.hashCode(this.inventory);
         return hash;
     }
 
     @Override
     public String toString() {
-        //return "InventoryWagon{" + "maxCarryWeight=" + maxCarryWeight + ", length=" + length + ", wagonWeight=" + wagonWeight + '}';
-        return String.format("InventoryWagon{%s, maxCarryWeight=%s, length=%d, wagonWeight=%s}", super.toString(), maxCarryWeight, length, wagonWeight);
+        return "Wagon{" + "maxCarryWeight=" + maxCarryWeight + ", length=" + length + ", wagonWeight=" + wagonWeight + ", inventory=" + inventory + '}';
     }
 
     @Override
@@ -66,7 +75,7 @@ public class Wagon implements Serializable {
         if (this == obj) {
             return true;
         }
-        if (super.equals(obj) == false) {
+        if (obj == null) {
             return false;
         }
         if (getClass() != obj.getClass()) {
@@ -80,6 +89,9 @@ public class Wagon implements Serializable {
             return false;
         }
         if (Double.doubleToLongBits(this.wagonWeight) != Double.doubleToLongBits(other.wagonWeight)) {
+            return false;
+        }
+        if (!Objects.equals(this.inventory, other.inventory)) {
             return false;
         }
         return true;

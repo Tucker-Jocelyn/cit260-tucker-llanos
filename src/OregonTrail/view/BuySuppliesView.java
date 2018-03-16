@@ -12,17 +12,9 @@ import java.util.Scanner;
 public class BuySuppliesView extends View {
 
     public BuySuppliesView() {
-        super("\nO - Oxen: $20 each"
-                + "\n\tEach ox can pull 550 lbs. We suggest you purchase 6\n"
-                + "\nS - Small Wagon: $60"
-                + "\n\tA small wagon weighs 1250 lbs and can carry 1800 lbs of supplies\n"
-                + "\nM - Medium Wagon: $70"
-                + "\n\tA medium wagon weighs 1300 lbs and can carry 2000 lbs of supplies\n"
-                + "\nL - Large Wagon: $80"
-                + "\n\tA large wagon weighs 1350 lbs and can carry 2200 lbs of supplies\n"
-                + "\nF - Food: $0.20/lb"
+        super("\nF - Food: $0.20/lb"
                 + "\n\tWe suggest you purchase 5 lbs of food per person per day\n"
-                + "\nW - Spare Wagon Wheels: $10 each\n"
+                + "\nS - Spare Wagon Wheels: $10 each\n"
                 + "\nA - Ammunition: $2/box"
                 + "\n\tEach box contains 20 bullets\n"
                 + "\nE - Exit (Back to General Store)");
@@ -37,7 +29,6 @@ public class BuySuppliesView extends View {
         boolean valid = false;
 
         while (valid == false) {
-            System.out.println("\n" + this.displayMessage);
             System.out.println("\nPlease Choose an Item to Buy:");
             String option = in.nextLine();
             option = option.trim();
@@ -52,8 +43,8 @@ public class BuySuppliesView extends View {
 
             if (option.equals("E")) {
                 valid = true;
-            } else if (!option.equals("O") && !option.equals("S") && !option.equals("M") && !option.equals("L") && !option.equals("F") && !option.equals("W") && !option.equals("A")) {
-                System.out.println("Only \"O, S, M, L, F, W, A, and E\" are Valid Options\n");
+            } else if (!option.equals("F") && !option.equals("S") && !option.equals("A")) {
+                System.out.println("Only \"F, S, A, and E\" are Valid Options\n");
                 continue;
             } else {
                 System.out.println("\nPlease Enter the Amount You Would Like to Buy:");
@@ -79,24 +70,16 @@ public class BuySuppliesView extends View {
         char choice = Character.toUpperCase(inputs[0].charAt(0));
         InventoryItem inventoryType;
 
-        if (choice == 'O') {
-            inventoryType = InventoryItem.OX;
-        } else if (choice == 'S') {
-            inventoryType = InventoryItem.SMALL_WAGON;
-        } else if (choice == 'M') {
-            inventoryType = InventoryItem.MEDIUM_WAGON;
-        } else if (choice == 'L') {
-            inventoryType = InventoryItem.LARGE_WAGON;
-        } else if (choice == 'F') {
+        if (choice == 'F') {
             inventoryType = InventoryItem.FOOD;
-        } else if (choice == 'W') {
+        } else if (choice == 'S') {
             inventoryType = InventoryItem.WHEEL;
         } else if (choice == 'A') {
             inventoryType = InventoryItem.AMMO;
         } else if (choice == 'E') {
             return true;
         } else {
-            System.out.println("Only \"O, S, M, L, F, W, A, and E\" are Valid Options\n");
+            System.out.println("Only \"F, S, A, and E\" are Valid Options\n");
             return false;
         }
 

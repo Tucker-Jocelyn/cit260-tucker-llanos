@@ -19,7 +19,7 @@ public class Location implements Serializable {
     private String description;
     public LocationType type;
     private boolean currentLocation;
-    private ArrayList<Weather> weather = new ArrayList<>();
+    private int weather;
     private Scene scene;
     public String mapSymbol;
 
@@ -42,11 +42,11 @@ public class Location implements Serializable {
         this.description = description;
     }
 
-    public ArrayList<Weather> getWeather() {
+    public int getWeather() {
         return weather;
     }
 
-    public void setWeather(ArrayList<Weather> weather) {
+    public void setWeather(int weather) {
         this.weather = weather;
     }
 
@@ -84,14 +84,14 @@ public class Location implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 67 * hash + Objects.hashCode(this.name);
-        hash = 67 * hash + Objects.hashCode(this.description);
-        hash = 67 * hash + Objects.hashCode(this.type);
-        hash = 67 * hash + (this.currentLocation ? 1 : 0);
-        hash = 67 * hash + Objects.hashCode(this.weather);
-        hash = 67 * hash + Objects.hashCode(this.scene);
-        hash = 67 * hash + Objects.hashCode(this.mapSymbol);
+        int hash = 7;
+        hash = 37 * hash + Objects.hashCode(this.name);
+        hash = 37 * hash + Objects.hashCode(this.description);
+        hash = 37 * hash + Objects.hashCode(this.type);
+        hash = 37 * hash + (this.currentLocation ? 1 : 0);
+        hash = 37 * hash + this.weather;
+        hash = 37 * hash + Objects.hashCode(this.scene);
+        hash = 37 * hash + Objects.hashCode(this.mapSymbol);
         return hash;
     }
 
@@ -115,6 +115,9 @@ public class Location implements Serializable {
         if (this.currentLocation != other.currentLocation) {
             return false;
         }
+        if (this.weather != other.weather) {
+            return false;
+        }
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }
@@ -125,9 +128,6 @@ public class Location implements Serializable {
             return false;
         }
         if (this.type != other.type) {
-            return false;
-        }
-        if (!Objects.equals(this.weather, other.weather)) {
             return false;
         }
         if (!Objects.equals(this.scene, other.scene)) {

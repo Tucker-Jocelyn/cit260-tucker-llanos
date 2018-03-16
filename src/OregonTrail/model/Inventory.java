@@ -9,7 +9,7 @@ import java.util.Arrays;
  */
 public class Inventory implements Serializable {
 
-    private Item[] inventory = new Item[7];
+    private Item[] inventory = new Item[3];
 
     public Inventory() {
     }

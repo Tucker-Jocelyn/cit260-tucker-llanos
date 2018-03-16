@@ -18,9 +18,8 @@ public class FortScene extends Scene implements Serializable {
 
     private GeneralStoreScene generalStoreScene;
 
-    public FortScene(int sceneType, String name, String description) {
+    public FortScene(int sceneType, String description) {
         setSceneType(sceneType);
-        setName(name);
         setDescription(description);
     }
 

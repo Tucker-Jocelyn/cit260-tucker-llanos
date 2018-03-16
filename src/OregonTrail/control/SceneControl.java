@@ -17,7 +17,7 @@ public class SceneControl {
     }
 
     static int getPlants() {
-        System.out.println("*** getPlantss() called *** returning filler number");
+        System.out.println("*** getPlants() called *** returning filler number");
         return 0;
     }
 

@@ -11,14 +11,14 @@ import java.io.Serializable;
  *
  * @author Jocelyn Tucker
  */
-public class InventoryOx implements Serializable {
+public class Ox implements Serializable {
 
     //class instance variables
     private double pullWeight;
     private int oxHealth;
     private boolean oxRest;
 
-    public InventoryOx() {
+    public Ox() {
     }
 
     public double getPullWeight() {
@@ -70,7 +70,7 @@ public class InventoryOx implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final InventoryOx other = (InventoryOx) obj;
+        final Ox other = (Ox) obj;
         if (Double.doubleToLongBits(this.pullWeight) != Double.doubleToLongBits(other.pullWeight)) {
             return false;
         }

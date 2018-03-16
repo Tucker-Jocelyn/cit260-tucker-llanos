@@ -10,7 +10,7 @@ import OregonTrail.model.CurrentDate;
 import OregonTrail.model.EventGenerator;
 import OregonTrail.model.Game;
 import OregonTrail.model.InventoryItem;
-import OregonTrail.model.InventoryOx;
+import OregonTrail.model.Ox;
 import OregonTrail.model.Wagon;
 
 import OregonTrail.model.Player;

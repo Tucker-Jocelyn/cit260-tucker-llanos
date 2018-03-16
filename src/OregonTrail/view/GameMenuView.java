@@ -12,7 +12,7 @@ package OregonTrail.view;
 public class GameMenuView extends View {
 
     public GameMenuView() {
-        super("E - Exit the Game");
+        super("E - Exit Game Play Menu");
     }
 
     public boolean doAction(String[] inputs) {

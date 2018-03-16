@@ -29,63 +29,6 @@ public class MainMenuView extends View {
                 + "\nPlease Choose an Option:");
     }
 
-    //logic for lines 31-82 now in the super class
-    /*
-    void displayMainMenuView() {
-
-        boolean endOfView = false;
-        do {
-            String[] inputs = this.getInputs();
-
-            //check input length
-            if (inputs.length < 1) {
-                return;
-            }
-
-            endOfView = doAction(inputs);
-
-        } while (endOfView != true);
-
-    }
-     */
- /*
-    private String[] getInputs() {
-        Scanner in = new Scanner(System.in);
-
-        String[] inputs = new String[1];
-
-        System.out.println("\nHere are your Game Play Options:"
-                + "\nN - Start new game\n"
-                + "\nR - Restart existing game\n"
-                + "\nH - Get help on how to play the game\n"
-                + "\nP - Set the Team Pace\n"
-                + "\nG - General Store Menu\n"
-                + "\nS - Save game\n"
-                + "\nE - Exit");
-
-        boolean valid = false;
-
-        while (valid == false) {
-
-            System.out.println("\nPlease Choose an Option");
-            String option = in.nextLine();
-
-            option = option.trim();
-
-            if (option.length() < 1) {
-                System.out.println("You must enter a value, blanks are not accepted here.");
-
-                continue;
-            }
-
-            inputs[0] = option;
-            valid = true;
-
-        }
-        return inputs;
-
-    }
-     */
     @Override
     public boolean doAction(String[] inputs) {
         char choice = Character.toUpperCase(inputs[0].charAt(0));

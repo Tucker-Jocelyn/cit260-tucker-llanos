@@ -17,7 +17,7 @@ public class InventoryControl {
 
     public static Inventory createInventory() {
         InventoryItem[] types = InventoryItem.values();
-        Item[] items = new Item[7];
+        Item[] items = new Item[3];
         for (InventoryItem current : types) {
             items[current.index] = new Item(current);
         }

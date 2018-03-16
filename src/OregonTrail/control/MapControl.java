@@ -34,8 +34,66 @@ public class MapControl {
         Location[] locations = createLocations(noOfLocations);
         map.setLocations(locations);
         Scene[] scenes = createScenes();
-//assignItemsToScenes() **************weather and  for our game?
         assignScenesToLocations(map, scenes);
+        locations[0].getScene().setName(Places.SALT_LAKE_VALLEY.name());
+        locations[0].setMapSymbol(Places.SALT_LAKE_VALLEY.mapSymbol);
+
+        locations[5].getScene().setName(Places.BEAR_RIVER.name());
+        locations[5].setMapSymbol(Places.BEAR_RIVER.mapSymbol);
+
+        locations[7].getScene().setName(Places.FORT_BRIDGER.name());
+        locations[7].setMapSymbol(Places.FORT_BRIDGER.mapSymbol);
+
+        locations[10].getScene().setName(Places.GREEN_RIVER.name());
+        locations[10].setMapSymbol(Places.GREEN_RIVER.mapSymbol);
+
+        locations[18].getScene().setName(Places.MARTINS_COVE.name());
+        locations[18].setMapSymbol(Places.MARTINS_COVE.mapSymbol);
+
+        locations[20].getScene().setName(Places.INDEPENDENCE_ROCK.name());
+        locations[20].setMapSymbol(Places.INDEPENDENCE_ROCK.mapSymbol);
+
+        locations[21].getScene().setName(Places.SWEETWATER_RIVER.name());
+        locations[21].setMapSymbol(Places.SWEETWATER_RIVER.mapSymbol);
+
+        locations[24].getScene().setName(Places.UPPER_PLATTE_RIVER.name());
+        locations[24].setMapSymbol(Places.UPPER_PLATTE_RIVER.mapSymbol);
+
+        locations[31].getScene().setName(Places.FORT_LARAMIE.name());
+        locations[31].setMapSymbol(Places.FORT_LARAMIE.mapSymbol);
+
+        locations[35].getScene().setName(Places.CHIMNEY_ROCK.name());
+        locations[35].setMapSymbol(Places.CHIMNEY_ROCK.mapSymbol);
+
+        locations[50].getScene().setName(Places.FORT_KEARNEY.name());
+        locations[50].setMapSymbol(Places.FORT_KEARNEY.mapSymbol);
+
+        locations[60].getScene().setName(Places.PLATTE_RIVER.name());
+        locations[60].setMapSymbol(Places.PLATTE_RIVER.mapSymbol);
+
+        locations[62].getScene().setName(Places.WINTER_QUARTERS.name());
+        locations[62].setMapSymbol(Places.WINTER_QUARTERS.mapSymbol);
+
+        locations[63].getScene().setName(Places.KANESVILLE.name());
+        locations[63].setMapSymbol(Places.KANESVILLE.mapSymbol);
+
+        locations[66].getScene().setName(Places.NISHNABOTNA_RIVER.name());
+        locations[66].setMapSymbol(Places.NISHNABOTNA_RIVER.mapSymbol);
+
+        locations[70].getScene().setName(Places.MOUNT_PISGAH.name());
+        locations[70].setMapSymbol(Places.MOUNT_PISGAH.mapSymbol);
+
+        locations[72].getScene().setName(Places.GARDEN_GROVE.name());
+        locations[72].setMapSymbol(Places.GARDEN_GROVE.mapSymbol);
+
+        locations[75].getScene().setName(Places.CHARITON_RIVER.name());
+        locations[75].setMapSymbol(Places.CHARITON_RIVER.mapSymbol);
+
+        locations[79].getScene().setName(Places.MISSISSIPPI_RIVER.name());
+        locations[79].setMapSymbol(Places.MISSISSIPPI_RIVER.mapSymbol);
+
+        locations[80].getScene().setName(Places.NAUVOO.name());
+        locations[80].setMapSymbol(Places.NAUVOO.mapSymbol);
         return map;
     }
 
@@ -71,10 +129,10 @@ public class MapControl {
         Scene[] scenes = new Scene[7]; //scenes = Create an array Scene objects
 
         scenes[SceneType.GENERAL_STORE_SCENE.ordinal()] = new GeneralStoreScene(SceneType.GENERAL_STORE_SCENE.ordinal(), "General Store", "Buy or sell supplies for your trek to the Salt Lake Valley");
-        scenes[SceneType.TOWN_SCENE.ordinal()] = new TownScene(SceneType.TOWN_SCENE.ordinal(), "Town", "Welcome to town! Feel free to visit the hotel or general store.");
-        scenes[SceneType.REGULAR_SCENE.ordinal()] = new RegularScene(SceneType.REGULAR_SCENE.ordinal(), "Landmark", "We're sorry, there are no ammenities here.");
-        scenes[SceneType.FORT_SCENE.ordinal()] = new FortScene(SceneType.FORT_SCENE.ordinal(), "Fort", "Welcome to the fort! Feel free to visit the general store.");
-        scenes[SceneType.RIVER_SCENE.ordinal()] = new RiverScene(SceneType.RIVER_SCENE.ordinal(), "River", "You must decided if you want to cross the river or not.", RiverCrossingControl.getWaterDepth());
+        scenes[SceneType.TOWN_SCENE.ordinal()] = new TownScene(SceneType.TOWN_SCENE.ordinal(), "Welcome to town! Feel free to visit the hotel or general store.");
+        scenes[SceneType.REGULAR_SCENE.ordinal()] = new RegularScene(SceneType.REGULAR_SCENE.ordinal(), "We're sorry, there are no ammenities here.");
+        scenes[SceneType.FORT_SCENE.ordinal()] = new FortScene(SceneType.FORT_SCENE.ordinal(), "Welcome to the fort! Feel free to visit the general store.");
+        scenes[SceneType.RIVER_SCENE.ordinal()] = new RiverScene(SceneType.RIVER_SCENE.ordinal(), "You must decided if you want to cross the river or not.", RiverCrossingControl.getWaterDepth());
         scenes[SceneType.HOTEL_SCENE.ordinal()] = new HotelScene(SceneType.HOTEL_SCENE.ordinal(), "Hotel", "Welcome to the hotel! Feel free to add a member to your party if you have space available.");
         scenes[SceneType.TRAIL_STOP_SCENE.ordinal()] = new TrailStopScene(SceneType.TRAIL_STOP_SCENE.ordinal(), "Trail", "What would you like to do along the trail today?", SceneControl.getAnimals(), SceneControl.getPlants());
 
@@ -101,10 +159,9 @@ public class MapControl {
             } else {
                 location[i].setScene(scenes[SceneType.TRAIL_STOP_SCENE.ordinal()]); //set the scene in location to trail stop
                 location[i].setCurrentLocation(false);
+                location[i].setMapSymbol("-");
             }
-//********************still need to assign actual names of places and mapSymbol
-            location[0].getScene().setName(Places.SALT_LAKE_VALLEY.name());
-            location[0].setMapSymbol(Places.SALT_LAKE_VALLEY.mapSymbol);
+
         }
     }
 

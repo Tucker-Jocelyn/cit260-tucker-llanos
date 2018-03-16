@@ -16,9 +16,8 @@ public class RegularScene extends Scene implements Serializable {
 
     public Places placeName;
 
-    public RegularScene(int sceneType, String name, String description) {
+    public RegularScene(int sceneType, String description) {
         setSceneType(sceneType);
-        setName(name);
         setDescription(description);
     }
 

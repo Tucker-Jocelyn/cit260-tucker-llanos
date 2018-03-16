@@ -17,9 +17,8 @@ public class RiverScene extends Scene implements Serializable {
     private double waterDepth;
     public Places placeName;
 
-    public RiverScene(int sceneType, String name, String description, double waterDepth) {
+    public RiverScene(int sceneType, String description, double waterDepth) {
         setSceneType(sceneType);
-        setName(name);
         setDescription(description);
         setWaterDepth(waterDepth);
     }

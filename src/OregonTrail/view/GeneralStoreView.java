@@ -10,8 +10,6 @@ public class GeneralStoreView extends View {
 
     public GeneralStoreView() {
         super("\nWelcome to the General Store. These are the items we carry and their prices:"
-                + "\nOxen: $20 each"
-                + "\nWagons: Small $60, Medium $70, Large $80"
                 + "\nFood: $0.20/lb"
                 + "\nSpare Wagon Wheels: $10 each"
                 + "\nAmmunition: $2/box\n\n"
