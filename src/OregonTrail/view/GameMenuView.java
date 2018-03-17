@@ -66,10 +66,14 @@ Game game = OregonTrail.getCurrentGame();//get the currentGame from the main cla
 Map map = game.getMap();//locations = get the 2-D locations array from the map
 Location[] locations = map.getLocations();
 for (int i = 0; i < locations.length; i++){
-    locations[i].getMapSymbol();
-  System.out.println();  
+  System.out.print(locations[i].getMapSymbol());
 }
-
+System.out.println("\n\nLegend"
+    + "\nN = Nauvoo\nMR = Mississippi River\nCR = Chariton River\nGG = Garden Grove\nMP = Mount Pisgah"
+    +   "\nNR = Nishnabotna River\nK = Kanesville\nWQ = Winter Quarters\nPR = Platte River"
+    + "\nFK = Fort Kearney\nCHR = Chimney Rock\nFL = Fort Laramie\nUPR = Upper Platte River"
+    + "\nSR = Sweetwater River\nIR = Independence Rock\nMC = Martin's Cove\nGR = Green River"
+    + "\nFB = Fort Bridger\nBR = Bear River\nSLV = Salt Lake Valley");
 
 //if location has been visited
 //Get the mapSymbol for the scene in this location

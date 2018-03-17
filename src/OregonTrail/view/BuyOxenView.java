@@ -11,12 +11,12 @@ import OregonTrail.model.Wagon;
 
 /**
  *
- * @author Tim
+ * @author Jocelyn and Kim
  */
 public class BuyOxenView extends View {
 
     public BuyOxenView() {
-        super("\nYou need to purchase oxen. Each ox can pull 550 lbs. We suggest you purchase 6. They cost $40 each and come in sets of two.\n"
+        super("\nYou need to purchase oxen. Each ox can pull 550 lbs. We suggest you purchase 6. They cost $20 each and come in sets of two.\n"
                 + "\nWhich set would you like to purchase?\n"
                 + "\nS - Set of 2 oxen - total pull weight 1100 lbs: $40\n"
                 + "\nM - Set of 4 oxen - total pull weight 2200 lbs: $80\n"
