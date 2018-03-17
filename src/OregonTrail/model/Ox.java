@@ -17,8 +17,12 @@ public class Ox implements Serializable {
     private double pullWeight;
     private int oxHealth;
     private boolean oxRest;
+    private int amount;
 
     public Ox() {
+        this.pullWeight = 550;
+        this.oxHealth = 100;
+        this.amount = 0;
     }
 
     public double getPullWeight() {
@@ -45,18 +49,27 @@ public class Ox implements Serializable {
         this.oxRest = oxRest;
     }
 
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 37 * hash + (int) (Double.doubleToLongBits(this.pullWeight) ^ (Double.doubleToLongBits(this.pullWeight) >>> 32));
-        hash = 37 * hash + this.oxHealth;
-        hash = 37 * hash + (this.oxRest ? 1 : 0);
+        hash = 47 * hash + (int) (Double.doubleToLongBits(this.pullWeight) ^ (Double.doubleToLongBits(this.pullWeight) >>> 32));
+        hash = 47 * hash + this.oxHealth;
+        hash = 47 * hash + (this.oxRest ? 1 : 0);
+        hash = 47 * hash + this.amount;
         return hash;
     }
 
     @Override
     public String toString() {
-        return "InventoryOx{" + "pullWeight=" + pullWeight + ", oxHealth=" + oxHealth + ", oxRest=" + oxRest + '}';
+        return "Ox{" + "pullWeight=" + pullWeight + ", oxHealth=" + oxHealth + ", oxRest=" + oxRest + ", amount=" + amount + '}';
     }
 
     @Override
@@ -78,6 +91,9 @@ public class Ox implements Serializable {
             return false;
         }
         if (this.oxRest != other.oxRest) {
+            return false;
+        }
+        if (this.amount != other.amount) {
             return false;
         }
         return true;

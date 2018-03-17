@@ -57,11 +57,11 @@ public class Wagon implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 79 * hash + (int) (Double.doubleToLongBits(this.maxCarryWeight) ^ (Double.doubleToLongBits(this.maxCarryWeight) >>> 32));
-        hash = 79 * hash + this.length;
-        hash = 79 * hash + (int) (Double.doubleToLongBits(this.wagonWeight) ^ (Double.doubleToLongBits(this.wagonWeight) >>> 32));
-        hash = 79 * hash + Objects.hashCode(this.inventory);
+        int hash = 5;
+        hash = 29 * hash + (int) (Double.doubleToLongBits(this.maxCarryWeight) ^ (Double.doubleToLongBits(this.maxCarryWeight) >>> 32));
+        hash = 29 * hash + this.length;
+        hash = 29 * hash + (int) (Double.doubleToLongBits(this.wagonWeight) ^ (Double.doubleToLongBits(this.wagonWeight) >>> 32));
+        hash = 29 * hash + Objects.hashCode(this.inventory);
         return hash;
     }
 

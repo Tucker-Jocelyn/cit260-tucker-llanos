@@ -20,10 +20,9 @@ public class MainMenuView extends View {
                 + "\nN - Start new game\n"
                 + "\nR - Restart existing game\n"
                 + "\nH - Get help on how to play the game\n"
-                + "\nP - Set the Team Pace\n"
                 + "\nG - General Store Menu\n"
                 + "\nT - Daily Trail Stop Menu\n"
-                + "\nC - River Crossing Menu\n"          
+                + "\nC - River Crossing Menu\n"
                 + "\nS - Save game\n"
                 + "\nE - Exit the Game\n"
                 + "\nPlease Choose an Option:");
@@ -44,10 +43,6 @@ public class MainMenuView extends View {
             case 'H':
                 System.out.println("H - Help is On the Way\n");
                 getHelp();
-                break;
-            case 'P':
-                System.out.println("P - Setting the Team Pace\n");
-                setPace();
                 break;
             case 'G':
                 System.out.println("G - General Store Menu\n");
@@ -81,7 +76,10 @@ public class MainMenuView extends View {
         BuyWagonView buyWagonView = new BuyWagonView();
         buyWagonView.display();
         System.out.println(OregonTrail.getCurrentGame().getTeam().getWagon());
-        //****************insert buy oxen view here
+        System.out.println(OregonTrail.getCurrentGame().getTeam().getOx());
+        BuyOxenView buyOxenView = new BuyOxenView();
+        buyOxenView.display();
+        System.out.println(OregonTrail.getCurrentGame().getTeam().getOx());
         GameMenuView gameMenuView = new GameMenuView();
         gameMenuView.display();
     }
@@ -100,11 +98,6 @@ public class MainMenuView extends View {
         System.out.println("*** saveGame() called ***");
     }
 
-    private void setPace() {
-        TeamPaceMenuView teamPaceMenuView = new TeamPaceMenuView();
-        teamPaceMenuView.display();
-    }
-
     private void generalStore() {
         GeneralStoreView generalStoreView = new GeneralStoreView();
         generalStoreView.display();
@@ -114,7 +107,7 @@ public class MainMenuView extends View {
         DailyTrailStopSceneMenuView view = new DailyTrailStopSceneMenuView();
         view.display();
     }
-        
+
     private void riverCrossing() {
         RiverCrossingView riverCrossingView = new RiverCrossingView();
         riverCrossingView.display();
