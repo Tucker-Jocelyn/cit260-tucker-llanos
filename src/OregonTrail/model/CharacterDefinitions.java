@@ -17,10 +17,10 @@ public enum CharacterDefinitions {
     REDSHIRT1("Red Shirt 1", 2, 2, 0),
     REDSHIRT2("Red Shirt 2", 3, 2, 2);
 
-    public final String characterName;
-    public final int stamina;
-    public final int characterHuntingSkill;
-    public final int characterGatheringSkill;
+    private final String characterName;
+    final int stamina;
+    private final int characterHuntingSkill;
+    private final int characterGatheringSkill;
 
     CharacterDefinitions(String characterName, int stamina, int characterHuntingSkill, int characterGatheringSkill) {
         this.characterName = characterName;
@@ -34,4 +34,22 @@ public enum CharacterDefinitions {
         return "CharacterDefinitions{" + "characterName=" + characterName + ", stamina=" + stamina + ", characterHuntingSkill=" + characterHuntingSkill + ", characterGatheringSkill=" + characterGatheringSkill + '}';
     }
 
+    public String getCharacterName() {
+        return characterName;
+    }
+
+    public int getStamina() {
+        return stamina;
+    }
+
+    public int getCharacterHuntingSkill() {
+        return characterHuntingSkill;
+    }
+
+    public int getCharacterGatheringSkill() {
+        return characterGatheringSkill;
+    }
+
+    
+    
 }

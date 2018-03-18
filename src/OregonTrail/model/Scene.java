@@ -10,7 +10,7 @@ import java.io.Serializable;
 
 /**
  *
- * @author kimllanos
+ * @author Kim Llanos
  */
 public class Scene implements Serializable {
 

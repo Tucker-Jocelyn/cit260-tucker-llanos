@@ -23,6 +23,7 @@ public class MainMenuView extends View {
                 + "\nG - General Store Menu\n"
                 + "\nT - Daily Trail Stop Menu\n"
                 + "\nC - River Crossing Menu\n"
+                + "\nL - Hotel Scene Menu\n"
                 + "\nS - Save game\n"
                 + "\nE - Exit the Game\n"
                 + "\nPlease Choose an Option:");
@@ -56,6 +57,10 @@ public class MainMenuView extends View {
                 System.out.println("C - River Crossing Menu\n");
                 riverCrossing();
                 break;
+            case 'L':
+                System.out.println("L - Hotel Scene Menu\n");
+                hotel();
+                break;
             case 'S':
                 System.out.println("S - Saving the Game\n");
                 saveGame();
@@ -64,7 +69,7 @@ public class MainMenuView extends View {
                 System.out.println("E - Exiting the Game\n");
                 return true;
             default:
-                System.out.println("Only \"N, R, H, P, G, T, C, S, and E\" are Valid Options\n");
+                System.out.println("Only \"N, R, H, P, G, T, C, L, S, and E\" are Valid Options\n");
                 break;
         }
         return false;
@@ -111,5 +116,10 @@ public class MainMenuView extends View {
     private void riverCrossing() {
         RiverCrossingView riverCrossingView = new RiverCrossingView();
         riverCrossingView.display();
+    }
+
+    private void hotel() {
+        HotelSceneView hotelSceneView = new HotelSceneView();
+        hotelSceneView.display();
     }
 }
