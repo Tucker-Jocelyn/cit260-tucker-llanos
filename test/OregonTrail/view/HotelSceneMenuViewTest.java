@@ -12,24 +12,22 @@ import static org.junit.Assert.*;
  *
  * @author Kim Tanton
  */
-public class TeamPaceMenuViewTest {
+public class HotelSceneMenuViewTest {
     
-    public TeamPaceMenuViewTest() {
+    public HotelSceneMenuViewTest() {    
     }
-
-
     /**
      * Test of displayTeamPaceMenuView method, of class TeamPaceMenuView.
      */
     @Test
-    public void testDisplayTeamPaceMenuView() {
-        System.out.println("displayTeamPaceMenuView");
+    public void testDisplayHotelSceneMenuView() {
+        System.out.println("displayHotelSceneMenuView");
         System.out.println("test case 1");
         
         //input parameter
-        //String name = "P";
+        //String name = "A";
         
-        //expected result "Set the Team Pace"
+        //expected result "You are adding a new Character to your Team."
         
 
 

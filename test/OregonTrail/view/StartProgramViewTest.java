@@ -32,7 +32,7 @@ public class StartProgramViewTest {
         
         //calls the Start Program Menu instance
         StartProgramView instance = new StartProgramView();
-        instance.displayStartProgramView();
+        instance.display();
 
     }
     

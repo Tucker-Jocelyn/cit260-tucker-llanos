@@ -22,58 +22,7 @@ public class TeamPaceMenuView extends View {
                 + "\nE - Exit (Back to Main Menu)");
     }
 
-    /*
-    void displayTeamPaceMenuView() {
-        System.out.println("*** displayTeamPaceMenuView() called ***");
-        boolean endOfView = false;
-        do {
-            String[] inputs = this.getInputs();
-
-            //check input length
-            if (inputs.length < 1) {
-                return;
-            }
-
-            endOfView = doAction(inputs);
-
-        } while (endOfView != true);
-    }
-
-    private String[] getInputs() {
-        Scanner in = new Scanner(System.in);
-
-        String[] inputs = new String[1];
-
-        System.out.println("\nHere are Team Pace Menu Options:"
-                + "\nS - Slow Pace\n"
-                + "\nA - Average Pace\n"
-                + "\nF - Fast Pace\n"
-                + "\nE - Exit Team Pace Menu (Back to Game Play Menu)");
-
-        boolean valid = false;
-
-        while (valid == false) {
-
-            System.out.println("\nPlease Choose an Option");
-            String option = in.nextLine();
-
-            option = option.trim();
-
-            if (option.length() < 1) {
-                System.out.println("You must enter a value, blanks are not accepted here.");
-
-                continue;
-            }
-
-            inputs[0] = option;
-            valid = true;
-
-        }
-        return inputs;
-
-    }
-
-     */
+ 
     @Override
     public boolean doAction(String[] inputs) {
         char choice = Character.toUpperCase(inputs[0].charAt(0));
@@ -112,18 +61,4 @@ public class TeamPaceMenuView extends View {
 
     }
 
-    /*private void setSlowPace() {
-
-    }
-
-    private void setAveragePace() {
-
-    }
-
-    private void setFastPace() {
-
-    }
-
-
-     */
 }

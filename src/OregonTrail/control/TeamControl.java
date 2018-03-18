@@ -45,22 +45,63 @@ public abstract class TeamControl {
         return teamAnimalWeight;
     }
 
+    /**
+     * Calculates how much of the gathered plants (in pounds) the team retains.
+     *
+     * @param teamGatheringSkillLevel
+     * @param hasPlant
+     * @return
+     */
+    public static double calcTeamGatheringIncrease(int teamGatheringSkillLevel, int hasPlant) {
+
+        //basic validity rules: NO gathering skills (level 0), NO plants
+        if (teamGatheringSkillLevel < 0 || hasPlant < 1) {
+            //teamPlantWeight = teamPlantWeight * hasPlant;
+            return -999;
+        }
+
+        double teamPlantWeight = AnimalsPlants.PLANT.weight * hasPlant;
+
+        if (teamGatheringSkillLevel == 6 || teamGatheringSkillLevel == 5) {
+            teamPlantWeight *= 0.75;
+        } else if (teamGatheringSkillLevel == 4 || teamGatheringSkillLevel == 3) {
+            teamPlantWeight *= 0.5;
+        } else {
+            teamPlantWeight *= 0.25;
+        }
+
+        return teamPlantWeight;
+    }
+
     /*
     public static CharacterDefinitions[] createTeam() {
         CharacterDefinitions[] teamMembers = CharacterDefinitions.values();
         //teamMembers[CharacterDefinitions.KIRK.ordinal()] = CharcterDefinitions.KIRK;
         return teamMembers;
     }
-*/
-    
+     */
     public static Team createTeam() {
         CharacterDefinitions[] charDef = CharacterDefinitions.values();
         Character[] teamMembers = new Character[6];
-        for (CharacterDefinitions current: charDef){
+        for (CharacterDefinitions current : charDef) {
             teamMembers[current.ordinal()] = new Character(current);
         }
         Team team = new Team();
         team.setTeam(teamMembers);
         return team;
     }
+
+    /*array of Char Defn index to get index position within the array
+     */
+    public static int getCharIndex(String charName) {
+        CharacterDefinitions[] charDef = CharacterDefinitions.values();
+
+        for (int i = 0; i < charDef.length; i++) {
+            if (charDef[i].getCharacterName().equals (charName) )
+                return i;
+        }
+        return -1;
+    }
+       
 }
+

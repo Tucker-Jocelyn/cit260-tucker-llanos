@@ -11,7 +11,7 @@ import java.util.Objects;
 
 /**
  *
- * @author kimllanos
+ * @author Kim Llanos
  */
 public class HotelScene extends Scene implements Serializable {
 

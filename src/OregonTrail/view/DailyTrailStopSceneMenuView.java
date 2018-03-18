@@ -86,7 +86,7 @@ public class DailyTrailStopSceneMenuView extends View {
     }
 
     private void gatherPlants() {
-        System.out.println("Go to the Garher Edible Plants Scene ");
+        System.out.println("Go to the Gather Edible Plants Scene ");
     }
 
 }
