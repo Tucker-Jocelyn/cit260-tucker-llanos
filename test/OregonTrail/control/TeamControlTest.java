@@ -5,6 +5,9 @@
  */
 package OregonTrail.control;
 
+import exceptions.TeamControlException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -50,7 +53,12 @@ public class TeamControlTest {
         double expResult = -999;
         
         //call the method
-        double result = TeamControl.calcTeamHuntingIncrease(teamHuntingSkillLevel, hasAnimal);
+        double result =0;
+        try {
+            result = TeamControl.calcTeamHuntingIncrease(teamHuntingSkillLevel, hasAnimal);
+        } catch (TeamControlException ex) {
+            Logger.getLogger(TeamControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         System.out.println("expected result = " + expResult);
         System.out.println("actual result = " + result);
@@ -76,7 +84,12 @@ public class TeamControlTest {
         double expResult = 15;
         
         //call the method
-        double result = TeamControl.calcTeamHuntingIncrease(teamHuntingSkillLevel, hasAnimal);
+        double result =0;
+        try {
+            result = TeamControl.calcTeamHuntingIncrease(teamHuntingSkillLevel, hasAnimal);
+        } catch (TeamControlException ex) {
+            Logger.getLogger(TeamControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         System.out.println("expected result = " + expResult);
         System.out.println("actual result = " + result);
@@ -102,7 +115,12 @@ public class TeamControlTest {
         double expResult = -999;
         
         //call the method
-        double result = TeamControl.calcTeamHuntingIncrease(teamHuntingSkillLevel, hasAnimal);
+        double result=0;
+        try {
+            result = TeamControl.calcTeamHuntingIncrease(teamHuntingSkillLevel, hasAnimal);
+        } catch (TeamControlException ex) {
+            Logger.getLogger(TeamControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         System.out.println("expected result = " + expResult);
         System.out.println("actual result = " + result);
@@ -129,7 +147,12 @@ public class TeamControlTest {
         double expResult = 45;
         
         //call the method
-        double result = TeamControl.calcTeamHuntingIncrease(teamHuntingSkillLevel, hasAnimal);
+        double result=0;
+        try {
+            result = TeamControl.calcTeamHuntingIncrease(teamHuntingSkillLevel, hasAnimal);
+        } catch (TeamControlException ex) {
+            Logger.getLogger(TeamControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         System.out.println("expected result = " + expResult);
         System.out.println("actual result = " + result);
@@ -155,7 +178,12 @@ public class TeamControlTest {
         double expResult = 15;
         
         //call the method
-        double result = TeamControl.calcTeamHuntingIncrease(teamHuntingSkillLevel, hasAnimal);
+        double result=0;
+        try {
+            result = TeamControl.calcTeamHuntingIncrease(teamHuntingSkillLevel, hasAnimal);
+        } catch (TeamControlException ex) {
+            Logger.getLogger(TeamControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         System.out.println("expected result = " + expResult);
         System.out.println("actual result = " + result);
@@ -181,7 +209,12 @@ public class TeamControlTest {
         double expResult = 37.5;
         
         //call the method
-        double result = TeamControl.calcTeamHuntingIncrease(teamHuntingSkillLevel, hasAnimal);
+        double result=0;
+        try {
+            result = TeamControl.calcTeamHuntingIncrease(teamHuntingSkillLevel, hasAnimal);
+        } catch (TeamControlException ex) {
+            Logger.getLogger(TeamControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         System.out.println("expected result = " + expResult);
         System.out.println("actual result = " + result);
@@ -208,7 +241,12 @@ public class TeamControlTest {
         double expResult = 30;
         
         //call the method
-        double result = TeamControl.calcTeamHuntingIncrease(teamHuntingSkillLevel, hasAnimal);
+        double result=0;
+        try {
+            result = TeamControl.calcTeamHuntingIncrease(teamHuntingSkillLevel, hasAnimal);
+        } catch (TeamControlException ex) {
+            Logger.getLogger(TeamControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         System.out.println("expected result = " + expResult);
         System.out.println("actual result = " + result);
@@ -233,7 +271,12 @@ public class TeamControlTest {
         double expResult = 3.75;
         
         //call the method
-        double result = TeamControl.calcTeamHuntingIncrease(teamHuntingSkillLevel, hasAnimal);
+        double result=0;
+        try {
+            result = TeamControl.calcTeamHuntingIncrease(teamHuntingSkillLevel, hasAnimal);
+        } catch (TeamControlException ex) {
+            Logger.getLogger(TeamControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         System.out.println("expected result = " + expResult);
         System.out.println("actual result = " + result);

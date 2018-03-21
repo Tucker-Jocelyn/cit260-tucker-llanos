@@ -169,7 +169,7 @@ public class MapControl {
         }
     }
 
- public static void listLocations() {
+    public static void listLocations() {
         Location[] locations = OregonTrail.getCurrentGame().getMap().getLocations();
 
         System.out.println("Towns:");

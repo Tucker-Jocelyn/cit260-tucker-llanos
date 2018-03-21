@@ -22,6 +22,7 @@ public class GameMenuView extends View {
                 + "\nI - View Team Inventory and Supplies\n"
                 + "\nP - Set the Team Pace\n"
                 + "\nM - View Map\n"
+                + "\nL - List Locations by Type\n"
                 + "\nH - View Help Menu\n"
                 + "\nE - Exit Game Play Menu (Back to Main Menu)\n"
                 + "\nPlease Choose an Option:");
