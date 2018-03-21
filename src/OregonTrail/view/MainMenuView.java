@@ -7,7 +7,10 @@ package OregonTrail.view;
 
 import OregonTrail.OregonTrail;
 import OregonTrail.control.GameControl;
+import exceptions.MapControlException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -76,7 +79,12 @@ public class MainMenuView extends View {
     }
 
     private void startNewGame() {
-        GameControl.createNewGame(OregonTrail.getCurrentPlayer());
+        try {
+            GameControl.createNewGame(OregonTrail.getCurrentPlayer());
+        } catch (MapControlException ex) {
+            //Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getMessage());
+        }
         System.out.println(OregonTrail.getCurrentGame().getTeam().getWagon());
         BuyWagonView buyWagonView = new BuyWagonView();
         buyWagonView.display();

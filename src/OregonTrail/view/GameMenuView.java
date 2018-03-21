@@ -6,6 +6,7 @@
 package OregonTrail.view;
 
 import OregonTrail.OregonTrail;
+import OregonTrail.control.MapControl;
 import OregonTrail.model.Game;
 import OregonTrail.model.Location;
 import OregonTrail.model.Map;
@@ -20,7 +21,7 @@ public class GameMenuView extends View {
         super("\nS - View Team Status\n"
                 + "\nI - View Team Inventory and Supplies\n"
                 + "\nP - Set the Team Pace\n"
-                + "\nV - View Map\n"
+                + "\nM - View Map\n"
                 + "\nH - View Help Menu\n"
                 + "\nE - Exit Game Play Menu (Back to Main Menu)\n"
                 + "\nPlease Choose an Option:");
@@ -41,9 +42,13 @@ public class GameMenuView extends View {
                 System.out.println("P - Setting the Team Pace\n");
                 setPace();
                 break;
-            case 'V':
-                System.out.println("V - Viewing the Map\n");
+            case 'M':
+                System.out.println("M - Viewing the Map\n");
                 viewMap();
+                break;
+            case 'L':
+                System.out.println("L - Listing Locations by Type\n");
+                getLocations();
                 break;
             case 'H':
                 System.out.println("H - Help is On the Way\n");
@@ -53,7 +58,7 @@ public class GameMenuView extends View {
                 System.out.println("E - Exiting the Game Play Menu (Back to Main Menu)\n");
                 return true;
             default:
-                System.out.println("Only \"S, I, P, V, H, and E\" are Valid Options\n");
+                System.out.println("Only \"S, I, P, M, H, and E\" are Valid Options\n");
                 break;
         }
 
@@ -62,32 +67,19 @@ public class GameMenuView extends View {
 
     private void viewMap() {
         System.out.println("Viewing the Map");
-Game game = OregonTrail.getCurrentGame();//get the currentGame from the main class 
-Map map = game.getMap();//locations = get the 2-D locations array from the map
-Location[] locations = map.getLocations();
-for (int i = 0; i < locations.length; i++){
-  System.out.print(locations[i].getMapSymbol());
-}
-System.out.println("\n\nLegend"
-    + "\nN = Nauvoo\nMR = Mississippi River\nCR = Chariton River\nGG = Garden Grove\nMP = Mount Pisgah"
-    +   "\nNR = Nishnabotna River\nK = Kanesville\nWQ = Winter Quarters\nPR = Platte River"
-    + "\nFK = Fort Kearney\nCHR = Chimney Rock\nFL = Fort Laramie\nUPR = Upper Platte River"
-    + "\nSR = Sweetwater River\nIR = Independence Rock\nMC = Martin's Cove\nGR = Green River"
-    + "\nFB = Fort Bridger\nBR = Bear River\nSLV = Salt Lake Valley");
+        Game game = OregonTrail.getCurrentGame();//get the currentGame from the main class
+        Map map = game.getMap();//locations = get the 2-D locations array from the map
+        Location[] locations = map.getLocations();
+        for (int i = 0; i < locations.length; i++) {
+            System.out.print(locations[i].getMapSymbol());
+        }
+        System.out.println("\n\nLegend"
+                + "\nN = Nauvoo\nMR = Mississippi River\nCR = Chariton River\nGG = Garden Grove\nMP = Mount Pisgah"
+                + "\nNR = Nishnabotna River\nK = Kanesville\nWQ = Winter Quarters\nPR = Platte River"
+                + "\nFK = Fort Kearney\nCHR = Chimney Rock\nFL = Fort Laramie\nUPR = Upper Platte River"
+                + "\nSR = Sweetwater River\nIR = Independence Rock\nMC = Martin's Cove\nGR = Green River"
+                + "\nFB = Fort Bridger\nBR = Bear River\nSLV = Salt Lake Valley");
 
-//if location has been visited
-//Get the mapSymbol for the scene in this location
-//Print the mapSymbol 
-//else
-//Print 
-//"
- //?? 
-//"
-//endif//
-//endFor 
-//Print the ending column divider
-//endFor
-//Print the ending row divider
     }
 
     private void viewStatus() {
@@ -106,5 +98,9 @@ System.out.println("\n\nLegend"
     private void getHelp() {
         HelpMenuView helpMenuView = new HelpMenuView();
         helpMenuView.display();
+    }
+
+    private void getLocations() {
+        MapControl.listLocations();
     }
 }

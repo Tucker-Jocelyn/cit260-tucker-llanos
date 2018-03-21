@@ -13,6 +13,7 @@ import OregonTrail.model.Inventory;
 import OregonTrail.model.Map;
 import OregonTrail.model.Player;
 import OregonTrail.model.Team;
+import exceptions.MapControlException;
 import java.util.ArrayList;
 
 /**
@@ -32,7 +33,7 @@ public class GameControl {
         return player;
     }
 
-    public static int createNewGame(Player currentPlayer) {
+    public static int createNewGame(Player currentPlayer) throws MapControlException {
         if (currentPlayer == null) {
             return -1;
         }

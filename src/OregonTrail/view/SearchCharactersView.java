@@ -9,9 +9,9 @@ package OregonTrail.view;
  *
  * @author Kim Tanton
  */
-public class ReplaceCharacterView {
+public class SearchCharactersView {
 
-    void displayReplaceCharacterView() {
-        System.out.println("*** displayReplaceCharacterView() called ***");
+    void displaySearchCharactersView() {
+        System.out.println("*** displaySearchCharactersView() called ***");
     }
 }

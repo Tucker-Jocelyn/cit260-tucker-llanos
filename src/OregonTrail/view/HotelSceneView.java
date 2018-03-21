@@ -7,7 +7,10 @@ package OregonTrail.view;
 
 import static OregonTrail.control.TeamControl.getCharIndex;
 import OregonTrail.model.CharacterDefinitions;
+import exceptions.TeamControlException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -27,6 +30,33 @@ public class HotelSceneView extends View {
                 + "\nE - Exit (Back to Main Menu)");
     }
 
+    /*
+@Override
+    public String[] getInput() {
+        Scanner in = new Scanner(System.in);
+
+        String[] inputs = new String[1];
+
+        boolean valid = false;
+        while (valid == false) {
+            System.out.println("\nPlease enter a Character Name. Bones, Spock, Kirk, Red Shirt 1 and Redshirt 2 are valid. ");
+            String name = in.nextLine();
+
+            name = name.trim();
+
+            if (name.length() < 1) {
+                System.out.println("You must enter a value, blanks are not accepted here.");
+
+                continue;
+            }
+
+            inputs[0] = name;
+            valid = true;
+
+        }
+        return inputs;
+    }
+     */
     @Override
     public boolean doAction(String[] inputs) {
         char choice = Character.toUpperCase(inputs[0].charAt(0));
@@ -41,22 +71,22 @@ public class HotelSceneView extends View {
                 return true;
             case 'S':
                 searchCharacters();
-                System.out.println("S = Search for a Character\n");
+                System.out.println("S - Search for a Character\n");
                 return true;
             case 'A':
-                System.out.println("A = Add a Character to your Team\n");
+                System.out.println("A - Add a Character to your Team\n");
                 addCharacter();
                 return true;
             case 'X':
-                System.out.println("X = Subtract a Character from your Team\n");
+                System.out.println("X - Subtract a Character from your Team\n");
                 deleteCharacter();
                 return true;
             case 'R':
-                System.out.println("R = Replace a Character on your Team\n");
+                System.out.println("R - Replace a Character on your Team\n");
                 replaceCharacter();
                 return true;
             case 'E':
-                System.out.println("E = Exit (Back to Main Menu)\n");
+                System.out.println("E - Exit (Back to Main Menu)\n");
                 return true;
             default:
                 System.out.println("Only \"D, L, S, , A, X, R, and E\" are Valid Options\n");
@@ -64,22 +94,18 @@ public class HotelSceneView extends View {
         }
         return false;
     }
-
-    private void allCharacters() {
-        ListCharactersView listCharactersView = new ListCharactersView();
-        listCharactersView.displayListCharactersView();
-    }
-
-    private void availableCharacters() {
-        AvailableCharactersView availableCharactersView = new AvailableCharactersView();
-        availableCharactersView.displayAvailableCharactersView();
-    }
-
+    
     //call getCharIndex() to get character index position and associated character name
-    private void searchCharacters() {
-        System.out.println("*** searchCharacters() called ***");
-        String charToFind = "Bones";
-        int index = getCharIndex(charToFind);
+    private void allCharacters() {
+        System.out.println("*** allCharacters() called ***");
+        String charToFind = "Spock";
+        int index=0;
+        try {
+            index = getCharIndex(charToFind);
+        } catch (TeamControlException ex) {
+            //Logger.getLogger(HotelSceneView.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getMessage());
+        }
         if (index == -1) {
             System.out.println(charToFind + " could not be found");
         } else {
@@ -87,7 +113,21 @@ public class HotelSceneView extends View {
             System.out.println(found.getCharacterName() + " is found at index " + index);
         }
     }
+    
 
+    private void availableCharacters() {
+        AvailableCharactersView availableCharactersView = new AvailableCharactersView();
+        availableCharactersView.displayAvailableCharactersView();
+    }
+
+    //add logic for user to input a name to see if they are available
+    private void searchCharacters() {
+        SearchCharactersView searchCharactersView = new SearchCharactersView();
+        searchCharactersView.displaySearchCharactersView();
+    }
+
+
+    
     private void addCharacter() {
         AddCharactersView addCharactersView = new AddCharactersView();
         addCharactersView.displayAddCharactersView();
