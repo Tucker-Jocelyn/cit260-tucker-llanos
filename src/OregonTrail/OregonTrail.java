@@ -31,14 +31,14 @@ import OregonTrail.model.HotelScene;
 import OregonTrail.model.TrailStopScene;
 import OregonTrail.view.StartProgramView;
 
-
 /**
  *
  * @author kim-jocelyn
  */
 public class OregonTrail {
- private static Player currentPlayer = null;
- private static Game currentGame = null;
+
+    private static Player currentPlayer = null;
+    private static Game currentGame = null;
 
     public static Player getCurrentPlayer() {
         return currentPlayer;
@@ -55,14 +55,17 @@ public class OregonTrail {
     public static void setCurrentGame(Game currentGame) {
         OregonTrail.currentGame = currentGame;
     }
- 
- 
+
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        StartProgramView startProgramView = new StartProgramView();
-
-        startProgramView.display();
+        try {
+            StartProgramView startProgramView = new StartProgramView();
+            startProgramView.display();
+        }  catch  (Throwable ex){
+           System.out.println(ex.getMessage());
+           ex.printStackTrace();
+        }
+        }
     }
-}

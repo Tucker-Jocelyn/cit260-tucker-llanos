@@ -107,7 +107,7 @@ public class MapControl {
     private static Location[] createLocations(int noOfLocations) throws MapControlException {
         if (noOfLocations < 1) {
             //return null;
-            throw new MapControlException("The number of Locations cannot be negative."); 
+            throw new MapControlException("The number of Locations cannot be less than 1."); 
         }
         Location[] locations = new Location[noOfLocations]; //    locations = new Location array
         for (int i = 0; i < locations.length; i++) { //FOR every index in the locations array

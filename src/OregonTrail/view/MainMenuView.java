@@ -7,6 +7,7 @@ package OregonTrail.view;
 
 import OregonTrail.OregonTrail;
 import OregonTrail.control.GameControl;
+import exceptions.GameControlException;
 import exceptions.MapControlException;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -81,20 +82,24 @@ public class MainMenuView extends View {
     private void startNewGame() {
         try {
             GameControl.createNewGame(OregonTrail.getCurrentPlayer());
+            System.out.println(OregonTrail.getCurrentGame().getTeam().getWagon());
+            BuyWagonView buyWagonView = new BuyWagonView();
+            buyWagonView.display();
+            System.out.println(OregonTrail.getCurrentGame().getTeam().getWagon());
+            System.out.println(OregonTrail.getCurrentGame().getTeam().getOx());
+            BuyOxenView buyOxenView = new BuyOxenView();
+            buyOxenView.display();
+            System.out.println(OregonTrail.getCurrentGame().getTeam().getOx());
+            GameMenuView gameMenuView = new GameMenuView();
+            gameMenuView.display();
         } catch (MapControlException ex) {
             //Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println(ex.getMessage());
+        } catch (GameControlException ex) {
+            //Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getMessage());
         }
-        System.out.println(OregonTrail.getCurrentGame().getTeam().getWagon());
-        BuyWagonView buyWagonView = new BuyWagonView();
-        buyWagonView.display();
-        System.out.println(OregonTrail.getCurrentGame().getTeam().getWagon());
-        System.out.println(OregonTrail.getCurrentGame().getTeam().getOx());
-        BuyOxenView buyOxenView = new BuyOxenView();
-        buyOxenView.display();
-        System.out.println(OregonTrail.getCurrentGame().getTeam().getOx());
-        GameMenuView gameMenuView = new GameMenuView();
-        gameMenuView.display();
+
     }
 
     private void restartGame() {

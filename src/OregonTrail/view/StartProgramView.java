@@ -2,7 +2,10 @@ package OregonTrail.view;
 
 import OregonTrail.control.GameControl;
 import OregonTrail.model.Player;
+import exceptions.GameControlException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -35,11 +38,11 @@ public class StartProgramView extends View {
 
             name = name.trim();
 
-            if (name.length() < 1) {
-                System.out.println("You must enter a value, blanks are not accepted here.");
+            //if (name.length() < 1) {
+            //    System.out.println("You must enter a value, blanks are not accepted here.");
 
-                continue;
-            }
+            //    continue;
+            //}
 
             inputs[0] = name;
             valid = true;
@@ -52,7 +55,12 @@ public class StartProgramView extends View {
     @Override
     public boolean doAction(String[] inputs) {
         String playersName = inputs[0];
-        Player player = GameControl.savePlayer(playersName);
+        Player player = null;
+        try {
+            player = GameControl.savePlayer(playersName);
+        } catch (GameControlException ex) {
+            Logger.getLogger(StartProgramView.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         if (player == null) {
             System.out.println("\nCould not create the player. Enter a different name.");

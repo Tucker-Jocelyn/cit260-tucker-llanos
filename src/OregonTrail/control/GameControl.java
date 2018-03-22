@@ -13,6 +13,7 @@ import OregonTrail.model.Inventory;
 import OregonTrail.model.Map;
 import OregonTrail.model.Player;
 import OregonTrail.model.Team;
+import exceptions.GameControlException;
 import exceptions.MapControlException;
 import java.util.ArrayList;
 
@@ -22,9 +23,10 @@ import java.util.ArrayList;
  */
 public class GameControl {
 
-    public static Player savePlayer(String playersName) {
+    public static Player savePlayer(String playersName) throws GameControlException {
         if (playersName == null || playersName.length() < 1) {
-            return null;
+            //return null;
+            throw new GameControlException("The player's name cannot be empty.");
         }
 
         Player player = new Player();
@@ -33,24 +35,24 @@ public class GameControl {
         return player;
     }
 
-    public static int createNewGame(Player currentPlayer) throws MapControlException {
+    public static int createNewGame(Player currentPlayer) throws MapControlException, GameControlException {
         if (currentPlayer == null) {
-            return -1;
+            //return -1;
+            throw new GameControlException("No player is associated with the game, please sign up!");
         }
 
         Game game = new Game();
         game.setPlayer(currentPlayer);
         OregonTrail.setCurrentGame(game);
-        //CharacterDefinitions[] team = TeamControl.createTeam(); //**********Connor IS THIS RIGHT?  
         Team team = TeamControl.createTeam();
-        game.setTeam(team);//Save the team in the Game object***************Connor
-//Assign an character to the player *************Connor
+        game.setTeam(team);
         Inventory inventory = InventoryControl.createInventory();
         team.setInventory(inventory);
         int noOfLocations = 81;
         Map map = MapControl.createMap(noOfLocations);
         if (map == null) {
-            return -1;
+            //return -1;
+            throw new GameControlException("Could not create a map.");
         }
         game.setMap(map);
         return 1; //indicates success

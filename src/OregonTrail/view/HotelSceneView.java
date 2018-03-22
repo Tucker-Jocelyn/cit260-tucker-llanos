@@ -30,17 +30,16 @@ public class HotelSceneView extends View {
                 + "\nE - Exit (Back to Main Menu)");
     }
 
-    /*
-@Override
-    public String[] getInput() {
+
+    public String getName() {
         Scanner in = new Scanner(System.in);
 
-        String[] inputs = new String[1];
+        String name = null;
 
         boolean valid = false;
         while (valid == false) {
             System.out.println("\nPlease enter a Character Name. Bones, Spock, Kirk, Red Shirt 1 and Redshirt 2 are valid. ");
-            String name = in.nextLine();
+            name = in.nextLine();
 
             name = name.trim();
 
@@ -50,13 +49,13 @@ public class HotelSceneView extends View {
                 continue;
             }
 
-            inputs[0] = name;
             valid = true;
 
         }
-        return inputs;
+        return name;
     }
-     */
+
+    
     @Override
     public boolean doAction(String[] inputs) {
         char choice = Character.toUpperCase(inputs[0].charAt(0));
@@ -96,9 +95,9 @@ public class HotelSceneView extends View {
     }
     
     //call getCharIndex() to get character index position and associated character name
-    private void allCharacters() {
+    private void searchCharacters() {
         System.out.println("*** allCharacters() called ***");
-        String charToFind = "Spock";
+        String charToFind = getName();
         int index=0;
         try {
             index = getCharIndex(charToFind);
@@ -121,7 +120,7 @@ public class HotelSceneView extends View {
     }
 
     //add logic for user to input a name to see if they are available
-    private void searchCharacters() {
+    private void allCharacters() {
         SearchCharactersView searchCharactersView = new SearchCharactersView();
         searchCharactersView.displaySearchCharactersView();
     }
