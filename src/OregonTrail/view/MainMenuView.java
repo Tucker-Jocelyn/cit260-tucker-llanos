@@ -9,6 +9,7 @@ import OregonTrail.OregonTrail;
 import OregonTrail.control.GameControl;
 import exceptions.GameControlException;
 import exceptions.MapControlException;
+import exceptions.RiverCrossingControlException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,6 +28,7 @@ public class MainMenuView extends View {
                 + "\nG - General Store Menu\n"
                 + "\nT - Daily Trail Stop Menu\n"
                 + "\nC - River Crossing Menu\n"
+                + "\nX - River Crossing Menu with Exception\n"
                 + "\nL - Hotel Scene Menu\n"
                 + "\nS - Save game\n"
                 + "\nE - Exit the Game\n"
@@ -60,6 +62,10 @@ public class MainMenuView extends View {
             case 'C':
                 System.out.println("C - River Crossing Menu\n");
                 riverCrossing();
+                break;
+            case 'X':
+                System.out.println("X - River Crossing Menu that Throws Exception\n");
+                riverCrossingEx();
                 break;
             case 'L':
                 System.out.println("L - Hotel Scene Menu\n");
@@ -127,12 +133,25 @@ public class MainMenuView extends View {
     }
 
     private void riverCrossing() {
-        RiverCrossingView riverCrossingView = new RiverCrossingView();
-        riverCrossingView.display();
+        try {
+            RiverCrossingView riverCrossingView = new RiverCrossingView(1300);
+            riverCrossingView.display();
+        } catch (RiverCrossingControlException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     private void hotel() {
         HotelSceneView hotelSceneView = new HotelSceneView();
         hotelSceneView.display();
+    }
+
+    private void riverCrossingEx() {
+        try {
+            RiverCrossingView riverCrossingView = new RiverCrossingView(1200);
+            riverCrossingView.display();
+        } catch (RiverCrossingControlException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

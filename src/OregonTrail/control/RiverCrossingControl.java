@@ -1,16 +1,41 @@
 package OregonTrail.control;
 
+import exceptions.RiverCrossingControlException;
+
 /**
  *
  * @author Jocelyn Tucker
  */
 public class RiverCrossingControl {
 
-    public static double calcSuccessProbability(double currentWagonLoadWeight, double wagonWeight, double waterDepth, int length, int oxHealth) {
+    public static double calcSuccessProbability(double currentWagonLoadWeight, double wagonWeight, double waterDepth, int length, int oxHealth) throws RiverCrossingControlException {
 
-        if (currentWagonLoadWeight < 0 || wagonWeight < 1250 || wagonWeight > 1350 || waterDepth < 1
-                || waterDepth > 4.75 || length < 9 || length > 11 || oxHealth < 0) {
-            return -99;
+        if (currentWagonLoadWeight < 0) {
+            throw new RiverCrossingControlException("Wagon load weight cannot be less than 0");
+        }
+        if (wagonWeight < 1250) {
+            throw new RiverCrossingControlException("Wagon weight cannot be less than 1250");
+        }
+        if (wagonWeight > 1350) {
+            throw new RiverCrossingControlException("Wagon weight cannot be greater than 1350");
+        }
+        if (waterDepth < 1) {
+            throw new RiverCrossingControlException("Water depth cannot be less than 1");
+        }
+        if (waterDepth > 4.75) {
+            throw new RiverCrossingControlException("Water depth cannot be greater than 4.75");
+        }
+        if (length < 9) {
+            throw new RiverCrossingControlException("Wagon length cannot be less than 9");
+        }
+        if (length > 11) {
+            throw new RiverCrossingControlException("Wagon length cannot be greater than 11");
+        }
+        if (oxHealth < 0) {
+            throw new RiverCrossingControlException("Ox health cannot be less than 0");
+        }
+        if (oxHealth > 100) {
+            throw new RiverCrossingControlException("Ox health cannot be greater than 100");
         }
 
         double percentSuccess = 0;

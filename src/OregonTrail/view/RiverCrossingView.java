@@ -1,6 +1,7 @@
 package OregonTrail.view;
 
 import OregonTrail.control.RiverCrossingControl;
+import exceptions.RiverCrossingControlException;
 import java.util.Scanner;
 
 /**
@@ -9,13 +10,15 @@ import java.util.Scanner;
  */
 public class RiverCrossingView extends View {
 
-    public RiverCrossingView() {
+    private int wagonWeight;
 
-        super("Your chance of crossing the river successfully is: " + RiverCrossingControl.calcSuccessProbability(1500, 1300, 3, 11, 80) + "%"
+    public RiverCrossingView(int wagonWeight) throws RiverCrossingControlException {
+
+        super("Your chance of crossing the river successfully is: " + RiverCrossingControl.calcSuccessProbability(1500, wagonWeight, 3, 11, 80) + "%"
                 + "\n\nD - Drop Supplies"
                 + "\nC - Cross the River"
-                + "\nG - Go Back and Think About it (Back to Main Menu)\n"
-                + "\nPlease Choose an Option:");
+                + "\nE - Go Back and Think About it (Back to Main Menu)\n");
+        this.wagonWeight = wagonWeight;
     }
 
     @Override
@@ -28,7 +31,7 @@ public class RiverCrossingView extends View {
 
         while (valid == false) {
             System.out.println("\nThe river is " + waterDepth + "ft. deep."
-                    + "\n" + this.displayMessage);
+                    + "\nPlease Choose an Option:");
             String option = in.nextLine();
             option = option.trim();
 
@@ -57,11 +60,11 @@ public class RiverCrossingView extends View {
                 System.out.println("C - Crossing the River\n");
                 crossRiver();
                 break;
-            case 'G':
-                System.out.println("G - Going Back for More Thought (Back to Main Menu)\n");
+            case 'E':
+                System.out.println("E - Going Back for More Thought (Back to Main Menu)\n");
                 return true;
             default:
-                System.out.println("Only \"D, C, and G\" are Valid Options\n");
+                System.out.println("Only \"D, C, and E\" are Valid Options\n");
                 break;
         }
 
@@ -74,7 +77,11 @@ public class RiverCrossingView extends View {
     }
 
     private void crossRiver() {
-        CrossRiverView crossRiverView = new CrossRiverView();
-        crossRiverView.display();
+        try {
+            CrossRiverView crossRiverView = new CrossRiverView(wagonWeight);
+            crossRiverView.display();
+        } catch (RiverCrossingControlException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
