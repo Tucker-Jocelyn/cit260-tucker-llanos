@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package OregonTrail.view;
 
 import OregonTrail.OregonTrail;
@@ -10,9 +5,6 @@ import OregonTrail.control.GameControl;
 import exceptions.GameControlException;
 import exceptions.MapControlException;
 import exceptions.RiverCrossingControlException;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -40,46 +32,46 @@ public class MainMenuView extends View {
         char choice = Character.toUpperCase(inputs[0].charAt(0));
         switch (choice) {
             case 'N':
-                System.out.println("N - Starting New Game\n");
+                this.console.println("N - Starting New Game\n");
                 startNewGame();
                 break;
             case 'R':
-                System.out.println("R - Restarting the Game\n");
+                this.console.println("R - Restarting the Game\n");
                 restartGame();
                 break;
             case 'H':
-                System.out.println("H - Help is On the Way\n");
+                this.console.println("H - Help is On the Way\n");
                 getHelp();
                 break;
             case 'G':
-                System.out.println("G - General Store Menu\n");
+                this.console.println("G - General Store Menu\n");
                 generalStore();
                 break;
             case 'T':
-                System.out.println("T - Daily Trail Menu\n");
+                this.console.println("T - Daily Trail Menu\n");
                 dailyTrailStop();
                 break;
             case 'C':
-                System.out.println("C - River Crossing Menu\n");
+                this.console.println("C - River Crossing Menu\n");
                 riverCrossing();
                 break;
             case 'X':
-                System.out.println("X - River Crossing Menu that Throws Exception\n");
+                this.console.println("X - River Crossing Menu that Throws Exception\n");
                 riverCrossingEx();
                 break;
             case 'L':
-                System.out.println("L - Hotel Scene Menu\n");
+                this.console.println("L - Hotel Scene Menu\n");
                 hotel();
                 break;
             case 'S':
-                System.out.println("S - Saving the Game\n");
+                this.console.println("S - Saving the Game\n");
                 saveGame();
                 return true;
             case 'E':
-                System.out.println("E - Exiting the Game\n");
+                this.console.println("E - Exiting the Game\n");
                 return true;
             default:
-                System.out.println("Only \"N, R, H, P, G, T, C, L, S, and E\" are Valid Options\n");
+                this.console.println("Only \"N, R, H, P, G, T, C, L, S, and E\" are Valid Options\n");
                 break;
         }
         return false;
@@ -88,22 +80,23 @@ public class MainMenuView extends View {
     private void startNewGame() {
         try {
             GameControl.createNewGame(OregonTrail.getCurrentPlayer());
-            System.out.println(OregonTrail.getCurrentGame().getTeam().getWagon());
+            this.console.println(OregonTrail.getCurrentGame().getTeam().getWagon());
+
             BuyWagonView buyWagonView = new BuyWagonView();
             buyWagonView.display();
-            System.out.println(OregonTrail.getCurrentGame().getTeam().getWagon());
-            System.out.println(OregonTrail.getCurrentGame().getTeam().getOx());
+            this.console.println(OregonTrail.getCurrentGame().getTeam().getWagon());
+            this.console.println(OregonTrail.getCurrentGame().getTeam().getOx());
+
             BuyOxenView buyOxenView = new BuyOxenView();
             buyOxenView.display();
-            System.out.println(OregonTrail.getCurrentGame().getTeam().getOx());
+            this.console.println(OregonTrail.getCurrentGame().getTeam().getOx());
+
             GameMenuView gameMenuView = new GameMenuView();
             gameMenuView.display();
         } catch (MapControlException ex) {
-            //Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println(ex.getMessage());
+            ErrorView.display(this.getClass().getName(), ex.getMessage());
         } catch (GameControlException ex) {
-            //Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println(ex.getMessage());
+            ErrorView.display(this.getClass().getName(), ex.getMessage());
         }
 
     }
@@ -119,7 +112,7 @@ public class MainMenuView extends View {
     }
 
     private void saveGame() {
-        System.out.println("*** saveGame() called ***");
+        this.console.println("*** saveGame() called ***");
     }
 
     private void generalStore() {
@@ -137,7 +130,7 @@ public class MainMenuView extends View {
             RiverCrossingView riverCrossingView = new RiverCrossingView(1300);
             riverCrossingView.display();
         } catch (RiverCrossingControlException e) {
-            System.out.println(e.getMessage());
+            ErrorView.display(this.getClass().getName(), e.getMessage());
         }
     }
 
@@ -151,7 +144,7 @@ public class MainMenuView extends View {
             RiverCrossingView riverCrossingView = new RiverCrossingView(1200);
             riverCrossingView.display();
         } catch (RiverCrossingControlException e) {
-            System.out.println(e.getMessage());
+            ErrorView.display(this.getClass().getName(), e.getMessage());
         }
     }
 }

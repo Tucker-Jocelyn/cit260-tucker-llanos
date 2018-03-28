@@ -33,7 +33,7 @@ public class CrossRiverView extends View {
 
         if (choice == 'Y') {
             try {
-                System.out.println("Y - Crossing the River\n");
+                this.console.println("Y - Crossing the River\n");
                 double success = RiverCrossingControl.calcSuccessProbability(1500, wagonWeight, 3, 11, 80);
                 if (success != 0) {
                     MapControl.moveTeam();
@@ -42,13 +42,13 @@ public class CrossRiverView extends View {
                     GameControl.determineWin();
                 }
             } catch (RiverCrossingControlException e) {
-                System.out.println(e.getMessage());
+                ErrorView.display(this.getClass().getName(),e.getMessage());
             }
         } else if (choice == 'N') {
-            System.out.println("N - Going Back to the River Crossing Menu)\n");
+            this.console.println("N - Going Back to the River Crossing Menu)\n");
             return true;
         } else {
-            System.out.println("Only \"Y and N\" are Valid Options\n");
+            this.console.println("Only \"Y and N\" are Valid Options\n");
             return false;
         }
         return false;

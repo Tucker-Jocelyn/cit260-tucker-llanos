@@ -3,9 +3,6 @@ package OregonTrail.view;
 import OregonTrail.control.GameControl;
 import OregonTrail.model.Player;
 import exceptions.GameControlException;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -24,32 +21,30 @@ public class StartProgramView extends View {
                 + "\nGood Luck!!");
     }
 
- 
     @Override
     public String[] getInput() {
-        Scanner in = new Scanner(System.in);
-
-        String[] inputs = new String[1];
 
         boolean valid = false;
-        while (valid == false) {
-            System.out.println("\nPlease enter your name: ");
-            String name = in.nextLine();
+        String name = null;
+        String[] inputs = new String[1];
 
-            name = name.trim();
+        try {
 
-            //if (name.length() < 1) {
-            //    System.out.println("You must enter a value, blanks are not accepted here.");
+            // while a valid input has not been retrieved
+            while (valid == false) {
 
-            //    continue;
-            //}
+                this.console.println("\nPlease enter your name: ");
+                // get the value entered from the keyboard
+                name = this.keyboard.readLine();
+                name = name.trim();
 
-            inputs[0] = name;
-            valid = true;
-
+                inputs[0] = name;
+                valid = true;
+            }
+        } catch (Exception ex) {
+            ErrorView.display(this.getClass().getName(), "Error reading input: " + ex.getMessage());
         }
         return inputs;
-
     }
 
     @Override
@@ -59,15 +54,15 @@ public class StartProgramView extends View {
         try {
             player = GameControl.savePlayer(playersName);
         } catch (GameControlException ex) {
-            Logger.getLogger(StartProgramView.class.getName()).log(Level.SEVERE, null, ex);
+            ErrorView.display(this.getClass().getName(), "\nError saving player name. " + ex.getMessage());
         }
 
         if (player == null) {
-            System.out.println("\nCould not create the player. Enter a different name.");
+            ErrorView.display(this.getClass().getName(), "\nCould not create the player. Enter a different name.");
             return false;
         }
 
-        System.out.println(("\nWelcome to the Oregon Trail, " + playersName)
+        this.console.println(("\nWelcome to the Oregon Trail, " + playersName)
                 + ("\nGood luck on your journey to the Salt Lake Valley!"));
 
         MainMenuView mainMenuView = new MainMenuView();

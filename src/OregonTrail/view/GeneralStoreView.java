@@ -1,7 +1,5 @@
 package OregonTrail.view;
 
-import java.util.Scanner;
-
 /**
  *
  * @author Jocelyn Tucker
@@ -25,22 +23,22 @@ public class GeneralStoreView extends View {
         char choice = Character.toUpperCase(inputs[0].charAt(0));
         switch (choice) {
             case 'V':
-                System.out.println("V - View Your Current Supplies\n");
+                this.console.println("V - View Your Current Supplies\n");
                 viewSupplies();
                 break;
             case 'B':
-                System.out.println("B - Buy Supplies\n");
+                this.console.println("B - Buy Supplies\n");
                 buySupplies();
                 break;
             case 'S':
-                System.out.println("S - Sell Your Extra Supplies\n");
+                this.console.println("S - Sell Your Extra Supplies\n");
                 sellSupplies();
                 break;
             case 'E':
-                System.out.println("E - Exiting the General Store (Back to Main Menu)\n");
+                this.console.println("E - Exiting the General Store (Back to Main Menu)\n");
                 return true;
             default:
-                System.out.println("Only \"V, B, S, and E\" are Valid Options\n");
+                this.console.println("Only \"V, B, S, and E\" are Valid Options\n");
                 break;
         }
 

@@ -44,7 +44,7 @@ public class BuyWagonView extends View {
             case 'E':
                 return true;
             default:
-                System.out.println("Only \"S, M, L, and E\" are Valid Options\n");
+                this.console.println("Only \"S, M, L, and E\" are Valid Options\n");
         }
         return false;
     }

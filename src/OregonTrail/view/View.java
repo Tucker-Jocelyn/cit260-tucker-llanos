@@ -1,11 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package OregonTrail.view;
 
-import java.util.Scanner;
+import OregonTrail.OregonTrail;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 
 /**
  *
@@ -13,7 +10,10 @@ import java.util.Scanner;
  */
 public abstract class View implements ViewInterface {
 
-    protected String displayMessage;
+    private String displayMessage;
+
+    protected final BufferedReader keyboard = OregonTrail.getInFile();
+    protected final PrintWriter console = OregonTrail.getOutFile();
 
     public View() {
     }
@@ -27,7 +27,7 @@ public abstract class View implements ViewInterface {
 
         boolean endOfView = false;
         do {
-         System.out.println("\n" + this.displayMessage);
+            this.console.println("\n" + this.displayMessage);
             String[] inputs = this.getInput();
             String value = inputs[0];
             if (value.toUpperCase().equals("Q")) //user wants to quit
@@ -43,26 +43,30 @@ public abstract class View implements ViewInterface {
 
     @Override
     public String[] getInput() {
-        Scanner in = new Scanner(System.in);
+
         boolean valid = false;
+        String option = null;
         String[] inputs = new String[1];
 
-        while (valid == false) {
+        try {
+            // while a valid input has not been retrieved
+            while (valid == false) {
 
-   
+                // get the value entered from the keyboard
+                option = this.keyboard.readLine();
+                option = option.trim();
 
-            String option = in.nextLine();
-            option = option.trim();
+                if (option.length() < 1) {
+                    ErrorView.display(this.getClass().getName(), "You must enter a value, blanks are not accepted here.");
+                    continue;
+                }
 
-            if (option.length() < 1) {
-                System.out.println("You must enter a value, blanks are not accepted here.");
-                continue;
+                inputs[0] = option;
+                valid = true;
             }
-
-            inputs[0] = option;
-            valid = true;
+        } catch (Exception ex) {
+            ErrorView.display(this.getClass().getName(), "Error reading input: " + ex.getMessage());
         }
-
         return inputs;
 
     }

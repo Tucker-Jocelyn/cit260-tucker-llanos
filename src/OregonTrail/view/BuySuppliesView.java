@@ -22,43 +22,54 @@ public class BuySuppliesView extends View {
 
     @Override
     public String[] getInput() {
-        Scanner in = new Scanner(System.in);
-
-        String[] inputs = new String[2];
 
         boolean valid = false;
+        String option = null;
+        String[] inputs = new String[2];
 
-        while (valid == false) {
-            System.out.println("\nPlease Choose an Item to Buy:");
-            String option = in.nextLine();
-            option = option.trim();
+        try {
+            // while a valid input has not been retrieved   
+            while (valid == false) {
 
-            if (option.length() < 1) {
-                System.out.println("You must enter a value, blanks are not accepted here.");
-                continue;
-            }
+               this.console.println("\nPlease Choose an Item to Buy:");
+                // get the value entered from the keyboard
+                option = this.keyboard.readLine();
+                option = option.trim();
 
-            inputs[0] = option;
-            option = option.toUpperCase();
-
-            if (option.equals("E")) {
-                valid = true;
-            } else if (!option.equals("F") && !option.equals("S") && !option.equals("A")) {
-                System.out.println("Only \"F, S, A, and E\" are Valid Options\n");
-                continue;
-            } else {
-                System.out.println("\nPlease Enter the Amount You Would Like to Buy:");
-                String itemAmount = in.nextLine();
-                itemAmount = itemAmount.trim();
-
-                if (itemAmount.length() < 1) {
-                    System.out.println("You must enter a value, blanks are not accepted here.");
+                if (option.length() < 1) {
+                    ErrorView.display(this.getClass().getName(), "You must enter a value, blanks are not accepted here.");
                     continue;
                 }
 
-                inputs[1] = itemAmount;
+                inputs[0] = option;
+                option = option.toUpperCase();
+
+                if (option.equals("E")) {
+                    valid = true;
+
+                } else if (!option.equals("F") && !option.equals("S") && !option.equals("A")) {
+                    this.console.println("Only \"F, S, A, and E\" are Valid Options\n");
+                    continue;
+
+                } else {
+                    this.console.println("\nPlease Enter the Amount You Would Like to Buy:");
+                    String itemAmount = null;
+                    // get the value entered from the keyboard
+                    itemAmount = this.keyboard.readLine();
+                    itemAmount = itemAmount.trim();
+
+                    if (itemAmount.length() < 1) {
+                        ErrorView.display(this.getClass().getName(), "You must enter a value, blanks are not accepted here.");
+                        continue;
+                    }
+
+                    inputs[1] = itemAmount;
+                }
+                valid = true;
             }
-            valid = true;
+
+        } catch (Exception ex) {
+            ErrorView.display(this.getClass().getName(), "Error reading input: " + ex.getMessage());
         }
 
         return inputs;
@@ -66,7 +77,8 @@ public class BuySuppliesView extends View {
     }
 
     @Override
-    public boolean doAction(String[] inputs) {
+    public boolean doAction(String[] inputs
+    ) {
         char choice = Character.toUpperCase(inputs[0].charAt(0));
         InventoryItem inventoryType;
 
@@ -79,7 +91,7 @@ public class BuySuppliesView extends View {
         } else if (choice == 'E') {
             return true;
         } else {
-            System.out.println("Only \"F, S, A, and E\" are Valid Options\n");
+            this.console.println("Only \"F, S, A, and E\" are Valid Options\n");
             return false;
         }
 
@@ -88,7 +100,7 @@ public class BuySuppliesView extends View {
         try {
             inventoryAmount = Integer.parseInt(inputs[1]);
         } catch (NumberFormatException e) {
-            System.out.println("\nOnly Numbers are Valid Options\n");
+            ErrorView.display(this.getClass().getName(), "\nOnly Numbers are Valid Options\n");
             return false;
         }
 
@@ -99,20 +111,20 @@ public class BuySuppliesView extends View {
         double moneyAvailable = ResourceControl.calcMoneyResource(inventoryType.index, inventoryAmount);
 
         if (moneyAvailable == -999) {
-            System.out.println("\nYou do not have enough funds to complete this purchase. Please try again.\n");
+            ErrorView.display(this.getClass().getName(), "\nYou do not have enough funds to complete this purchase. Please try again.\n");
             return false;
         }
 
         double inventoryWeight = InventoryControl.calcTotalInventoryWeight();
 
         if (inventoryWeight == -999) {
-            System.out.println("\nYour wagon can't carry this much weight. Please try again.\n");
+            ErrorView.display(this.getClass().getName(), "\nYour wagon can't carry this much weight. Please try again.\n");
             return false;
         }
 
         InventoryControl.calcAddStoreItem(inventoryType.index, inventoryAmount);
 
-        System.out.println(inventoryAmount + " " + inventoryType.inventoryName + " added to your inventory.\n"
+        this.console.println(inventoryAmount + " " + inventoryType.inventoryName + " added to your inventory.\n"
                 + "$" + moneyAvailable + " is how much you have available to spend."
                 + "\nYour total inventory weight is " + inventoryWeight);
 

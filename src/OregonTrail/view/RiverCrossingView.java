@@ -23,27 +23,33 @@ public class RiverCrossingView extends View {
 
     @Override
     public String[] getInput() {
-        Scanner in = new Scanner(System.in);
+
         boolean valid = false;
+        String option = null;
         String[] inputs = new String[1];
 
         double waterDepth = 3;
 
-        while (valid == false) {
-            System.out.println("\nThe river is " + waterDepth + "ft. deep."
-                    + "\nPlease Choose an Option:");
-            String option = in.nextLine();
-            option = option.trim();
+        try {
+            // while a valid input has not been retrieved
+            while (valid == false) {
+                this.console.println("\nThe river is " + waterDepth + "ft. deep."
+                        + "\nPlease Choose an Option:");
+                // get the value entered from the keyboard
+                option = this.keyboard.readLine();
+                option = option.trim();
 
-            if (option.length() < 1) {
-                System.out.println("You must enter a value, blanks are not accepted here.");
-                continue;
+                if (option.length() < 1) {
+                    ErrorView.display(this.getClass().getName(), "You must enter a value, blanks are not accepted here.");
+                    continue;
+                }
+
+                inputs[0] = option;
+                valid = true;
             }
-
-            inputs[0] = option;
-            valid = true;
+        } catch (Exception ex) {
+            ErrorView.display(this.getClass().getName(), "Error reading input: " + ex.getMessage());
         }
-
         return inputs;
 
     }
@@ -53,18 +59,18 @@ public class RiverCrossingView extends View {
         char choice = Character.toUpperCase(inputs[0].charAt(0));
         switch (choice) {
             case 'D':
-                System.out.println("D - Dropping Supplies\n");
+                this.console.println("D - Dropping Supplies\n");
                 dropSupplies();
                 break;
             case 'C':
-                System.out.println("C - Crossing the River\n");
+                this.console.println("C - Crossing the River\n");
                 crossRiver();
                 break;
             case 'E':
-                System.out.println("E - Going Back for More Thought (Back to Main Menu)\n");
+                this.console.println("E - Going Back for More Thought (Back to Main Menu)\n");
                 return true;
             default:
-                System.out.println("Only \"D, C, and E\" are Valid Options\n");
+                this.console.println("Only \"D, C, and E\" are Valid Options\n");
                 break;
         }
 
@@ -81,7 +87,7 @@ public class RiverCrossingView extends View {
             CrossRiverView crossRiverView = new CrossRiverView(wagonWeight);
             crossRiverView.display();
         } catch (RiverCrossingControlException e) {
-            System.out.println(e.getMessage());
+            ErrorView.display(this.getClass().getName(), e.getMessage());
         }
     }
 }
