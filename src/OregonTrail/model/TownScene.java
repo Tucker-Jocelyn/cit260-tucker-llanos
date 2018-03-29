@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package OregonTrail.model;
 
 import java.io.Serializable;
@@ -42,14 +37,15 @@ public class TownScene extends Scene implements Serializable {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 47 * hash + Objects.hashCode(this.placeName);
-        hash = 47 * hash + Objects.hashCode(this.mapSymbol);
+        hash = 89 * hash + Objects.hashCode(this.placeName);
+        hash = 89 * hash + Objects.hashCode(this.mapSymbol);
+        hash = 89 * hash + Objects.hashCode(this.generalStoreScene);
         return hash;
     }
 
     @Override
     public String toString() {
-        return "TownScene{" + "placeName=" + placeName + ", mapSymbol=" + mapSymbol + '}';
+        return "TownScene{" + "placeName=" + placeName + ", mapSymbol=" + mapSymbol + ", generalStoreScene=" + generalStoreScene + '}';
     }
 
     @Override
@@ -68,6 +64,9 @@ public class TownScene extends Scene implements Serializable {
             return false;
         }
         if (this.placeName != other.placeName) {
+            return false;
+        }
+        if (!Objects.equals(this.generalStoreScene, other.generalStoreScene)) {
             return false;
         }
         return true;

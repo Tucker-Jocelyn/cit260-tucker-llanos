@@ -1,13 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package OregonTrail.view;
 
 import OregonTrail.OregonTrail;
 import OregonTrail.model.Wagon;
-import java.util.Scanner;
 
 /**
  *
@@ -27,7 +21,6 @@ public class BuyWagonView extends View {
     }
 
     //**************update later to remove exit option
-    
     @Override
     public boolean doAction(String[] inputs) {
         char choice = Character.toUpperCase(inputs[0].charAt(0));

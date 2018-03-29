@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package OregonTrail.model;
 
 import java.io.Serializable;
@@ -44,9 +39,9 @@ public class TrailStopScene extends Scene implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 73 * hash + this.hasAnimal;
-        hash = 73 * hash + this.hasPlant;
+        int hash = 5;
+        hash = 31 * hash + this.hasAnimal;
+        hash = 31 * hash + this.hasPlant;
         return hash;
     }
 

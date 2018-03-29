@@ -1,41 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package OregonTrail;
 
-import OregonTrail.model.AnimalsPlants;
-import OregonTrail.model.CurrentDate;
-import OregonTrail.model.EventGenerator;
 import OregonTrail.model.Game;
-import OregonTrail.model.InventoryItem;
-import OregonTrail.model.Ox;
-import OregonTrail.model.Wagon;
 
 import OregonTrail.model.Player;
-import OregonTrail.model.Map;
-import OregonTrail.model.Money;
-import OregonTrail.model.RandomEvents;
-import OregonTrail.model.Team;
-import OregonTrail.model.Weather;
-import OregonTrail.model.Character;
-import OregonTrail.model.Location;
-import OregonTrail.model.Scene;
-import OregonTrail.model.TownScene;
-import OregonTrail.model.RegularScene;
-import OregonTrail.model.FortScene;
-import OregonTrail.model.GeneralStoreScene;
-import OregonTrail.model.RiverScene;
-import OregonTrail.model.HotelScene;
-import OregonTrail.model.TrailStopScene;
 import OregonTrail.view.StartProgramView;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *

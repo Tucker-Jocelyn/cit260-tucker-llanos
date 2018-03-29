@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package OregonTrail.model;
 
 import java.io.Serializable;
@@ -58,10 +53,10 @@ public class Wagon implements Serializable {
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 29 * hash + (int) (Double.doubleToLongBits(this.maxCarryWeight) ^ (Double.doubleToLongBits(this.maxCarryWeight) >>> 32));
-        hash = 29 * hash + this.length;
-        hash = 29 * hash + (int) (Double.doubleToLongBits(this.wagonWeight) ^ (Double.doubleToLongBits(this.wagonWeight) >>> 32));
-        hash = 29 * hash + Objects.hashCode(this.inventory);
+        hash = 79 * hash + (int) (Double.doubleToLongBits(this.maxCarryWeight) ^ (Double.doubleToLongBits(this.maxCarryWeight) >>> 32));
+        hash = 79 * hash + this.length;
+        hash = 79 * hash + (int) (Double.doubleToLongBits(this.wagonWeight) ^ (Double.doubleToLongBits(this.wagonWeight) >>> 32));
+        hash = 79 * hash + Objects.hashCode(this.inventory);
         return hash;
     }
 

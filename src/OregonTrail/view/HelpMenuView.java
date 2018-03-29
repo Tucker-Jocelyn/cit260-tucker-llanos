@@ -43,17 +43,17 @@ public class HelpMenuView extends View {
 
     private void gameObjective() {
         ViewGameObjective viewGameObjective = new ViewGameObjective();
-        ViewGameObjective.displayViewGameObjective();
+        viewGameObjective.display();
     }
 
     private void howToMove() {
         ViewMoveOptions viewMoveOptions = new ViewMoveOptions();
-        ViewMoveOptions.displayViewMoveOptions();
+        viewMoveOptions.display();
     }
 
     private void getTips() {
         ViewGameTips viewGameTips = new ViewGameTips();
-        ViewGameTips.displayViewGameTips();
+        viewGameTips.display();
     }
 
 }

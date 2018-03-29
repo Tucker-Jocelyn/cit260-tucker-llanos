@@ -4,10 +4,23 @@ package OregonTrail.view;
  *
  * @author kim and jocelyn
  */
-class ViewMoveOptions {
+class ViewMoveOptions extends View {
 
-    static void displayViewMoveOptions() {
-        System.out.println("Use the Menu to make choices regarding conintuation along the Trail.");
+    public ViewMoveOptions() {
+        super("Use the Menu to make choices regarding conintuation along the Trail.");
+    }
+
+    @Override
+    public String[] getInput() {
+        String[] result = new String[1];
+
+        result[0] = "*";
+        return result;
+    }
+
+    @Override
+    public boolean doAction(String[] inputs) {
+        return true;
     }
 
 }

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package OregonTrail.control;
 
 import OregonTrail.OregonTrail;
@@ -29,7 +24,6 @@ public class MapControl {
 
     public static Map createMap(int noOfLocations) throws MapControlException {
         if (noOfLocations < 0) {
-            //return null
             throw new MapControlException("The number of Locations cannot be negative.");
         }
 
@@ -106,8 +100,7 @@ public class MapControl {
 
     private static Location[] createLocations(int noOfLocations) throws MapControlException {
         if (noOfLocations < 1) {
-            //return null;
-            throw new MapControlException("The number of Locations cannot be less than 1."); 
+            throw new MapControlException("The number of Locations cannot be less than 1.");
         }
         Location[] locations = new Location[noOfLocations]; //    locations = new Location array
         for (int i = 0; i < locations.length; i++) { //FOR every index in the locations array
@@ -201,4 +194,3 @@ public class MapControl {
     }
 
 }
-

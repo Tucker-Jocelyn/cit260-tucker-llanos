@@ -2,7 +2,6 @@ package OregonTrail.view;
 
 import OregonTrail.control.RiverCrossingControl;
 import exceptions.RiverCrossingControlException;
-import java.util.Scanner;
 
 /**
  *
@@ -79,7 +78,7 @@ public class RiverCrossingView extends View {
 
     private void dropSupplies() {
         DropSuppliesView dropSuppliesView = new DropSuppliesView();
-        dropSuppliesView.displayDropSuppliesView();
+        dropSuppliesView.display();
     }
 
     private void crossRiver() {

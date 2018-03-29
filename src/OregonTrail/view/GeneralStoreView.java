@@ -47,7 +47,7 @@ public class GeneralStoreView extends View {
 
     private void viewSupplies() {
         SuppliesView suppliesView = new SuppliesView();
-        suppliesView.displaySuppliesView();
+        suppliesView.display();
     }
 
     private void buySupplies() {
@@ -57,6 +57,6 @@ public class GeneralStoreView extends View {
 
     private void sellSupplies() {
         SellSuppliesView sellSuppliesView = new SellSuppliesView();
-        sellSuppliesView.displaySellSuppliesView();
+        sellSuppliesView.display();
     }
 }

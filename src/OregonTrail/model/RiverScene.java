@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package OregonTrail.model;
 
 import java.io.Serializable;
@@ -41,9 +36,9 @@ public class RiverScene extends Scene implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 37 * hash + (int) (Double.doubleToLongBits(this.waterDepth) ^ (Double.doubleToLongBits(this.waterDepth) >>> 32));
-        hash = 37 * hash + Objects.hashCode(this.placeName);
+        int hash = 5;
+        hash = 29 * hash + (int) (Double.doubleToLongBits(this.waterDepth) ^ (Double.doubleToLongBits(this.waterDepth) >>> 32));
+        hash = 29 * hash + Objects.hashCode(this.placeName);
         return hash;
     }
 

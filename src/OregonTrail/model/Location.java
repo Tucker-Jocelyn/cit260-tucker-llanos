@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package OregonTrail.model;
 
 import java.util.Objects;
@@ -85,13 +80,13 @@ public class Location implements Serializable {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 37 * hash + Objects.hashCode(this.name);
-        hash = 37 * hash + Objects.hashCode(this.description);
-        hash = 37 * hash + Objects.hashCode(this.type);
-        hash = 37 * hash + (this.currentLocation ? 1 : 0);
-        hash = 37 * hash + this.weather;
-        hash = 37 * hash + Objects.hashCode(this.scene);
-        hash = 37 * hash + Objects.hashCode(this.mapSymbol);
+        hash = 71 * hash + Objects.hashCode(this.name);
+        hash = 71 * hash + Objects.hashCode(this.description);
+        hash = 71 * hash + Objects.hashCode(this.type);
+        hash = 71 * hash + (this.currentLocation ? 1 : 0);
+        hash = 71 * hash + this.weather;
+        hash = 71 * hash + Objects.hashCode(this.scene);
+        hash = 71 * hash + Objects.hashCode(this.mapSymbol);
         return hash;
     }
 

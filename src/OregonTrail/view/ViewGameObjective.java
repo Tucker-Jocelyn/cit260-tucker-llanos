@@ -4,10 +4,10 @@ package OregonTrail.view;
  *
  * @author kim & jocelyn
  */
-class ViewGameObjective {
+class ViewGameObjective extends View {
 
-    static void displayViewGameObjective() {
-        System.out.println("Welcome to the Oregon Trail. The objective of this game is travel from Nauvoo to the Salt Lake Valley."
+    public ViewGameObjective() {
+        super("Welcome to the Oregon Trail. The objective of this game is travel from Nauvoo to the Salt Lake Valley."
                 + "\nYou will outfit your team with supplies at the beginning of the trek."
                 + "\nYou will have opportunities to shop for additional supplies at towns and forts along the way - provided you have the funds to do so."
                 + "\nAlong the way you will make decisions affecting your team's health including pace of travel, and whether or not to rest."
@@ -16,6 +16,19 @@ class ViewGameObjective {
                 + "\nEvents may happen along the way to either help or hinder your progress. "
                 + "\nGood Luck!!");
 
+    }
+
+    @Override
+    public String[] getInput() {
+        String[] result = new String[1];
+
+        result[0] = "*";
+        return result;
+    }
+
+    @Override
+    public boolean doAction(String[] inputs) {
+        return true;
     }
 
 }

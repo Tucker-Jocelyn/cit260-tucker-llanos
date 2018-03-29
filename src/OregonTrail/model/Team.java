@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package OregonTrail.model;
 
 import java.io.Serializable;
@@ -203,27 +198,27 @@ public class Team implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 89 * hash + Objects.hashCode(this.name);
-        hash = 89 * hash + Objects.hashCode(this.status);
-        hash = 89 * hash + Objects.hashCode(this.teamAllResources);
-        hash = 89 * hash + Objects.hashCode(this.pace);
-        hash = 89 * hash + Objects.hashCode(this.dailyDistanceTraveled);
-        hash = 89 * hash + Objects.hashCode(this.livestock);
-        hash = 89 * hash + (int) (Double.doubleToLongBits(this.currentWagonLoadWeight) ^ (Double.doubleToLongBits(this.currentWagonLoadWeight) >>> 32));
-        hash = 89 * hash + Objects.hashCode(this.teamInventoryResource);
-        hash = 89 * hash + this.teamAllSkillLevel;
-        hash = 89 * hash + this.teamHuntingSkillLevel;
-        hash = 89 * hash + this.teamGatheringSkillLevel;
-        hash = 89 * hash + (this.teamRest ? 1 : 0);
-        hash = 89 * hash + this.teamSkillLevel;
-        hash = 89 * hash + (int) (Double.doubleToLongBits(this.teamAnimalWeight) ^ (Double.doubleToLongBits(this.teamAnimalWeight) >>> 32));
-        hash = 89 * hash + (int) (Double.doubleToLongBits(this.teamPlantWeight) ^ (Double.doubleToLongBits(this.teamPlantWeight) >>> 32));
-        hash = 89 * hash + this.money;
-        hash = 89 * hash + Objects.hashCode(this.wagon);
-        hash = 89 * hash + Objects.hashCode(this.ox);
-        hash = 89 * hash + Arrays.deepHashCode(this.team);
-        hash = 89 * hash + Objects.hashCode(this.inventory);
+        int hash = 7;
+        hash = 29 * hash + Objects.hashCode(this.name);
+        hash = 29 * hash + Objects.hashCode(this.status);
+        hash = 29 * hash + Objects.hashCode(this.teamAllResources);
+        hash = 29 * hash + Objects.hashCode(this.pace);
+        hash = 29 * hash + Objects.hashCode(this.dailyDistanceTraveled);
+        hash = 29 * hash + Objects.hashCode(this.livestock);
+        hash = 29 * hash + (int) (Double.doubleToLongBits(this.currentWagonLoadWeight) ^ (Double.doubleToLongBits(this.currentWagonLoadWeight) >>> 32));
+        hash = 29 * hash + Objects.hashCode(this.teamInventoryResource);
+        hash = 29 * hash + this.teamAllSkillLevel;
+        hash = 29 * hash + this.teamHuntingSkillLevel;
+        hash = 29 * hash + this.teamGatheringSkillLevel;
+        hash = 29 * hash + (this.teamRest ? 1 : 0);
+        hash = 29 * hash + this.teamSkillLevel;
+        hash = 29 * hash + (int) (Double.doubleToLongBits(this.teamAnimalWeight) ^ (Double.doubleToLongBits(this.teamAnimalWeight) >>> 32));
+        hash = 29 * hash + (int) (Double.doubleToLongBits(this.teamPlantWeight) ^ (Double.doubleToLongBits(this.teamPlantWeight) >>> 32));
+        hash = 29 * hash + this.money;
+        hash = 29 * hash + Objects.hashCode(this.wagon);
+        hash = 29 * hash + Objects.hashCode(this.ox);
+        hash = 29 * hash + Arrays.deepHashCode(this.team);
+        hash = 29 * hash + Objects.hashCode(this.inventory);
         return hash;
     }
 

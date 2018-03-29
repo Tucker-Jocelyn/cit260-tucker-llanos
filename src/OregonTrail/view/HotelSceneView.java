@@ -109,29 +109,29 @@ public class HotelSceneView extends View {
 
     private void availableCharacters() {
         AvailableCharactersView availableCharactersView = new AvailableCharactersView();
-        availableCharactersView.displayAvailableCharactersView();
+        availableCharactersView.display();
     }
 
     //add logic for user to input a name to see if they are available
     private void allCharacters() {
         SearchCharactersView searchCharactersView = new SearchCharactersView();
-        searchCharactersView.displaySearchCharactersView();
+        searchCharactersView.display();
     }
 
     private void addCharacter() {
         AddCharactersView addCharactersView = new AddCharactersView();
-        addCharactersView.displayAddCharactersView();
+        addCharactersView.display();
 
     }
 
     private void deleteCharacter() {
         DeleteCharacterView deleteCharacterView = new DeleteCharacterView();
-        deleteCharacterView.displayDeleteCharacterView();
+        deleteCharacterView.display();
     }
 
     private void replaceCharacter() {
         ReplaceCharacterView replaceCharacterView = new ReplaceCharacterView();
-        replaceCharacterView.displayReplaceCharacterView();
+        replaceCharacterView.display();
     }
 
 }

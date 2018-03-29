@@ -66,7 +66,7 @@ public class MainMenuView extends View {
             case 'S':
                 this.console.println("S - Saving the Game\n");
                 saveGame();
-                return true;
+                break;
             case 'E':
                 this.console.println("E - Exiting the Game\n");
                 return true;
@@ -98,12 +98,11 @@ public class MainMenuView extends View {
         } catch (GameControlException ex) {
             ErrorView.display(this.getClass().getName(), ex.getMessage());
         }
-
     }
 
     private void restartGame() {
-        StartExistingGameView startExistingGameView = new StartExistingGameView();
-        startExistingGameView.displayStartExistingGameView();
+        LoadGameView loadGameView = new LoadGameView();
+        loadGameView.display();
     }
 
     private void getHelp() {
@@ -112,7 +111,8 @@ public class MainMenuView extends View {
     }
 
     private void saveGame() {
-        this.console.println("*** saveGame() called ***");
+        SaveGameView saveGameView = new SaveGameView();
+        saveGameView.display();
     }
 
     private void generalStore() {

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package OregonTrail.model;
 
 import java.io.Serializable;
@@ -41,8 +36,8 @@ public class Item implements Serializable {
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 71 * hash + Objects.hashCode(this.type);
-        hash = 71 * hash + this.inventoryAmount;
+        hash = 79 * hash + Objects.hashCode(this.type);
+        hash = 79 * hash + this.inventoryAmount;
         return hash;
     }
 

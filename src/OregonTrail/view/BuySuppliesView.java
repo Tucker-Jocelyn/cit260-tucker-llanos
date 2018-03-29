@@ -3,7 +3,6 @@ package OregonTrail.view;
 import OregonTrail.control.InventoryControl;
 import OregonTrail.control.ResourceControl;
 import OregonTrail.model.InventoryItem;
-import java.util.Scanner;
 
 /**
  *
@@ -31,7 +30,7 @@ public class BuySuppliesView extends View {
             // while a valid input has not been retrieved   
             while (valid == false) {
 
-               this.console.println("\nPlease Choose an Item to Buy:");
+                this.console.println("\nPlease Choose an Item to Buy:");
                 // get the value entered from the keyboard
                 option = this.keyboard.readLine();
                 option = option.trim();

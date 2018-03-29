@@ -1,13 +1,26 @@
-
 package OregonTrail.view;
 
 /**
  *
  * @author Kim Tanton
  */
-public class SearchCharactersView {
+public class SearchCharactersView extends View {
 
-    void displaySearchCharactersView() {
-        System.out.println("*** displaySearchCharactersView() called ***");
+    public SearchCharactersView() {
+        super("*** displaySearchCharactersView() called ***");
     }
+
+    @Override
+    public String[] getInput() {
+        String[] result = new String[1];
+
+        result[0] = "*";
+        return result;
+    }
+
+    @Override
+    public boolean doAction(String[] inputs) {
+        return true;
+    }
+
 }

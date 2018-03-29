@@ -1,17 +1,27 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package OregonTrail.view;
 
 /**
  *
  * @author Kim Tanton
  */
-public class ReplaceCharacterView {
+public class ReplaceCharacterView extends View {
 
-    void displayReplaceCharacterView() {
-        System.out.println("*** displayReplaceCharacterView() called ***");
+    public ReplaceCharacterView() {
+        super("*** displayReplaceCharacterView() called ***");
     }
+
+    @Override
+    public String[] getInput() {
+        String[] result = new String[1];
+
+        result[0] = "*";
+        return result;
+    }
+
+    @Override
+    public boolean doAction(String[] inputs) {
+        return true;
+    }
+
 }

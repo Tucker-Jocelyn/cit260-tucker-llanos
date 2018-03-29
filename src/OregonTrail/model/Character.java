@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package OregonTrail.model;
 
 import java.util.Objects;
@@ -62,11 +57,11 @@ public class Character implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 41 * hash + Objects.hashCode(this.characterName);
-        hash = 41 * hash + (this.availability ? 1 : 0);
-        hash = 41 * hash + (int) (Double.doubleToLongBits(this.characterHealth) ^ (Double.doubleToLongBits(this.characterHealth) >>> 32));
-        hash = 41 * hash + (int) (Double.doubleToLongBits(this.characterFood) ^ (Double.doubleToLongBits(this.characterFood) >>> 32));
+        int hash = 7;
+        hash = 23 * hash + Objects.hashCode(this.characterName);
+        hash = 23 * hash + (this.availability ? 1 : 0);
+        hash = 23 * hash + (int) (Double.doubleToLongBits(this.characterHealth) ^ (Double.doubleToLongBits(this.characterHealth) >>> 32));
+        hash = 23 * hash + (int) (Double.doubleToLongBits(this.characterFood) ^ (Double.doubleToLongBits(this.characterFood) >>> 32));
         return hash;
     }
 
@@ -101,28 +96,4 @@ public class Character implements Serializable {
         }
         return true;
     }
-
 }
-
-/* private String characterName;
-    private int stamina;
-    private int characterHuntingSkill;
-    private int characterGatheringSkill;
-    private boolean availability;
-    private double characterHealth;
-    private double characterFood;
-    private Team team;
-
-    public Character() {
-    }
-
-    public Character(String characterName, int stamina, int characterHuntingSkill, int characterGatheringSkill, boolean availability, double characterHealth, double characterFood) {
-        this.characterName = characterName;
-        this.stamina = stamina;
-        this.characterHuntingSkill = characterHuntingSkill;
-        this.characterGatheringSkill = characterGatheringSkill;
-        this.availability = availability;
-        this.characterHealth = characterHealth;
-        this.characterFood = characterFood;
-    }
-*/

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package OregonTrail.view;
 
 import OregonTrail.control.GameControl;
@@ -42,7 +37,7 @@ public class CrossRiverView extends View {
                     GameControl.determineWin();
                 }
             } catch (RiverCrossingControlException e) {
-                ErrorView.display(this.getClass().getName(),e.getMessage());
+                ErrorView.display(this.getClass().getName(), e.getMessage());
             }
         } else if (choice == 'N') {
             this.console.println("N - Going Back to the River Crossing Menu)\n");

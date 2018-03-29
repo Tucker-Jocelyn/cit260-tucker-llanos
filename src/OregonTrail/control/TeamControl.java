@@ -1,14 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package OregonTrail.control;
 
 import OregonTrail.model.AnimalsPlants;
 import OregonTrail.model.CharacterDefinitions;
 import OregonTrail.model.Team;
-import java.util.ArrayList;
 import OregonTrail.model.Character;
 import exceptions.TeamControlException;
 
@@ -29,8 +23,6 @@ public abstract class TeamControl {
 
         //basic validity rules: NO hunting skills (level 0), NO animals
         if (teamHuntingSkillLevel < 0 || hasAnimal < 1) {
-            //teamAnimalWeight = teamAnimalWeight * hasAnimal;
-            //return -999;
             throw new TeamControlException("You cannot hunt, because there are no animals, or you do not have the sufficent skill level.");
         }
 
@@ -58,8 +50,6 @@ public abstract class TeamControl {
 
         //basic validity rules: NO gathering skills (level 0), NO plants
         if (teamGatheringSkillLevel < 0 || hasPlant < 1) {
-            //teamPlantWeight = teamPlantWeight * hasPlant;
-            //return -999;
             throw new TeamControlException("You cannot gather, because there are no plants, or you do not have the sufficent skill level.");
         }
 
@@ -76,13 +66,6 @@ public abstract class TeamControl {
         return teamPlantWeight;
     }
 
-    /*
-    public static CharacterDefinitions[] createTeam() {
-        CharacterDefinitions[] teamMembers = CharacterDefinitions.values();
-        //teamMembers[CharacterDefinitions.KIRK.ordinal()] = CharcterDefinitions.KIRK;
-        return teamMembers;
-    }
-     */
     public static Team createTeam() {
         CharacterDefinitions[] charDef = CharacterDefinitions.values();
         Character[] teamMembers = new Character[6];
@@ -100,12 +83,12 @@ public abstract class TeamControl {
         CharacterDefinitions[] charDef = CharacterDefinitions.values();
 
         for (int i = 0; i < charDef.length; i++) {
-            if (charDef[i].getCharacterName().equals (charName) )
+            if (charDef[i].getCharacterName().equals(charName)) {
                 return i;
+            }
         }
-        //return -1;
+
         throw new TeamControlException("Character not found.");
     }
-       
-}
 
+}

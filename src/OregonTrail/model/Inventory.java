@@ -24,8 +24,8 @@ public class Inventory implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 59 * hash + Arrays.deepHashCode(this.inventory);
+        int hash = 3;
+        hash = 97 * hash + Arrays.deepHashCode(this.inventory);
         return hash;
     }
 

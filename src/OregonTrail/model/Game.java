@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package OregonTrail.model;
 
 import java.io.Serializable;
@@ -85,14 +80,14 @@ public class Game implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 37 * hash + Objects.hashCode(this.map);
-        hash = 37 * hash + (int) (Double.doubleToLongBits(this.totalDistanceTraveled) ^ (Double.doubleToLongBits(this.totalDistanceTraveled) >>> 32));
-        hash = 37 * hash + Objects.hashCode(this.date);
-        hash = 37 * hash + (int) (Double.doubleToLongBits(this.milesToSLC) ^ (Double.doubleToLongBits(this.milesToSLC) >>> 32));
-        hash = 37 * hash + Objects.hashCode(this.player);
-        hash = 37 * hash + Objects.hashCode(this.currentDate);
-        hash = 37 * hash + Objects.hashCode(this.team);
+        int hash = 7;
+        hash = 97 * hash + Objects.hashCode(this.map);
+        hash = 97 * hash + (int) (Double.doubleToLongBits(this.totalDistanceTraveled) ^ (Double.doubleToLongBits(this.totalDistanceTraveled) >>> 32));
+        hash = 97 * hash + Objects.hashCode(this.date);
+        hash = 97 * hash + (int) (Double.doubleToLongBits(this.milesToSLC) ^ (Double.doubleToLongBits(this.milesToSLC) >>> 32));
+        hash = 97 * hash + Objects.hashCode(this.player);
+        hash = 97 * hash + Objects.hashCode(this.currentDate);
+        hash = 97 * hash + Objects.hashCode(this.team);
         return hash;
     }
 

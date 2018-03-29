@@ -4,10 +4,23 @@ package OregonTrail.view;
  *
  * @author Jocelyn Tucker
  */
-class SellSuppliesView {
+class SellSuppliesView extends View {
 
-    void displaySellSuppliesView() {
-        System.out.println("*** displaySellSuppliesView() called ***");
+    public SellSuppliesView() {
+        super("*** displaySellSuppliesView() called ***");
     }
-    
+
+    @Override
+    public String[] getInput() {
+        String[] result = new String[1];
+
+        result[0] = "*";
+        return result;
+    }
+
+    @Override
+    public boolean doAction(String[] inputs) {
+        return true;
+    }
+
 }
