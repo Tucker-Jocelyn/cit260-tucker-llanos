@@ -15,6 +15,8 @@ import OregonTrail.model.SceneType;
 import OregonTrail.model.TownScene;
 import OregonTrail.model.TrailStopScene;
 import exceptions.MapControlException;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 /**
  *
@@ -191,6 +193,28 @@ public class MapControl {
 
         }
 
+    }
+
+    public void printMapReport(String filePath, Location[] locations) throws MapControlException, IOException {
+        if (filePath == null) {
+            throw new MapControlException("File path is not valid, it cannot be blank");
+        }
+        if (locations == null) {
+            throw new MapControlException("No locations retrieved");
+        }
+        try (PrintWriter report = new PrintWriter(filePath)) {
+            report.println("\n                   List of Locations                  \n");
+            report.printf("%n%-27s%-13s%-10s", "Name", "Type", "Map Symbol");
+            report.printf("%n%-25s%-15s%-10s", "------------------", "--------", "----------");
+
+            for (Location current : locations) {
+                if (current.getName() != null) {
+                    report.printf("%n%-25s%-12s%11s", current.getName(), current.getType().name().toLowerCase(), current.getMapSymbol());
+                }
+            }
+        } catch (IOException ex) {
+            throw ex;
+        }
     }
 
 }

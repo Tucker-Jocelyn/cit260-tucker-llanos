@@ -18,6 +18,7 @@ public class GameMenuView extends View {
                 + "\nP - Set the Team Pace\n"
                 + "\nM - View Map\n"
                 + "\nL - List Locations by Type\n"
+                + "\nR - Print Report of Map Locations\n"
                 + "\nH - View Help Menu\n"
                 + "\nE - Exit Game Play Menu (Back to Main Menu)\n"
                 + "\nPlease Choose an Option:");
@@ -45,6 +46,10 @@ public class GameMenuView extends View {
             case 'L':
                 this.console.println("L - Listing Locations by Type\n");
                 getLocations();
+                break;
+            case 'R':
+                this.console.println("R - Printing Report of Map Location\n");
+                runReport();
                 break;
             case 'H':
                 this.console.println("H - Help is On the Way\n");
@@ -98,5 +103,10 @@ public class GameMenuView extends View {
 
     private void getLocations() {
         MapControl.listLocations();
+    }
+
+    private void runReport() {
+        MapReportView mapReportView = new MapReportView();
+        mapReportView.display();
     }
 }
