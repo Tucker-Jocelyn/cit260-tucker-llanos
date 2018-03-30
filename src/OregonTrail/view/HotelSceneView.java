@@ -90,7 +90,6 @@ public class HotelSceneView extends View {
 
     //call getCharIndex() to get character index position and associated character name
     private void searchCharacters() {
-        this.console.println("*** allCharacters() called ***");
         String charToFind = getName();
         int index = 0;
         try {

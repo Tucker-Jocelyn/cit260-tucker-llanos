@@ -8,7 +8,7 @@ import OregonTrail.model.Map;
 
 /**
  *
- * @author kimta
+ * @author Kim Llanos
  */
 public class GameMenuView extends View {
 
@@ -19,6 +19,7 @@ public class GameMenuView extends View {
                 + "\nM - View Map\n"
                 + "\nL - List Locations by Type\n"
                 + "\nR - Print Report of Map Locations\n"
+                + "\nW - Print a Report of Team's  Wagon & Oxen \n"
                 + "\nH - View Help Menu\n"
                 + "\nE - Exit Game Play Menu (Back to Main Menu)\n"
                 + "\nPlease Choose an Option:");
@@ -51,6 +52,10 @@ public class GameMenuView extends View {
                 this.console.println("R - Printing Report of Map Location\n");
                 runReport();
                 break;
+             case 'W':
+                this.console.println("W - Printing Report Team Wagon/Ox\n");
+                runWagonReport();
+                break;
             case 'H':
                 this.console.println("H - Help is On the Way\n");
                 getHelp();
@@ -59,7 +64,7 @@ public class GameMenuView extends View {
                 this.console.println("E - Exiting the Game Play Menu (Back to Main Menu)\n");
                 return true;
             default:
-                this.console.println("Only \"S, I, P, M, H, and E\" are Valid Options\n");
+                this.console.println("Only \"S, I, P, M, W, H, and E\" are Valid Options\n");
                 break;
         }
 
@@ -108,5 +113,10 @@ public class GameMenuView extends View {
     private void runReport() {
         MapReportView mapReportView = new MapReportView();
         mapReportView.display();
+    }
+    
+        private void runWagonReport() {
+        TeamWagonOxView teamWagonOxView = new TeamWagonOxView();
+        teamWagonOxView.display();
     }
 }

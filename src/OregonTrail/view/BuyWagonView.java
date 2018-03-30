@@ -2,6 +2,7 @@ package OregonTrail.view;
 
 import OregonTrail.OregonTrail;
 import OregonTrail.model.Wagon;
+import OregonTrail.model.WagonDefinitions;
 
 /**
  *
@@ -26,13 +27,13 @@ public class BuyWagonView extends View {
         char choice = Character.toUpperCase(inputs[0].charAt(0));
         switch (choice) {
             case 'S':
-                buyWagon();
+                buyWagon(WagonDefinitions.SMALL);
                 return true;
             case 'M':
-                buyWagon();
+                buyWagon(WagonDefinitions.MEDIUM);
                 return true;
             case 'L':
-                buyWagon();
+                buyWagon(WagonDefinitions.LARGE);
                 return true;
             case 'E':
                 return true;
@@ -42,8 +43,11 @@ public class BuyWagonView extends View {
         return false;
     }
 
-    private void buyWagon() {
+    private void buyWagon(WagonDefinitions dfn) {
         Wagon wagon = new Wagon();
+        wagon.setLength(dfn.length);
+        wagon.setWagonWeight(dfn.wagonWeight);
+        wagon.setMaxCarryWeight(dfn.maxCarryWeight);
         OregonTrail.getCurrentGame().getTeam().setWagon(wagon);
 
     }

@@ -24,13 +24,13 @@ public class BuyOxenView extends View {
         char choice = Character.toUpperCase(inputs[0].charAt(0));
         switch (choice) {
             case 'S':
-                buyOxen();
+                buyOxen(2);
                 return true;
             case 'M':
-                buyOxen();
+                buyOxen(4);
                 return true;
             case 'L':
-                buyOxen();
+                buyOxen(6);
                 return true;
             case 'E':
                 return true;
@@ -40,10 +40,10 @@ public class BuyOxenView extends View {
         return false;
     }
 
-    private void buyOxen() {
+    private void buyOxen(int amount) {
         Ox ox = new Ox();
+        ox.setAmount(amount);
         OregonTrail.getCurrentGame().getTeam().setOx(ox);
-
     }
 
 }
