@@ -14,6 +14,8 @@ public class Wagon implements Serializable {
     private int length;
     private double wagonWeight;
     private Inventory inventory;
+    private double animalWeight;
+    private double plantWeight;
 
     public Wagon() {
     }
@@ -50,21 +52,41 @@ public class Wagon implements Serializable {
         this.inventory = inventory;
     }
 
+    public double getAnimalWeight() {
+        return animalWeight;
+    }
+
+    public void setAnimalWeight(double animalWeight) {
+        this.animalWeight = animalWeight;
+    }
+
+    public double getPlantWeight() {
+        return plantWeight;
+    }
+
+    public void setPlantWeight(double plantWeight) {
+        this.plantWeight = plantWeight;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 79 * hash + (int) (Double.doubleToLongBits(this.maxCarryWeight) ^ (Double.doubleToLongBits(this.maxCarryWeight) >>> 32));
-        hash = 79 * hash + this.length;
-        hash = 79 * hash + (int) (Double.doubleToLongBits(this.wagonWeight) ^ (Double.doubleToLongBits(this.wagonWeight) >>> 32));
-        hash = 79 * hash + Objects.hashCode(this.inventory);
+        int hash = 3;
+        hash = 43 * hash + (int) (Double.doubleToLongBits(this.maxCarryWeight) ^ (Double.doubleToLongBits(this.maxCarryWeight) >>> 32));
+        hash = 43 * hash + this.length;
+        hash = 43 * hash + (int) (Double.doubleToLongBits(this.wagonWeight) ^ (Double.doubleToLongBits(this.wagonWeight) >>> 32));
+        hash = 43 * hash + Objects.hashCode(this.inventory);
+        hash = 43 * hash + (int) (Double.doubleToLongBits(this.animalWeight) ^ (Double.doubleToLongBits(this.animalWeight) >>> 32));
+        hash = 43 * hash + (int) (Double.doubleToLongBits(this.plantWeight) ^ (Double.doubleToLongBits(this.plantWeight) >>> 32));
         return hash;
     }
 
     @Override
     public String toString() {
-        return "Wagon{" + "maxCarryWeight=" + maxCarryWeight + ", length=" + length + ", wagonWeight=" + wagonWeight + ", inventory=" + inventory + '}';
+        return "Wagon{" + "maxCarryWeight=" + maxCarryWeight + ", length=" + length + ", wagonWeight=" + wagonWeight + ", inventory=" + inventory + ", animalWeight=" + animalWeight + ", plantWeight=" + plantWeight + '}';
     }
 
+    
+    
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -86,10 +108,18 @@ public class Wagon implements Serializable {
         if (Double.doubleToLongBits(this.wagonWeight) != Double.doubleToLongBits(other.wagonWeight)) {
             return false;
         }
+        if (Double.doubleToLongBits(this.animalWeight) != Double.doubleToLongBits(other.animalWeight)) {
+            return false;
+        }
+        if (Double.doubleToLongBits(this.plantWeight) != Double.doubleToLongBits(other.plantWeight)) {
+            return false;
+        }
         if (!Objects.equals(this.inventory, other.inventory)) {
             return false;
         }
         return true;
     }
+
+    
 
 }

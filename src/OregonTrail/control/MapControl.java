@@ -190,9 +190,7 @@ public class MapControl {
             if (current.type == LocationType.RIVER) {
                 System.out.println(current.getName());
             }
-
         }
-
     }
 
     public void printMapReport(String filePath, Location[] locations) throws MapControlException, IOException {

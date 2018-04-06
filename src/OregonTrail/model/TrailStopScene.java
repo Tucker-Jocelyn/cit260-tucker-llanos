@@ -5,7 +5,7 @@ import java.util.Objects;
 
 /**
  *
- * @author kimtllanos
+ * @author Kim Llanos
  *
  *
  */

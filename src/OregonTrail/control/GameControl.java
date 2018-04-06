@@ -7,7 +7,6 @@ import OregonTrail.model.Inventory;
 import OregonTrail.model.Map;
 import OregonTrail.model.Player;
 import OregonTrail.model.Team;
-import OregonTrail.view.ErrorView;
 import exceptions.GameControlException;
 import exceptions.MapControlException;
 import java.io.FileInputStream;
@@ -15,12 +14,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
- * @author Jocelyn Tucker and Kim
+ * @author Jocelyn Tucker and Kim Llanos
  */
 public class GameControl {
 

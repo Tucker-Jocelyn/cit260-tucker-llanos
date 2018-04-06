@@ -52,7 +52,7 @@ public class GameMenuView extends View {
                 this.console.println("R - Printing Report of Map Location\n");
                 runReport();
                 break;
-             case 'W':
+            case 'W':
                 this.console.println("W - Printing Report Team Wagon/Ox\n");
                 runWagonReport();
                 break;
@@ -114,9 +114,11 @@ public class GameMenuView extends View {
         MapReportView mapReportView = new MapReportView();
         mapReportView.display();
     }
-    
-        private void runWagonReport() {
+
+    private void runWagonReport() {
         TeamWagonOxView teamWagonOxView = new TeamWagonOxView();
         teamWagonOxView.display();
     }
+
+
 }

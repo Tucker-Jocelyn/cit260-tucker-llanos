@@ -96,29 +96,47 @@ public class TeamControl {
     }
 
     public void printTeamWagonOxReport(String filePath, Team team) throws TeamControlException, IOException {
-         if (team == null) {
+        if (team == null) {
             throw new TeamControlException("Team cannot be null, please create a Team.");
         }
         Wagon wagon = team.getWagon();
-         if (wagon == null) {
-             throw new TeamControlException("Wagon cannot be null, please choose a Wagon.");
-         }
-         Ox ox = team.getOx();
-         if (ox == null) {
-             throw new TeamControlException("Ox cannot be null, please choose a Team of Oxen.");
-         }
-         
-         try (PrintWriter report = new PrintWriter(filePath)) {
-             report.println("\n                        Team Wagon and Oxen Information                       \n");
-             report.printf("%n%-20s%-17s%-17s%-15s", "Number of Oxen", "Wagon Weight", "Wagon Length", "Wagon Max Carry Weight");
-             report.printf("%n%-20s%-17s%-17s%-15s", ox.getAmount() + " oxen", wagon.getWagonWeight() + " lbs", wagon.getLength() + " ft", wagon.getMaxCarryWeight() + " lbs");
-                          
-         }
-         catch (IOException ex) {
-             throw ex;
-         }
-    }
-    
-}
+        if (wagon == null) {
+            throw new TeamControlException("Wagon cannot be null, please choose a Wagon.");
+        }
+        Ox ox = team.getOx();
+        if (ox == null) {
+            throw new TeamControlException("Ox cannot be null, please choose a Team of Oxen.");
+        }
 
-      
+        try (PrintWriter report = new PrintWriter(filePath)) {
+            report.println("\n                        Team Wagon and Oxen Information                       \n");
+            report.printf("%n%-20s%-17s%-17s%-15s", "Number of Oxen", "Wagon Weight", "Wagon Length", "Wagon Max Carry Weight");
+            report.printf("%n%-20s%-17s%-17s%-15s", ox.getAmount() + " oxen", wagon.getWagonWeight() + " lbs", wagon.getLength() + " ft", wagon.getMaxCarryWeight() + " lbs");
+        } 
+        catch (IOException ex) {
+            throw ex;
+        }
+    }
+
+    public void printAnimalPlantReport(String filePath, Team team) throws TeamControlException, IOException {
+        if (team == null) {
+            throw new TeamControlException("Team cannot be null, please create a Team.");
+        }
+        Wagon wagon = team.getWagon();
+        if (wagon == null) {
+            throw new TeamControlException("Wagon cannot be null, please choose a Wagon.");
+        }
+        Ox ox = team.getOx();
+        if (ox == null) {
+            throw new TeamControlException("Ox cannot be null, please choose a Team of Oxen.");
+        }
+        try (PrintWriter report = new PrintWriter(filePath)) {
+            report.println("\n               Team's Hunted Animals and Gathered Plants Report          \n");
+            report.printf("%n%-20s%-17s%-17s%-15s", "Wagon Weight", "Wagon Max Carry Weight", "Weight of Hunted Animals", "Weight of Gathered Plants");
+            report.printf("%n%-20s%-17s%-17s%-15s", "Weight of Wagon is " + wagon.getWagonWeight() + "lbs before adding animals & plants", wagon.getMaxCarryWeight() + " lbs", wagon.getAnimalWeight(), wagon.getPlantWeight());
+        } catch (IOException ex) {
+            throw ex;
+        }
+    }
+
+}

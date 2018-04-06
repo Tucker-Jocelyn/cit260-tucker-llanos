@@ -8,7 +8,7 @@ import java.io.IOException;
 
 /**
  *
- * @author kimta
+ * @author Kim Llanos
  */
 public class SaveGameView extends View {
 
@@ -26,7 +26,7 @@ public class SaveGameView extends View {
             gameControl.saveGame(game, filePath);
         } catch (GameControlException | IOException ex) {
             ErrorView.display(this.getClass().getName(), ex.getMessage()); //Print error passed with the exception
-
+            ex.printStackTrace();
             return false; //return false to repeat the view
         }
         this.console.println(
